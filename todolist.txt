@@ -1,0 +1,4 @@
+- Create HTML
+- Add CSS
+- Create Database
+- Add PHP
