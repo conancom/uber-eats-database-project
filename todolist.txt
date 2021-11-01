@@ -2,5 +2,9 @@
 - Add CSS
 - Create Database
 - Add PHP
+<<<<<<< Updated upstream
 
 -yes
+=======
+- no
+>>>>>>> Stashed changes
