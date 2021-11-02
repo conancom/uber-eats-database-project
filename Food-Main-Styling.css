@@ -1,0 +1,31 @@
+* {
+    font-family: 'Kanit', sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.LogoContainer {
+    width: 100%;
+    background-color: #222831;
+}
+
+.ImageContainer img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}
+
+.AddressBox {
+    position: relative;
+    top: -100px;
+    left: 40px;
+    font-size: 40px;
+}
+
+.FindFood {
+    position: relative;
+    top: -165px;
+    left: 550px;
+    font-size: 40px;
+}
