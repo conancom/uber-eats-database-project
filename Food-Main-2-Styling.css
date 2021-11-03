@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url("UI Pictures/pexels-vanessa-loring-5966646.jpg");
+    overflow-x: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.MainSelections {
+    width: 100%;
+    height: 100%;
+}
+
+.LogoContainer {
+    width: 100%;
+    background-color: #222831;
+}
+
+.AddressBox {
+    top: 25px;
+    left: 4%;
+    position: relative;
+    font-size: 25px;
+    opacity: 0.9;
+}
+
+.AddressBox input {
+    text-indent: 7%;
+}
+
+.OrderRow {
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 80px;
+}
+
+.OrderRow h3 {
+    color: white;
+}
+
+.RestaurantContainer {
+    width: 494px;
+    height: 175px;
+    background-color: antiquewhite;
+}
+
+.RestaurantContainer img {
+    object-fit: cover;
+    height: 175px;
+    width: 494px;
+    border-radius: 15px;
+}
