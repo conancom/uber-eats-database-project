@@ -65,12 +65,18 @@
     position: relative;
     padding-left: 50px;
     padding-right: 50px;
-    padding-top: 25px;
+    padding-top: 50px;
 }
 
 .PrevOrderContainer {
     width: 494px;
     height: 175px;
     background-color: antiquewhite;
-    border-radius: 10px;
+    border-radius: 15px;
+}
+
+.PrevOrderContainer img {
+    object-fit: cover;
+    height: 175px;
+    width: 494px;
 }
