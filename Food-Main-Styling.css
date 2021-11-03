@@ -10,22 +10,67 @@
     background-color: #222831;
 }
 
+.ImageContainer {
+    background-image: url("UI Pictures/pexels-vanessa-loring-5966597.jpg");
+    width: 100%;
+    height: 750px;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*
 .ImageContainer img {
     width: 100%;
     height: 650px;
     object-fit: cover;
 }
+*/
 
 .AddressBox {
+    top: 85%;
+    left: 4%;
     position: relative;
-    top: -100px;
-    left: 40px;
     font-size: 40px;
+    opacity: 0.9;
+}
+
+.AddressBox input {
+    text-indent: 7%;
+    border: none;
 }
 
 .FindFood {
+    top: 76.5%;
+    left: 32%;
     position: relative;
-    top: -165px;
-    left: 550px;
-    font-size: 40px;
+    font-size: 30px;
+}
+
+.FindFood button {
+    position: fixed;
+    background-color: #FFAD53;
+    color: white;
+    border: none;
+    padding: 10px;
+    transition: transform 0.1s;
+}
+
+.FindFood button:hover {
+    transform: scale(1.1);
+}
+
+.PrevOrderRow {
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+}
+
+.PrevOrderContainer {
+    width: 494px;
+    height: 175px;
+    background-color: antiquewhite;
+    border-radius: 10px;
 }
