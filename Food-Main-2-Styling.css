@@ -21,8 +21,8 @@ body {
 }
 
 .AddressBox {
-    top: 25px;
-    left: 4%;
+    top: 50px;
+    left: 12%;
     position: relative;
     font-size: 25px;
     opacity: 0.9;
@@ -46,7 +46,6 @@ body {
 .RestaurantContainer {
     width: 494px;
     height: 175px;
-    background-color: antiquewhite;
 }
 
 .RestaurantContainer img {
@@ -54,4 +53,39 @@ body {
     height: 175px;
     width: 494px;
     border-radius: 15px;
+}
+
+.CategoryCol,
+.PromotionCol,
+.RestaurantCol {
+    position: relative;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*
+.CategoryCol {
+    left: 19%;
+}
+
+.RestaurantCol {
+    left: 10%;
+}
+*/
+
+.CategoryCol a,
+.PromotionCol a,
+.RestaurantCol a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.CategoryCol a:hover,
+.PromotionCol a:hover,
+.RestaurantCol a:hover {
+    color: #FFAD53;
 }
