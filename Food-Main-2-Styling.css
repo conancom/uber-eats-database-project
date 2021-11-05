@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url("UI Pictures/pexels-vanessa-loring-5966646.jpg");
+    overflow-x: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.LogoContainer {
+    width: 100%;
+    background-color: #222831;
+}
+
+.AddressBox {
+    top: 50px;
+    left: 12%;
+    position: relative;
+    font-size: 25px;
+    opacity: 0.9;
+}
+
+.AddressBox input[type=text] {
+    width: 75%;
+    text-indent: 2%;
+    transition: width .35s ease-in-out;
+    -webkit-transition: width .35s ease-in-out;
+}
+
+.AddressBox input[type=text]:focus {
+    width: 125%;
+}
+
+.OrderRow {
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 80px;
+}
+
+.OrderRow h3 {
+    color: white;
+}
+
+.RestaurantContainer {
+    width: 494px;
+    height: 175px;
+}
+
+.RestaurantContainer img {
+    object-fit: cover;
+    height: 175px;
+    width: 494px;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+
+.RestaurantContainer img:hover {
+    transform: scale(1.1);
+}
+
+.CategoryCol,
+.PromotionCol,
+.RestaurantCol {
+    position: relative;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*
+.CategoryCol {
+    left: 19%;
+}
+
+.RestaurantCol {
+    left: 10%;
+}
+*/
+
+.CategoryCol a,
+.PromotionCol a,
+.RestaurantCol a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.CategoryCol a:hover,
+.PromotionCol a:hover,
+.RestaurantCol a:hover {
+    color: #FFAD53;
+}
