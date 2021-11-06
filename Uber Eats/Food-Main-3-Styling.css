@@ -2,3 +2,125 @@
     padding: 0;
     margin: 0;
 }
+
+body {
+    background-image: url("UI Pictures/pexels-vanessa-loring-5966629.jpg");
+    overflow-x: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.LogoContainer {
+    width: 100%;
+    background-color: #222831;
+}
+
+.CategoryRow {
+    margin-top: 55px;
+}
+
+.AddressBox {
+    margin-left: 55px;
+    position: relative;
+    font-size: 25px;
+    opacity: 0.9;
+}
+
+.AddressBox input[type=text] {
+    width: 55%;
+    text-indent: 2%;
+    transition: width .35s ease-in-out;
+    -webkit-transition: width .35s ease-in-out;
+}
+
+.AddressBox input[type=text]:focus {
+    width: 100%;
+}
+
+.PromotionCol {
+    margin-right: 55px;
+}
+
+.CategoryCol a,
+.PromotionCol a,
+.RestaurantCol a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.CategoryCol a:hover,
+.PromotionCol a:hover,
+.RestaurantCol a:hover {
+    color: #FFAD53;
+}
+
+.CategoryCol,
+.PromotionCol,
+.RestaurantCol {
+    position: relative;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.MenuSelections {
+    margin-left: 3%;
+}
+
+.MenuRow {
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 80px;
+}
+
+.MenuContainer {
+    width: 467px;
+    height: 200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 10px;
+}
+
+.MenuContainer img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+/*
+.MenuContainer img:hover {
+    width: 467px;
+    border-radius: 10px;
+    z-index: 999;
+    text-anchor: start;
+}
+
+.MenuContainer img:hover.MenuName {
+    
+}*/
+
+.MenuName {
+    text-align: center;
+    justify-content: center;
+}
+
+.AddCartButton {
+    background-color: #FFAD53;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    transition: padding 0.1s, background-color 0.2s;
+}
+
+.AddCartButton:hover {
+    padding: 7px;
+    background-color: #f19634;
+}

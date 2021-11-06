@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url("UI Pictures/pexels-vanessa-loring-5971855.jpg");
+    overflow-x: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.LogoContainer {
+    width: 100%;
+    background-color: #222831;
+}
+
+.CategoryRow {
+    margin-top: 55px;
+}
+
+.CartContainer {
+    background-color: white;
+    width: 185px;
+    height: 65px;
+}
+
+.CartContainer h2 {
+    padding: 10px;
+    text-align: center;
+    color: #FFAD53;
+}
+
+.PromotionCol {
+    margin-right: 55px;
+}
+
+.CategoryCol a,
+.PromotionCol a,
+.RestaurantCol a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.CategoryCol a:hover,
+.PromotionCol a:hover,
+.RestaurantCol a:hover {
+    color: #FFAD53;
+}
+
+.CategoryCol,
+.PromotionCol,
+.RestaurantCol {
+    position: relative;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.RecomAndDetails {
+    margin: 50px;
+}
+
+.RecommendRow {
+    margin-bottom: 50px;
+}
+
+.MenuContainer {
+    width: 467px;
+    height: 200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 10px;
+}
+
+.MenuContainer img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.MenuName {
+    text-align: center;
+    justify-content: center;
+}
+
+.AddCartButton {
+    background-color: #FFAD53;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    transition: padding 0.1s, background-color 0.2s;
+}
+
+.AddCartButton:hover {
+    padding: 7px;
+    background-color: #f19634;
+}
+
+.OrderDetailContainer {
+    background-color: white;
+    height: 742px;
+    width: 1250px;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+.DetailContainer {
+    width: 285px;
+    height: 323px;
+    background-color: #BDB8B8;
+    opacity: 1.0;
+    text-align: center;
+    margin-left: 17%;
+    margin-top: 15%;
+}
+
+.DetailContainer h3 {
+    background-color: #222831;
+    color: white;
+    padding: 20px
+}
+
+.DetailContainer table {
+    text-align: center;
+    font-size: 27px;
+}
+
+.Checkout button {
+    border: none;
+    border-radius: 5px;
+    background-color: #FFAD53;
+    color: black;
+    padding: 20px;
+    font-size: 25px;
+    width: 350px;
+    margin-left: 31%;
+    margin-top: 250px;
+    transition: padding 0.1s, background-color 0.2s;
+}
+
+.Checkout button:hover {
+    background-color: #f19634;
+}

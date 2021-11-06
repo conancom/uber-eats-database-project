@@ -15,23 +15,54 @@ body {
     background-color: #222831;
 }
 
+.CategoryRow {
+    margin-top: 55px;
+}
+
 .AddressBox {
-    top: 50px;
-    left: 12%;
+    margin-left: 55px;
     position: relative;
     font-size: 25px;
     opacity: 0.9;
 }
 
 .AddressBox input[type=text] {
-    width: 75%;
+    width: 55%;
     text-indent: 2%;
     transition: width .35s ease-in-out;
     -webkit-transition: width .35s ease-in-out;
 }
 
 .AddressBox input[type=text]:focus {
-    width: 125%;
+    width: 100%;
+}
+
+.PromotionCol {
+    margin-right: 55px;
+}
+
+.CategoryCol a,
+.PromotionCol a,
+.RestaurantCol a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.CategoryCol a:hover,
+.PromotionCol a:hover,
+.RestaurantCol a:hover {
+    color: #FFAD53;
+}
+
+.CategoryCol,
+.PromotionCol,
+.RestaurantCol {
+    position: relative;
+    font-size: 30px;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .OrderRow {
@@ -62,14 +93,8 @@ body {
     transform: scale(1.1);
 }
 
-.CategoryCol,
-.PromotionCol,
-.RestaurantCol {
-    position: relative;
-    font-size: 30px;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
+.MainSelections {
+    margin-left: 3%;
 }
 
 
@@ -82,17 +107,3 @@ body {
     left: 10%;
 }
 */
-
-.CategoryCol a,
-.PromotionCol a,
-.RestaurantCol a {
-    text-decoration: none;
-    color: white;
-    transition: color 0.2s;
-}
-
-.CategoryCol a:hover,
-.PromotionCol a:hover,
-.RestaurantCol a:hover {
-    color: #FFAD53;
-}
