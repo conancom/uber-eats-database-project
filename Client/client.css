@@ -1,0 +1,161 @@
+:root {
+    --main-color-dark: rgba(34, 40, 49, 1);
+    --main-color-cream: rgba(255, 216, 172, 1);
+    --main-color-white: rgba(255, 255, 255, 1);
+  }
+
+.profilepic{
+
+    width: 145px;
+    height: 145px;
+    left: 126px;
+    top: 198px;
+    background: url(Client\ Picture/test-profile.jpg);
+    border-radius: 202px;
+    background-size: contain;
+    /*margin-top: -45px;*/
+    margin-top: 1%;
+    margin-left: 4%;
+    align-items: center;
+    
+}
+.header{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: var(--main-color-dark);
+    width: 100%;
+    margin: 0;
+    height: 35px;
+    margin-top: -10px;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: -8px;
+    color: var(--main-color-white);
+    display: flex;
+    align-items:flex-end;
+    padding-left: 25px;
+    font-size: 20px;
+}
+.header_details{
+    display: block;
+    margin-top: 55px;
+    background-color: var(--main-color-cream);
+    height: 200px;
+    padding-left: 30px;
+    width: 100%;
+    margin-left: -8px;
+    padding: 1px 0;
+    overflow: hidden;
+    padding-right: 20px;
+    margin-right: -10px;
+    
+
+}
+.headerbox{
+    float:left;
+    margin-left: 200px;
+    background-color: white;
+    border-radius: 202px;
+}
+.headerboxlong{
+    display: inline;
+    float: left;
+    margin-top: 25px;
+    margin-left: 345px;
+    background-color: white;
+    border-radius: 202px;
+    
+}
+.textgroup{
+    display: block;
+    margin-left: 300px;
+    margin-top: -120px;
+    
+}
+.editprofile{
+    float: left;
+    margin-top: 50px;
+    padding: 1px 0;
+    top: 0px ;
+    margin-left: -230px;
+}
+.underheadbar{
+    background-color: var(--main-color-dark);
+    padding-left: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    margin-right: -12px;
+    overflow: hidden;
+}
+.buttoncontainer{
+    align-items: center;
+    text-align: center;
+}
+.previousorders{
+    background-color: var(--main-color-white);
+    margin: 0;
+    border-radius: 5px;
+    border-color: var(--main-color-white);
+    border-style: solid;
+    width: 200px;
+    height: 45;
+    cursor: pointer;
+}
+.bigbuttoncontainer{
+    background-image: url(Client\ Picture/backgroundmain.png);
+    padding: 230px 0;
+    padding-bottom: 550px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    margin-right: -12px;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+    
+
+}
+.orderfood{
+    background-color: var(--main-color-dark);
+    margin: 0;
+    border-radius: 5px;
+    border-color: var(--main-color-dark);
+    border-style: solid;
+    width: 200px;
+    height: 45;
+    cursor: pointer;
+    color: var(--main-color-white);
+    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    text-align: center;
+}
+.div_footer{
+    background-color: var(--main-color-dark);
+    padding-left: 10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    margin-right: -12px;
+    overflow: hidden;
+    margin-bottom: -10px;
+    padding-bottom: 10px;
+    color: var(--main-color-white);
+    display: flex;
+    align-items:flex-end;
+    padding-left: 25px;
+    font-size: 20px;
+}
