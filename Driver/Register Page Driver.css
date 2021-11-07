@@ -58,8 +58,16 @@ div#div_content{
 	min-height: 400px;
 }
 
+div#div_subcontent{	
+	/*Set background color to white*/
+	background-color: rgb(0, 0, 0);
+	opacity: 0.5;
+	margin: 2em;
+}
 
 div#div_content{
+	background-image: url("Driver Picture/rpd.png");
+	background-size: contain;
     text-align: center;
 }
 

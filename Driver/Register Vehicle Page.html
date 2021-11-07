@@ -16,20 +16,23 @@
 	</div>
 
 		<div id="div_content" class="form">
+			<form action="user.php" method="post">
+                <h1>Setting the World in Motion</h1>
 			<!--%%%%% Main block %%%%-->
 			<!--Form -->
+			<div id="div_subcontent" class="form">
+			
             <form action="user.php" method="post">
-                <h2>Setting the World in Motion</h2><br>
 				<h2>Welcome to Uber!</h2>
 
-                <label> </label>
+                <label>
 				<select name=" ">
 					<option value="Vehicle Type">Vehicle Type</option>
 					<option value="car">Car</option>
 					<option value="motorcycle">Motorcycle</option>
 				</select>
 
-                <label> </label>
+                <label>
 				<select name=" ">
 					<option value="Vehicle Brand">Vehicle Brand</option>
 					<option value="toyota">Toyota</option>
@@ -41,8 +44,9 @@
                     <option value="mercedes benz">Mercedes Benz</option>
 					<option value="bmw">BMW</option>
 				</select>
+				</label>
 
-                <label> </label>
+                <label>
 				<select name=" ">
 					<option value="Vehicle Model">Vehicle Model</option>
 					<option value="camry">Camry</option>
@@ -52,8 +56,9 @@
                     <option value="civic">Civic</option>
 					<option value="city">City</option>
 				</select>
+				</label>
 
-                <label> </label>
+                <label>
 				<select name=" ">
 					<option value="Vehicle Color">Vehicle Color</option>
 					<option value="white">White</option>
@@ -63,16 +68,22 @@
                     <option value="yellow">Yellow</option>
 					<option value="pink">Pink</option>
 				</select><br><br>
+				</label>
 
 				<div class="center">
                     <input type="license plate" value="License Plate"><br><br>
                     <input type="production date" value="Production Date">
                     <input type="production month" value="Production Month">
-                    <input type="production year" value="Production Year"><br><br><br>
-                    <input type="submit" value="Submit"><br><br>
-					<label>Terms and Agreement</label>
-		
+                    <input type="production year" value="Production Year"><br><br>
+    
 				</div>
+			</form>
+			</div>
+
+			<div class="center">
+				<input type="submit" value="Submit"><br><br>
+				<label>Terms and Agreement</label>
+			</div>
 
 		</div> <!-- end div_content -->
 	</div> <!-- end div_main -->

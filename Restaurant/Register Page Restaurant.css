@@ -58,8 +58,17 @@ div#div_content{
 	min-height: 400px;
 }
 
+div#div_subcontent{	
+	/*Set background color to white*/
+	background-color: black;
+
+	opacity: 0.5;
+	margin: 2em;
+}
 
 div#div_content{
+	background-image: url("Restaurant Picture/rpr.png");
+	background-size: contain;
     text-align: center;
 }
 

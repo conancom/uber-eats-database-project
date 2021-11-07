@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>CSS326 Sample</title>
-<link rel="stylesheet" href="Login Page Client.css">
+<link rel="stylesheet" href="Login Page Driver.css">
 </head>
 
 
@@ -18,16 +18,23 @@
 		<div id="div_content" class="form">
 			<!--%%%%% Main block %%%%-->
 			<!--Form -->
-            <form action="user.php" method="post"><br><br><br><br><br>
+			<div id="div_subcontent" class="form">
 
-				<div class="center">
-                    <input type="email" value="Email"><br><br>
-                    <input type="password" value="Password"><br><br><br><br><br>
-                    <input type="login" value="Login"><br><br>
-                    <label>Don't have an account?</label><br>
-                    <input type="register" value="Register"><br><br><br>
+            	<form action="user.php" method="post"><br><br><br><br><br>
+
+					<div class="center">
+                    	<input type="email" value="Email"><br><br>
+                    	<input type="password" value="Password"><br><br><br><br><br>
 		
-				</div>
+					</div>
+				</form>
+			</div>
+
+		<div class="center"><br><br><br>
+			<input type="login" value="Login"><br><br>
+			<label>Don't have an account?</label><br>
+			<input type="register" value="Register"><br><br><br>
+		</div>
 
 		</div> <!-- end div_content -->
 	</div> <!-- end div_main -->
