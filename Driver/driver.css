@@ -109,7 +109,7 @@
     cursor: pointer;
 }
 .bigbuttoncontainer{
-    background-image: url(Client\ Picture/backgroundmain.png);
+    background: url(Driver\ Picture/driver-bg.jpg) var(--main-color-cream);
     padding: 230px 0;
     padding-bottom: 550px;
     background-repeat: no-repeat;
@@ -121,9 +121,10 @@
     overflow: hidden;
     text-align: center;
     align-items: center;
-    
-
+    background-blend-mode: multiply;
+    background-size: cover;
 }
+
 .orderfood{
     background-color: var(--main-color-dark);
     margin: 0;
@@ -157,4 +158,42 @@
     align-items:flex-end;
     padding-left: 25px;
     font-size: 20px;
+}
+.ordercontainer{
+    align-self: center;
+    background: rgba(34, 40, 49, 0.75);
+    width: 30%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: -150px;
+    color: var(--main-color-white);
+
+}
+.greenbutton{
+    background-color: yellowgreen;
+    border-color: yellowgreen;
+    border-radius: 10px;
+    width: 120px;
+    cursor: pointer;
+    border-style: solid;
+}
+.redbutton{
+    background-color: lightgrey;
+    border-color: lightgrey;
+    border-radius: 10px;
+    width: 120px;
+    cursor: pointer;
+    border-style: solid;
+}
+.driverdetailscontainer{
+    color: var(--main-color-white);
+    display: inline;
+    text-align: left;
+}
+.rightcontainer{
+    margin-right: 300px;
+}
+.leftcontainer{
+    margin-left: 300px;
 }
