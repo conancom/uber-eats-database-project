@@ -144,6 +144,7 @@ div#div_footer:before{
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;
 	width: 150px;
+	border: none;
 
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -157,6 +158,7 @@ div#div_footer:before{
     
     color: black;
 	background-color: orange;
+	border: none;
 
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;

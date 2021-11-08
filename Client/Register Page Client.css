@@ -260,6 +260,7 @@ div#div_footer:before{
 .form input[type="Submit"]{
     color: white;
 	background-color: orange;
+	border: none;
 
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;
