@@ -10,7 +10,7 @@
     height: 145px;
     left: 126px;
     top: 198px;
-    background: url(Driver\ Picture/big_profile.jpg);
+    background: url(Restaurant\ Picture/test_profile.jpg);
     border-radius: 202px;
     background-size: cover;
     /*margin-top: -45px;*/
@@ -56,7 +56,16 @@
 }
 .headerbox{
     float:left;
-    margin-left: 200px;
+    margin-left: 175px;
+    background-color: white;
+    border-radius: 202px;
+    
+}
+.bottombox{
+    margin-top: 25px;
+    display: inline;
+    float:left;
+    margin-left: 175px;
     background-color: white;
     border-radius: 202px;
     
@@ -119,7 +128,7 @@
     cursor: pointer;
 }
 .bigbuttoncontainer{
-    background: url(Driver\ Picture/driver-bg.jpg) var(--main-color-cream);
+    background: url(Restaurant\ Picture/restaurant-bg.jpg) var(--main-color-cream);
     padding: 230px 0;
     padding-bottom: 550px;
     background-repeat: no-repeat;
