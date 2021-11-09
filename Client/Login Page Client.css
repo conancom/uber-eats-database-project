@@ -14,7 +14,7 @@ div#wrapper {
 	margin: auto;
 	
 	/*Set width to 60%*/
-	width: 40%;
+	width: 100%;
 	
 	/*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
 	/*border-top-left-radius: 10px;
@@ -49,26 +49,31 @@ div#div_header{
 	
 }
 
-div#div_content{	
+
+
+#div_content{	
 	/*Set background color to white*/
 	background-color: rgb(228, 184, 91);
 	
 	/*margin-left:25%;*/ 
-	padding:1em;
 	min-height: 400px;
+	padding: 5em;
 }
 
 div#div_subcontent{	
 	/*Set background color to white*/
-	background-color: rgb(0, 0, 0);
-	opacity: 0.5;
-	margin: 2em;
+	background-color: rgba(0, 0, 0, 0.699);
+	align-items: center;
+	margin: auto;
+	border-radius: 10px;
+	width: fit-content;
 }
 
 div#div_content{
 	background-image: url("Client Picture/lpc.png");
-	background-size: contain;
-    text-align: center;
+	-webkit-backdrop-size: cover;
+    background-size: cover;
+    background-position: center center;
 }
 
 div#div_footer{
@@ -95,7 +100,7 @@ div#div_footer{
 	margin: auto;
 	
 	/*Set width to 60%*/
-	width: 39.1%;
+	width: 100%;
 }
 
 div#div_footer:before{
@@ -103,8 +108,12 @@ div#div_footer:before{
 	text-decoration: white;;
 }
 
+.form{
+	padding: 10%;
+}
+
 .form label{
-    align: center;
+    align-items: center;
 }
 
 .form input[type="Email"]{
@@ -121,12 +130,8 @@ div#div_footer:before{
 	border-bottom-right-radius: 10px;
 }
 
-.form input{
-	padding: 4px 2px;
-	margin: 2px 2px 10px 10px;
-}
-
 .form input[type="Password"]{
+	align-content: center;
     padding-left: 4.5em;
 	padding-right: 4.5em;
 
@@ -182,4 +187,34 @@ div#div_footer:before{
 
 .center{
 	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.center input{
+	justify-content: center;
+	align-items: center;
+	margin: 2%;
+}
+
+
+.center label:hover{
+	color: #d8781d;
+}
+
+#button1{
+	border: none;
+	border-radius: 10px;
+	width: 20%;
+	padding: 2px;
+	font-weight: bolder;
+}
+
+#button2{
+	border: none;
+	border-radius: 10px;
+	width: 20%;
+	padding: 2px;
+	font-weight: bolder;
+	background-color: orange;
 }

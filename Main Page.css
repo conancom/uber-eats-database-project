@@ -15,7 +15,7 @@ div#wrapper {
 	margin: auto;
 	
 	/*Set width to 60%*/
-	width: 40%;
+	width: 100%;
 	
 	/*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
 	/*border-top-left-radius: 10px;
@@ -43,37 +43,41 @@ div#div_header{
 	/*Set bottom border to 1 pixel, solid line, with color #BF491F*/
 	/*color: #BF491F;*/
 	width: 100%;
-	
 }
-
-/* .form input[type="Login"]{
-    block-color: orange; */
-    /*Set width to 150 pixels to have a big submit button*/
-    /* text-align: center;
-    width: 150px;
-
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-} */
-
-/* .form input[type="Register"]{ */
-    /*Set width to 150 pixels to have a big submit button*/
-    /* text-align: center;
-    width: 150px;
-
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-} */
 
 div#div_main{
-    padding: 1em;
-    text-align: right;
+	justify-content: right;
+	display: flex;
+    padding: 2%;
+}
+
+#button1{
+	margin: 5px 5px;
+	background-color: #e78f30;
+	outline: none;
+	font-weight: border;
+	color: black;
+	border-radius: 20px;
+	border: none;
+	width: 15%;
+	height: 30px;
 
 }
+
+#button2{
+	margin: 5px 5px;
+	background-color: white;
+	outline: none;
+	font-weight: border;
+	color: black;
+	border-radius: 20px;
+	border: none;
+	width: 15%;
+	height: 30px;
+
+}
+
+
 
 div#div_content{	
 	/*Set background color to white*/
@@ -114,7 +118,7 @@ div#div_footer{
 	margin: auto;
 	
 	/*Set width to 60%*/
-	width: 40%;
+	width: 100%;
 }
 
 div#div_footer:before{
@@ -217,3 +221,8 @@ h3{
 	width: 200px;
 
 }
+
+.RegisterButton button:hover {
+    background-color: #e78f30;
+}
+

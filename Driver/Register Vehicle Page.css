@@ -14,7 +14,7 @@ div#wrapper {
 	margin: auto;
 	
 	/*Set width to 60%*/
-	width: 40%;
+	width: 100%;
 	
 	/*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
 	/*border-top-left-radius: 10px;
@@ -61,8 +61,9 @@ div#div_content{
 div#div_subcontent{	
 	/*Set background color to white*/
 	background-color: rgb(0, 0, 0);
-	opacity: 0.5;
+	opacity: 0.8;
 	margin: 2em;
+	padding: 2em;
 }
 
 div#div_content{
@@ -95,7 +96,7 @@ div#div_footer{
 	margin: auto;
 	
 	/*Set width to 60%*/
-	width: 39.1%;
+	width: 100%;
 }
 
 div#div_footer:before{
@@ -103,7 +104,63 @@ div#div_footer:before{
 	text-decoration: white;;
 }
 
-.form select[value="Vehicle Type"]{
+.form input[type="Email"]{
+	padding-left: 4.5em;
+	padding-right: 4.5em;
+
+	/*Set width to 150 pixels to have a big submit button*/
+	text-align: center;
+	width: 150px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form input[type="Password"]{
+	padding-left: 4.5em;
+	padding-right: 4.5em;
+
+	/*Set width to 150 pixels to have a big submit button*/
+	text-align: center;
+	width: 150px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form input[type="Confirm Password"]{
+	padding-left: 4.5em;
+	padding-right: 4.5em;
+
+	/*Set width to 150 pixels to have a big submit button*/
+	text-align: center;
+	width: 150px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form input[type="First Name"]{
+	padding-left: 4.5em;
+	padding-right: 4.5em;
+
+	/*Set width to 150 pixels to have a big submit button*/
+	text-align: center;
+	width: 150px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form input[type="Last Name"]{
 	padding-left: 4.5em;
 	padding-right: 4.5em;
 
@@ -118,7 +175,8 @@ div#div_footer:before{
 }
 
 .form label{
-    align: center;
+	color: black;
+	font-size: large;
 }
 
 .form input[type="License Plate"]{
@@ -135,12 +193,10 @@ div#div_footer:before{
 	border-bottom-right-radius: 10px;
 }
 
-.form input{
-	padding: 4px 2px;
-	margin: 2px 2px 10px 10px;
-}
+.form input[type="Phone Number"]{
+	padding-left: 4.5em;
+	padding-right: 4.5em;
 
-.form input[type="Production Date"]{
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;
 	width: 150px;
@@ -151,7 +207,10 @@ div#div_footer:before{
 	border-bottom-right-radius: 10px;
 }
 
-.form input[type="Production Month"]{
+.form input[type="Driver License ID"]{
+    padding-left: 4.5em;
+	padding-right: 4.5em;
+    
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;
 	width: 150px;
@@ -162,7 +221,37 @@ div#div_footer:before{
 	border-bottom-right-radius: 10px;
 }
 
-.form input[type="Production Year"]{
+.form input[type="Birth Date"]{
+	padding-left: 0.00001em;
+	padding-right: 0.00001em;
+
+	/*Set width to 150 pixels to have a big submit button*/
+	text-align: center;
+	width: 150px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form input[type="Birth Month"]{
+	padding-left: 0.00001em;
+	padding-right: 0.000001em;
+
+	/*Set width to 150 pixels to have a big submit button*/
+	text-align: center;
+	width: 150px;
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form input[type="Birth Year"]{
+	padding-left: 0.00001em;
+	padding-right: 0.00001em;
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;
 	width: 150px;
@@ -176,11 +265,11 @@ div#div_footer:before{
 .form input[type="Submit"]{
     color: white;
 	background-color: orange;
+	border: none;
 
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;
 	width: 150px;
-	border: none;
 
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
@@ -200,4 +289,9 @@ div#div_footer:before{
 
 .center{
 	text-align: center;
+}
+
+
+.center label:hover{
+	color: #df9408;
 }
