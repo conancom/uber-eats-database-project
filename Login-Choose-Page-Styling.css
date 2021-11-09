@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5)), url("Login Choose Page Picture/pexels-kehn-hermano-3849167.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: grayscale(0.35s);
+}
+
+.HeaderContainer,
+.FooterContainer {
+    width: 100%;
+    background-color: #222831;
+}
+
+.HeaderContainer h1,
+.FooterContainer h1 {
+    color: white;
+    padding: 15px;
+    padding-bottom: 5px;
+}
+
+.Footer {
+    margin-top: 90px;
+}
+
+.LoginChooseMain {}
+
+.ClientBannerContainer,
+.DriverBannerContainer,
+.RestaurantBannerContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 150px;
+    background-color: green;
+    border-radius: 20px;
+    margin-top: 70px;
+}
+
+.ClientBannerContainer a,
+.DriverBannerContainer a,
+.RestaurantBannerContainer a {
+    text-decoration: none;
+}
+
+.ClientBannerContainer label,
+.DriverBannerContainer label,
+.RestaurantBannerContainer label {
+    transition: color 0.3s;
+}
+
+.ClientBannerContainer label:hover,
+.DriverBannerContainer label:hover,
+.RestaurantBannerContainer label:hover {
+    color: #FFAD53;
+}
+
+.DriverBannerContainer,
+.RestaurantBannerContainer {
+    margin-top: 90px;
+}
+
+.ClientBannerContainer h3,
+.DriverBannerContainer h3,
+.RestaurantBannerContainer h3 {
+    text-align: center;
+    margin-top: 65px;
+    color: white;
+}
+
+.ClientBannerContainer {
+    background-image: url("Login Choose Page Picture/client.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.DriverBannerContainer {
+    background-image: url("Login Choose Page Picture/driver.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.RestaurantBannerContainer {
+    background-image: url("Login Choose Page Picture/restaurant.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.DontHaveAccount {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.DontHaveAccount label {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.DontHaveAccount label:hover {
+    color: #FFAD53;
+}
+
+.RegisterButton {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.RegisterButton button {
+    width: 175px;
+    height: 32px;
+    border-radius: 15px;
+    border: none;
+    background-color: #FFAD53;
+    transition: background-color 0.3s;
+}
+
+.RegisterButton button:hover {
+    background-color: #e78f30;
+}
