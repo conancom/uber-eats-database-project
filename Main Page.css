@@ -1,4 +1,5 @@
 div#wrapper {
+
 	color: white;
 
 	min-width:400px;
@@ -35,12 +36,13 @@ div#div_main{
 
 div#div_header{
 	/*Set font size to 2em, font family to sans-serif, font weight to 700, and font variant to small-caps */
-	background-color: rgb(228, 184, 91);
-
-    padding-top: 3em;
-    padding-bottom: 3em;
+	background-color: #FFCB90;
+	display: flex;
+    padding-top: 2em;
+    padding-bottom: 2em;
 	/*Set bottom border to 1 pixel, solid line, with color #BF491F*/
 	/*color: #BF491F;*/
+	width: 100%;
 	
 }
 
@@ -76,9 +78,18 @@ div#div_main{
 div#div_content{	
 	/*Set background color to white*/
 	background-color: rgb(228, 184, 91);
+	display: flex;
 	
 	/*margin-left:25%;*/ 
-	padding: 10em;
+	/* padding: 10em; */
+}
+
+div#div_subcontent{	
+	/*Set background color to white*/
+	background-image: url("Main Page Picture/mpp2.png");
+	background-size: contain;
+	
+	/*margin-left:25%;*/ 
 }
 
 div#div_footer{
@@ -103,7 +114,7 @@ div#div_footer{
 	margin: auto;
 	
 	/*Set width to 60%*/
-	width: 39.1%;
+	width: 40%;
 }
 
 div#div_footer:before{
@@ -168,4 +179,41 @@ h3{
 
 .center{
 	text-align: center;
+}
+
+#mpp1{
+	height: 250px;
+	width: 250px;
+}
+
+.right{
+	flex: 50%;
+	text-align: right;
+	float: right;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.left{
+	flex: 50%;
+	text-align: left;
+	float: left;
+}
+
+.right1{
+	flex: 50%;
+	text-align: right;
+	float: right;
+	height: 300px;
+	width: 200px;
+
+}
+
+.left1{
+	flex: 50%;
+	text-align: left;
+	float: left;
+	height: 300px;
+	width: 200px;
+
 }
