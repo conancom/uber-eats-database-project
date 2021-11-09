@@ -10,7 +10,7 @@
     height: 145px;
     left: 126px;
     top: 198px;
-    background: url(Driver\ Picture/big_profile.jpg);
+    background: url(Restaurant\ Picture/test_profile.jpg);
     border-radius: 202px;
     background-size: cover;
     /*margin-top: -45px;*/
@@ -56,10 +56,54 @@
 }
 .headerbox{
     float:left;
-    margin-left: 200px;
+    margin-left: 175px;
     background-color: white;
     border-radius: 202px;
-    
+    color: black;
+}
+.orderidbox{
+    display: block;
+    overflow:hidden;
+    float: left;
+    margin-left: 10px;
+    margin-top: -35px;
+    background-color: white;
+    border-radius: 202px;
+    color: black;
+}
+.totalpricebox{
+    display: block;
+    overflow:hidden;
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 202px;
+    color: black;
+}
+.ordertable{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px; /*Change here to increase size*/
+}
+.bottombox{
+    margin-top: 25px;
+    display: inline;
+    float:left;
+    margin-left: 175px;
+    background-color: white;
+    border-radius: 202px; 
+}
+.statusbox{
+    display: block;
+    overflow:hidden;
+    float: right;
+    margin-left: 10px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 202px;
+    color: black;
+    margin-right: 150px;
 }
 .licensebox{
     display: inline;
@@ -119,7 +163,7 @@
     cursor: pointer;
 }
 .bigbuttoncontainer{
-    background: url(Driver\ Picture/driver-bg.jpg) var(--main-color-cream);
+    background: url(Restaurant\ Picture/restaurant-bg.jpg) var(--main-color-cream);
     padding: 230px 0;
     padding-bottom: 550px;
     background-repeat: no-repeat;
@@ -170,7 +214,7 @@
     font-size: 20px;
 }
 .ordercontainer{
-    align-self: center;
+    display: block;
     background: rgba(34, 40, 49, 0.75);
     width: 30%;
     padding-top: 50px;
