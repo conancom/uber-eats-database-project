@@ -21,12 +21,6 @@ body {
     background-color: #444444;
 }
 
-.HeaderContainer,
-.FooterContainer {
-    width: 100%;
-    background-color: #222831;
-}
-
 div#div_main {
     position: relative;
 }
@@ -54,14 +48,13 @@ div#div_content {
 
 div#div_subcontent {
     /*Set background color to white*/
-    background-color: rgba(0, 0, 0, 0.842);
+    background-color: rgba(0, 0, 0, 0.849);
     margin: 2em;
-    padding: 2%;
-    border-radius: 5px;
+    padding: 2em;
 }
 
 div#div_content {
-    background-image: url("Client Picture/rpc.png");
+    background-image: url("Restaurant Picture/rpr.jpg");
     background-size: contain;
     text-align: center;
 }
@@ -78,7 +71,7 @@ div#div_footer {
     /*Set border to 1pixel solid line with black color*/
     /*border: 1px solid black;*/
     /*Set background color to #F2C063*/
-    background-color: rgb(0, 0, 0);
+    background-color: black;
     /*Set margin to auto*/
     margin: auto;
     /*Set width to 60%*/
@@ -126,7 +119,7 @@ div#div_footer:before {
     border-bottom-right-radius: 10px;
 }
 
-.form input[type="First Name"] {
+.form input[type="Restaurant Name"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
@@ -138,9 +131,7 @@ div#div_footer:before {
     border-bottom-right-radius: 10px;
 }
 
-.form input[type="Last Name"] {
-    padding-left: 4.5em;
-    padding-right: 4.5em;
+.form input[type="Opening Days"] {
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -150,13 +141,17 @@ div#div_footer:before {
     border-bottom-right-radius: 10px;
 }
 
-.form label {
-    font-size: large;
+.form input[type="Opening Time"] {
+    /*Set width to 150 pixels to have a big submit button*/
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.form input[type="Occupation"] {
-    padding-left: 4.5em;
-    padding-right: 4.5em;
+.form input[type="Closing Time"] {
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -188,33 +183,13 @@ div#div_footer:before {
     border-bottom-right-radius: 10px;
 }
 
-.form input[type="Birth Date"] {
-    padding-left: 0.00001em;
-    padding-right: 0.00001em;
-    /*Set width to 150 pixels to have a big submit button*/
-    text-align: center;
-    width: 150px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.form label {
+    font-size: large;
 }
 
-.form input[type="Birth Month"] {
-    padding-left: 0.00001em;
-    padding-right: 0.000001em;
-    /*Set width to 150 pixels to have a big submit button*/
-    text-align: center;
-    width: 150px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.form input[type="Birth Year"] {
-    padding-left: 0.00001em;
-    padding-right: 0.00001em;
+.form input[type="Restaurant Type"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -227,10 +202,10 @@ div#div_footer:before {
 .form input[type="Submit"] {
     color: white;
     background-color: orange;
-    border: none;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
+    border: none;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
