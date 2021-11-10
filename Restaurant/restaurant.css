@@ -2,6 +2,7 @@
     --main-color-dark: rgba(34, 40, 49, 1);
     --main-color-cream: rgba(255, 216, 172, 1);
     --main-color-white: rgba(255, 255, 255, 1);
+    --main-color-orange: rgba(255, 115, 21, 1);
   }
 
 .profilepic{
@@ -86,6 +87,73 @@
     margin-right: auto;
     margin-bottom: 150px; /*Change here to increase size*/
 }
+.tablecontainer{
+    display: block;
+    background: rgba(255, 216, 172, 0.59);
+    width: 70%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: auto;
+    margin-top: -150px;
+    color: black;
+    text-align: center;
+}
+.tablemenu{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px; /*Change here to increase size*/
+    /*border-spacing: 30px;*/
+    border-spacing: 0;
+    border-collapse:separate;
+    width: 100%;
+    
+}
+th {
+    border-bottom: 1px solid var(--main-color-orange);
+    margin-bottom: 10px;
+}
+
+th,
+td {
+    width: 125px;
+    text-align: center;
+    padding-top: 25px;
+}
+.bottombuttoncontainer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: rgba(34, 40, 49, 0.65);
+    width: 800px;
+    margin-left: 500px;
+    height: 8.5%;
+}
+.edittext{
+    
+    color: var(--main-color-white);
+   
+    position: absolute;
+    bottom: 0;
+    margin-left: 885px;
+    margin-bottom: 100px;
+}
+.darkbutton{
+    display: inline;
+    background-color: var(--main-color-dark);
+    margin: 0;
+    border-radius: 5px;
+    border-color: var(--main-color-dark);
+    border-style: solid;
+    width: 275px;
+    height: 45;
+    cursor: pointer;
+    color: var(--main-color-white);
+    padding: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    text-align: center;
+}
 .bottombox{
     margin-top: 25px;
     display: inline;
@@ -104,6 +172,12 @@
     border-radius: 202px;
     color: black;
     margin-right: 150px;
+}
+.darkbgbuttoncontainer{
+    
+    margin:0 auto;
+    margin-top: 12px;
+    
 }
 .licensebox{
     display: inline;
@@ -162,6 +236,16 @@
     height: 45;
     cursor: pointer;
 }
+.menulistonmenulist{
+    background-color: grey;
+    margin: 0;
+    border-radius: 5px;
+    border-color: grey;
+    border-style: solid;
+    width: 200px;
+    height: 45;
+    cursor: pointer;
+}
 .bigbuttoncontainer{
     background: url(Restaurant\ Picture/restaurant-bg.jpg) var(--main-color-cream);
     padding: 230px 0;
@@ -177,6 +261,7 @@
     align-items: center;
     background-blend-mode: multiply;
     background-size: cover;
+    position: relative;
 }
 
 .orderfood{
