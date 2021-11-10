@@ -2,6 +2,7 @@
     --main-color-dark: rgba(34, 40, 49, 1);
     --main-color-cream: rgba(255, 216, 172, 1);
     --main-color-white: rgba(255, 255, 255, 1);
+    --main-color-orange: rgba(255, 115, 21, 1);
   }
 
 .profilepic{
@@ -124,7 +125,8 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 150px; /*Change here to increase size*/
-    border-spacing: 30px;
+    /*border-spacing: 30px;*/
+    border-spacing: 0;
     border-collapse:separate;
     width: 100%;
 }
@@ -152,6 +154,17 @@
     padding-left: 60px;
     padding-right: 60px;
     text-align: center;
+}
+th {
+    border-bottom: 1px solid var(--main-color-orange);
+    margin-bottom: 10px;
+}
+
+th,
+td {
+    width: 125px;
+    text-align: center;
+    padding-top: 25px;
 }
 .backicon{
     display: inline;
@@ -188,8 +201,6 @@
     text-align: center;
     align-items: center;
     position: relative;
-    
-
 }
 .orderfood{
     background-color: var(--main-color-dark);
