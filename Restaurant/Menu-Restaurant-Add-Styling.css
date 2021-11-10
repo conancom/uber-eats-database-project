@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url("Restaurant Picture/pexels-rene-asmussen-1581384.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+.AddMenuFormContainer {
+    width: 723px;
+    height: 550px;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.AddMenuFormContainer label {
+    color: white;
+    margin-left: 30%;
+}
+
+.text_wrapper {
+    padding-bottom: 12px;
+}
+
+.text_wrapper:first-of-type {
+    padding-top: 20px;
+}
+
+.text_wrapper input[type=text] {
+    border-radius: 15px;
+    border: none;
+    padding: 9px;
+}
+
+.AddButton {
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    width: 75px;
+    cursor: pointer;
+    background-color: #FFAD53;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonbox {
+    width: 720px;
+    height: 104px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 290px;
+}
+
+.buttonbox .AddItemButton,
+.buttonbox .DeleteItemButton {
+    padding: 19px;
+    width: 220px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 25px;
+    border: none;
+    border-radius: 5px;
+}
+
+.buttonbox .AddItemButton {
+    background-color: #FFAD53;
+}
