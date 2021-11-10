@@ -118,6 +118,16 @@
     height: 45;
     cursor: pointer;
 }
+.previousordersonhistory{
+    background-color: grey;
+    margin: 0;
+    border-radius: 5px;
+    border-color: gray;
+    border-style: solid;
+    width: 200px;
+    height: 45;
+    cursor: pointer;
+}
 .bigbuttoncontainer{
     background: url(Driver\ Picture/driver-bg.jpg) var(--main-color-cream);
     padding: 230px 0;
@@ -208,4 +218,47 @@
 }
 .leftcontainer{
     margin-left: 300px;
+}
+.bigcontainerhistory{
+    background: url(Driver\ Picture/backgroundhistory1.png);
+    padding: 230px 0;
+    padding-bottom: 550px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-left: 10px;
+    margin-left: -10px;
+    padding-right: 10px;
+    margin-right: -12px;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+
+    background-size: cover;
+    position: relative;
+}
+.history_container{
+    margin-top: -200px;
+}
+.grid-container{
+    display: grid;
+    margin-left: 550px;
+    margin-right: 500px;
+    column-gap: 0ch;
+    
+}
+.grid-item1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color: white;
+    
+}
+.grid-item2{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    background-color: rgba(255, 216, 172, 0.65);
+}
+.grid-item3{
+    grid-column: 4;
+    background-color: var(--main-color-dark);
+    width: 10%;
 }
