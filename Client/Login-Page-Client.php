@@ -19,7 +19,7 @@ if (isset($_POST["submit-login"])) {
 		if (mysqli_num_rows($result) > 0) {
 		$data = $result->fetch_array();
 		$_SESSION['id-client'] = $data['ClientID'];
-		header("Location: Client-Main.html");
+		header("Location: Client-Main.php");
 		}
 	}
 }
