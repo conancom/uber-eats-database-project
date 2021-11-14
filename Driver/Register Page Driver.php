@@ -81,6 +81,7 @@ if (isset($_POST["submit-register"])) {
                             <input name="confirmpassword" type="confirm password" value="Confirm Password"><br><br>
                             <input name="name" type="first name" value="First Name"><br><br>
                             <input name="surname" type="last name" value="Last name"><br><br>
+                            <input name="address" type="address" value="Address"><br><br>
 
                             <label>Gender</label>
                             <input type="radio" name="gender" value="male" checked>Male
