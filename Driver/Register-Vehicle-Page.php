@@ -2,13 +2,12 @@
 session_start();
 $mysqli = new mysqli("127.0.0.1", "root", 'Wirz140328', "uber");
 
-
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
 
 if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) {
-    $driverid = $_POST['id-driver'];
+    $driverid = $_SESSION['id-driver'];
     $LicensePlate = $_POST['LicensePlate'];
     $VehicleType = $_POST['VehicleType'];
     $VehicleBrand = $_POST['VehicleBrand'];
