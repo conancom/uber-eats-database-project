@@ -1,15 +1,15 @@
 <?php
 session_start();
-/*Leon's Database
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/ 
+/*Leon's Database*/ 
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
 
-/*Junior's Database*/ 
-$mysqli = new mysqli("localhost", "root", '', "uber");
+/*Junior's Database
+$mysqli = new mysqli("localhost", "root", '', "uber");*/ 
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
-if (isset($_SESSION['id-artist'])) {
+if (isset($_SESSION['id-client'])) {
     $clientid = $_SESSION['id-client'];
 
     $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
@@ -86,20 +86,27 @@ if (isset($_SESSION['id-artist'])) {
     </div>
     <div class="underheadbar">
         <div class="buttoncontainer">
-            <button class="previousorders"> Previous Orders</button>
+            <button class="previousorders" type="submit" onclick="window.location.href='Client-History.php';"> Previous Orders</button> 
         </div>
     </div>
 
     <form>
         <div class="bigbuttoncontainer">
-            <button class="orderfood" type="submit"> Order Food</button>
+            <button class="orderfood" type="submit" href="css326\Uber Eats\Food-Main.php"> Order Food</button>
         </div>
     </form>
     
     <?php 
     
-    if(isset($_POST['submit'])){
-        header("Location: D:\Online Lecture\Year 3\CSS326 Database Systems Programming\Project Uber\Uber Source Code\css326\Uber EatsFood-Main.php");
+    if(isset($_POST['orderfood'])){
+        /*header("Location: D:\Online Lecture\Year 3\CSS326 Database Systems Programming\Project Uber\Uber Source Code\css326\Uber EatsFood-Main.php");Junior*/
+        header("Location: C:\Users\Leon\Documents\GitHub\css326\Uber Eats\Food-Main.php");/*Leon*/
+        exit;
+    }
+
+    if(isset($_POST['prevorder'])){
+        /*header("Location: D:\Online Lecture\Year 3\CSS326 Database Systems Programming\Project Uber\Uber Source Code\css326\Uber EatsFood-Main.php");Junior*/
+        header("Location: Client-History.php");/*Leon*/
         exit;
     }
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "root", '', "uber");
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
 
 
 if ($mysqli->connect_errno) {
@@ -16,7 +16,6 @@ if (isset($_POST["submit-register"])) {
     $surname = $_POST['surname'];
     $driverlicenseid = $_POST['driverlicenseid'];
     $phonenumber = $_POST['phonenumber'];
-    $rating = $_POST['rating'];
     $address = $_POST['address'];
     $day = $_POST['day'];
     $month = $_POST['month'];
@@ -28,7 +27,7 @@ if (isset($_POST["submit-register"])) {
         $dateofbirth = "$year-$month-$day";
     }
 
-    $query = "INSERT INTO `driver`(`Password`, `Email`, `Gender`, `DateOfBirth`, `FName`, `LName`, `Address`,`DriverLicenseID`,`PhoneNumber`,`Rating`) VALUES ('$password', '$emailaddress', '$gender', '$dateofbirth', '$name', '$surname', '$address', '$driverlicenseid','$phonenumber','0')";
+    $query = "INSERT INTO `driver`(`Password`, `Email`, `Gender`, `DateOfBirth`, `FName`, `LName`, `Address`,`DriverLicenseID`,`PhoneNumber`) VALUES ('$password', '$emailaddress', '$gender', '$dateofbirth', '$name', '$surname', '$address', '$driverlicenseid','$phonenumber')";
     print $query;
     $insert = $mysqli->query($query);
     if (!$insert) {
@@ -40,7 +39,7 @@ if (isset($_POST["submit-register"])) {
         if (!$select) {
             echo $mysqli->error;
         } else {
-            $data = $result->fetch_array();
+            $data = $select->fetch_array();
             $_SESSION['id-driver'] =  $data['DriverID'];
             header("Location: Register-Vehicle-Page.php");
         }
