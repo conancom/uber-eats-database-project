@@ -10,6 +10,10 @@ if ($mysqli->connect_errno) {
 if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) {
     $driverid = $_SESSION['id-driver'];
 
+
+
+
+    
     if (strlen($month) == 1) {
         $dateofbirth = "$year-0$month-$day";
     } else {
