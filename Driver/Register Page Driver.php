@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("127.0.0.1", "root", '', "uber");
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 
 if ($mysqli->connect_errno) {
@@ -78,7 +78,7 @@ if (isset($_POST["submit-register"])) {
                             <input type="radio" name="gender" value="female">Female
                             <input type="radio" name="gender" value="others">Others<br><br>
 
-                            <input name="phonemunber" type="phone number" value="Phone Number"><br><br>
+                            <input name="phonenumber" type="phone number" value="Phone Number"><br><br>
                             <input name="driverlicenseid" type="driver license id" value="Driver License ID"><br><br>
                             <input name="day" type="birth date" value="Birth Date">
                             <input name="month" type="birth month" value="Birth Month">
