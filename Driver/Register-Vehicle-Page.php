@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("127.0.0.1", "root", 'Wirz140328', "uber");
+$mysqli = new mysqli("127.0.0.1", "root", '', "uber");
 
 
 if ($mysqli->connect_errno) {
@@ -10,13 +10,19 @@ if ($mysqli->connect_errno) {
 if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) {
     $driverid = $_SESSION['id-driver'];
 
-    $query = "INSERT INTO `vehicle` (`DriverID`, `LicensePlate`, `VehicleType`, `VehicleBrand`, `VehicleModel`, `VehicleColor`,  `VehicleProductionDate`) VALUES ('$driverid', '', '', '', '', '', '');";
+    if (strlen($month) == 1) {
+        $dateofbirth = "$year-0$month-$day";
+    } else {
+        $dateofbirth = "$year-$month-$day";
+    }
+
+    $query = "INSERT INTO `vehicle` (`DriverID`, `LicensePlate`, `VehicleType`, `VehicleBrand`, `VehicleModel`, `VehicleColor`) VALUES ('$driverid', '$LicensePlate', '$VehicleType', '$VehicleBrand', '$VehicleModel', '$VehicleColor');";
     print $query;
     $insert = $mysqli->query($query);
     if (!$insert) {
         echo $mysqli->error;
     } else {
-        
+        header("Location: Login-Page-Driver.php");
         }
     }
 
@@ -69,7 +75,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
 
                     <div class="row">
                         <div class="VehicleTypeContainer">
-                            <select name="Vehicle Type" class="VehicleType" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
+                            <select name="VehicleType" class="VehicleType" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
                       <option>Vehicle Type</option>
                     </select>
                         </div>
@@ -77,13 +83,13 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
 
                     <div class="row">
                         <div class="col">
-                            <select name="Vehicle Brand" class="VehicleBrand" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
+                            <select name="VehicleBrand" class="VehicleBrand" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
                           <option>Vehicle Brand</option>
                         </select>
                         </div>
 
                         <div class="col">
-                            <select name="Vehicle Model" class="VehicleModel" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
+                            <select name="VehicleModel" class="VehicleModel" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
                           <option>Vehicle Model</option>
                         </select>
                         </div>
@@ -91,7 +97,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
 
                     <div class="row">
                         <div class="VehicleColor">
-                            <select name="Vehicle Color" class="VehicleColor" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
+                            <select name="VehicleColor" class="VehicleColor" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
                       <option>Vehicle Color</option>
                     </select>
                         </div>
