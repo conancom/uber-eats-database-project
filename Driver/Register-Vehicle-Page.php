@@ -8,7 +8,15 @@ if ($mysqli->connect_errno) {
 }
 
 if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) {
-    $driverid = $_SESSION['id-driver'];
+    $driverid = $_POST['id-driver'];
+    $LicensePlate = $_POST['LicensePlate'];
+    $VehicleType = $_POST['VehicleType'];
+    $VehicleBrand = $_POST['VehicleBrand'];
+    $VehicleModel = $_POST['VehicleModel'];
+    $VehicleColor = $_POST['VehicleColor'];
+    $day = $_POST['day'];
+    $month = $_POST['month'];
+    $year = $_POST['year'];
 
     if (strlen($month) == 1) {
         $dateofbirth = "$year-0$month-$day";
@@ -111,15 +119,15 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
 
                     <div class="row">
                         <div class="col">
-                            <input name ="name" type="text" class="ProductionDate" id="ProductionDate" placeholder="Production Date" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-right: -95%;">
+                            <input name ="day" type="text" class="ProductionDate" id="ProductionDate" placeholder="Production Date" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-right: -95%;">
                         </div>
 
                         <div class="col">
-                            <input type="text" class="ProductionMonth" id="ProductionMonth" placeholder="Production Month" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px;  ">
+                            <input name ="month" type="text" class="ProductionMonth" id="ProductionMonth" placeholder="Production Month" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px;  ">
                         </div>
 
                         <div class="col">
-                            <input type="text" class="ProductionYear" id="ProductionYear" placeholder="Production Year" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-left: -95%;">
+                            <input name ="year" type="text" class="ProductionYear" id="ProductionYear" placeholder="Production Year" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-left: -95%;">
                         </div>
                     </div>
                 </div>
