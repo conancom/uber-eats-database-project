@@ -12,10 +12,10 @@ $mysqli = new mysqli("localhost", "root", '', "uber");
 /* 
 Functions:
 - Address Label Shows the stored address in Client Database
-- Restaurants: Shows the restaurants stored in the Restaurant Database (Add information in the database first) (Query)
+- Restaurants: Shows the restaurants stored in the Restaurant Database (Add information in the database first) (DELETED) 
 
 - Category: Drop Down Menu for Food Types (DELETED)
-- Restaurant: Drop Down Menu for List of Restaurants (Query)
+- Restaurant: Drop Down Menu for List of Restaurants (Query) (DONE)
 - Promotion: Pop-up for promotion showcases (DONE)
 */ 
 

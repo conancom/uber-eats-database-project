@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 
+<?php
+
+/*
+Function:
+- Recommendations
+- Order Details
+- Payment
+
+*/ 
+
+?>
+
 <html>
 
 <head>
