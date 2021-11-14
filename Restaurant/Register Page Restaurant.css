@@ -171,7 +171,7 @@ div#div_footer:before{
 	border-bottom-right-radius: 10px;
 }
 
-.form input[type="Opening Time"]{
+.form input[type="Opening Times"]{
 	/*Set width to 150 pixels to have a big submit button*/
 	text-align: center;
 	width: 150px;

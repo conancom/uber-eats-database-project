@@ -28,12 +28,9 @@ if (isset($_POST["submit-find-food"])) {
 	if (!$result) {
 		echo $mysqli->error;
 	} else {
-		
 		/*$data = $result->fetch_array();*/
-
 		$_SESSION['id-client'] = '$clientid';
 		header("Location: Food-Main-2.html");
-		
 	}
 }
 /**/ 
