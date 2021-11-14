@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 
+<?php 
+
+session_start();
+/*Leon's Database
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/ 
+
+/*Junior's Database*/ 
+$mysqli = new mysqli("localhost", "root", '', "uber");
+
+?>
+
+
 <html>
 
 <head>
@@ -32,12 +44,29 @@
 
     <section class="CategoryRow">
         <div class="row">
+            <?php 
+                $clientid = $_SESSION['id-client'];
 
+                $query = "SELECT `Address` FROM `client` WHERE `ClientId` = '$clientid'";
+                $result = $mysqli->query($query);
+
+                $address = $result->fetch_array();
+
+                echo '<div class="col AddressBoxCol">';
+                echo '  <div class="AddressBox">';
+                echo '      <input type="text" id="Address" name="Address" placeholder='.$address['Address'].' size="20">';
+                echo '  </div>';
+                echo '</div>';
+
+            ?>
+
+            <!--
             <div class="col AddressBoxCol">
                 <div class="AddressBox">
                     <input type="text" id="Address" name="Address" placeholder="Address" size="20">
                 </div>
             </div>
+            -->
 
             <div class="col-2 CategoryCol">
                 <div class="Category" style="position: relative;">
@@ -69,21 +98,21 @@
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-mustafa-türkeri-5539072.jpg" alt="Previous Order 1">
+                    <img src="UI Pictures/pexels-1.jpg" alt="Previous Order 1">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-roman-odintsov-4955090.jpg" alt="Previous Order 2">
+                    <img src="UI Pictures/pexels-2.jpg" alt="Previous Order 2">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-chevanon-photography-359993.jpg" alt="Previous Order 3">
+                    <img src="UI Pictures/pexels-3.jpg" alt="Previous Order 3">
                 </div>
             </div>
         </div>
@@ -93,21 +122,21 @@
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-mustafa-türkeri-5539072.jpg" alt="Previous Order 1">
+                    <img src="UI Pictures/pexels-1.jpg" alt="Previous Order 1">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-roman-odintsov-4955090.jpg" alt="Previous Order 2">
+                    <img src="UI Pictures/pexels-2.jpg" alt="Previous Order 2">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-chevanon-photography-359993.jpg" alt="Previous Order 3">
+                    <img src="UI Pictures/pexels-3.jpg" alt="Previous Order 3">
                 </div>
             </div>
         </div>
@@ -117,21 +146,21 @@
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-mustafa-türkeri-5539072.jpg" alt="Previous Order 1">
+                    <img src="UI Pictures/pexels-1.jpg" alt="Previous Order 1">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-roman-odintsov-4955090.jpg" alt="Previous Order 2">
+                    <img src="UI Pictures/pexels-2.jpg" alt="Previous Order 2">
                 </div>
             </div>
 
             <div class="col-md-4">
                 <h3>Restaurant Name</h3>
                 <div class="RestaurantContainer">
-                    <img src="UI Pictures/pexels-chevanon-photography-359993.jpg" alt="Previous Order 3">
+                    <img src="UI Pictures/pexels-3.jpg" alt="Previous Order 3">
                 </div>
             </div>
         </div>

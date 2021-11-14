@@ -1,7 +1,10 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+/*Leon's Database
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/ 
 
+/*Junior's Database*/ 
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
@@ -86,11 +89,21 @@ if (isset($_SESSION['id-artist'])) {
             <button class="previousorders"> Previous Orders</button>
         </div>
     </div>
-    <div class="bigbuttoncontainer">
 
-        <button class="orderfood"> Order Food</button>
-    </div>
+    <form>
+        <div class="bigbuttoncontainer">
+            <button class="orderfood" type="submit"> Order Food</button>
+        </div>
+    </form>
+    
+    <?php 
+    
+    if(isset($_POST['submit'])){
+        header("Location: D:\Online Lecture\Year 3\CSS326 Database Systems Programming\Project Uber\Uber Source Code\css326\Uber EatsFood-Main.php");
+        exit;
+    }
 
+    ?>
 
     <div class="div_footer">
         Footer
