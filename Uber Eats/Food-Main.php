@@ -84,7 +84,6 @@ if (isset($_POST["submit-find-food"])) {
 
     <section class="History-Orders">
         <div class="row PrevOrderRow">
-
             <h2 class="PreviousOrders">
                 Previous Orders
             </h2>
@@ -122,7 +121,6 @@ if (isset($_POST["submit-find-food"])) {
                  /*For keeping the previous orders in check, not more than 3 orders showing
                 foreach ($foodorderings as $foodordering) {}*/ 
             ?>
-            
         </div>
     </section>
 
