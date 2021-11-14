@@ -16,11 +16,6 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
     $day = $_POST['day'];
     $month = $_POST['month'];
     $year = $_POST['year'];
-
-
-
-
-    
     if (strlen($month) == 1) {
         $dateofbirth = "$year-0$month-$day";
     } else {
@@ -78,7 +73,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
                 </div>
             </div>
 
-            <form name="Vehicle Registration" class="VehicleRegistration">
+            <form name="Vehicle Registration" class="VehicleRegistration" method="post">
                 <div class="VehicleForm">
                     <div class="row WelcomeToUber">
                         <h3>Welcome to Uber!</h3>
@@ -140,7 +135,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
 
         <div class="row">
             <div class="SumbitButtonContainer">
-                <button name = 'register-vehicle-submit' class="SubmitButton" id="SubmitButton">Submit Button</button>
+                <input type ="submit" name = 'register-vehicle-submit' class="SubmitButton" id="SubmitButton">
             </div>
         </div>
         </form>

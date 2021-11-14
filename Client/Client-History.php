@@ -116,7 +116,15 @@ if (isset($_SESSION['id-client'])) {
                     if (isset($_SESSION['id-client'])) {
                         $clientid = $_SESSION['id-client'];
 
-                        $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
+                        $query = "SELECT DISTINCT `foodordering`.`FoodOrderingID` AS 'ID', concat(`driver`.`FName`,'-',`driver`.`LName`) AS `DName`, `restaurant`.`Name` AS 'RName',`Foodordering`.*,`FoodPayment`.*, TIME(`Foodordering`.`Accepting_TimeStamp`) AS 'starttime', DATE(`Foodordering`.`Accepting_TimeStamp`) AS 'orderdate',TIME(`Foodordering`.`Arrival_TimeStamp`) AS 'arrivetime'
+                        FROM `client`,`driver`,`restaurant`,`foodordering`,`foodpayment`,`menuiteminrestaurant`,`ordereditem` 
+                        WHERE `client`.`ClientID` = $clientid
+                        AND `foodordering`.`ClientID` = `client`.`ClientID`
+                        AND `foodordering`.`FoodOrderingID` = `foodpayment`.`FoodOrderingID`
+                        AND `foodordering`.`DriverID` = `driver`.`DriverID`
+                        AND `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
+                        AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
+                        AND `MenuItemInRestaurant`.`RestaurantID` = `Restaurant`.`RestaurantID`";
                         // print($query); 
                         $result = $mysqli->query($query);
                         if (!$result) {
@@ -127,16 +135,16 @@ if (isset($_SESSION['id-client'])) {
                                 $x = 1;
                                 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                                     // Do stuff with $data
-                                    echo  "<tr>";
-                                    echo '<td>Ordering ID</td>';
-                                    echo '<td> Driver </td>';
-                                    echo '<td> Restaurant </td>';
-                                    echo '<td> Destination </td>';
-                                    echo '<td> Date </td>';
-                                    echo '<td> Departure Time </td>';
-                                    echo '<td> Arrival Time </td>';
-                                    echo '<td> Price </td>';
-                                    echo '<td> Rating </td>';
+                                    echo "<tr>";
+                                    echo '<td>' .$data['ID']. '</td>';
+                                    echo '<td>' .$data['RName']. '</td>';
+                                    echo '<td>' .$data['DName']. '</td>';
+                                    echo '<td>' .$data['DestinationAddress']. '</td>';
+                                    echo '<td>' .$data['orderdate']. ' </td>';
+                                    echo '<td>' .$data['starttime']. ' </td>';
+                                    echo '<td>' .$data['arrivetime']. '</td>';
+                                    echo '<td>' .$data['ClientPrice']. '</td>';
+                                    echo '<td>' .$data['RatingFromClientDriver']. '</td>';
                                     echo  "</tr>";
                                     $x++;
                                 }
