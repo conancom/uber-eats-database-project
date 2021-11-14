@@ -11,7 +11,7 @@ Functions:
 */ 
 
 session_start();
-$mysqli = new mysqli("localhost", "root", '', "uber");
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
 
 if ($mysqli->connect_errno) {
 	echo $mysqli->connect_error;

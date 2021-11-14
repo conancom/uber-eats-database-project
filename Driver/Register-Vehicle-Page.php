@@ -1,3 +1,27 @@
+<?php
+session_start();
+$mysqli = new mysqli("127.0.0.1", "root", 'Wirz140328', "uber");
+
+
+if ($mysqli->connect_errno) {
+    echo $mysqli->connect_error;
+}
+
+if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) {
+    $driverid = $_SESSION['id-driver'];
+
+    $query = "INSERT INTO `vehicle` (`DriverID`, `LicensePlate`, `VehicleType`, `VehicleBrand`, `VehicleModel`, `VehicleColor`,  `VehicleProductionDate`) VALUES ('$driverid', '', '', '', '', '', '');";
+    print $query;
+    $insert = $mysqli->query($query);
+    if (!$insert) {
+        echo $mysqli->error;
+    } else {
+        
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -75,13 +99,13 @@
 
                     <div class="row">
                         <div class="LicenseContainer">
-                            <input type="text" class="LicensePlate" id="LicensePlate" placeholder="License Plate" style="border-radius: 15px; padding: 4px; text-indent: 42px; margin: 15px; ">
+                            <input name="LicensePlate" type="text" class="LicensePlate" id="LicensePlate" placeholder="License Plate" style="border-radius: 15px; padding: 4px; text-indent: 42px; margin: 15px; ">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="ProductionDate" id="ProductionDate" placeholder="Production Date" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-right: -95%;">
+                            <input name ="name" type="text" class="ProductionDate" id="ProductionDate" placeholder="Production Date" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-right: -95%;">
                         </div>
 
                         <div class="col">
@@ -94,14 +118,15 @@
                     </div>
                 </div>
 
-            </form>
+           
         </div>
 
         <div class="row">
             <div class="SumbitButtonContainer">
-                <button class="SubmitButton" id="SubmitButton">Submit Button</button>
+                <button name = 'register-vehicle-submit' class="SubmitButton" id="SubmitButton">Submit Button</button>
             </div>
         </div>
+        </form>
 
         <div class="row">
             <div class="TermsAndAgreementContainer">
