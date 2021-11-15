@@ -9,3 +9,13 @@ INSERT INTO `restaurant` ( `Name`, `Location`, `PhoneNumner`, `Type`, `Opening_T
 INSERT INTO `foodordering` ( `ClientID`,  `Accepting_TimeStamp`, `Arrival_TimeStamp`, `Departure_TimeStamp`, `AcceptingAddress`, `DestinationAddress`, `RideDuration`, `Status`) VALUES ('1', '2021-11-12 21:17:00.69', '2021-11-12 21:17:00.69', '2021-11-12 21:17:00.69', 'Bangkok', 'Nonthaburi', '1.5hrs', 'Looking For Driver');
 
 SELECT * FROM `foodordering` WHERE `foodordering`.`Status` = 'Looking for Driver';
+
+SELECT *
+                        FROM `client`,`driver`,`restaurant`,`foodordering`,`foodpayment`,`menuiteminrestaurant`,`ordereditem` 
+                        WHERE `driver`.`DriverID` = $id
+                        AND `foodordering`.`DriverID` = `driver`.`DriverID`
+                        AND `foodordering`.`ClientID` = `client`.`ClientID`
+                        AND `foodordering`.`FoodOrderingID` = `foodpayment`.`FoodOrderingID`
+                        AND `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
+                        AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
+                        AND `MenuItemInRestaurant`.`RestaurantID` = `Restaurant`.`RestaurantID`
