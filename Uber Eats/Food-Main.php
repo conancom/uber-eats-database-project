@@ -11,7 +11,7 @@ Functions:
 */ 
 
 session_start();
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
 	echo $mysqli->connect_error;
@@ -30,7 +30,7 @@ if (isset($_POST["submit-find-food"])) {
 	} else {
 		/*$data = $result->fetch_array();*/
 		$_SESSION['id-client'] = '$clientid';
-		header("Location: Food-Main-2.html");
+		header("Location: Food-Main-2.php");
 	}
 }
 /**/ 

@@ -68,6 +68,7 @@ body {
 .RestaurantContainer {
     width: 494px;
     height: 175px;
+    z-index: 999;
 }
 
 .RestaurantContainer img {
