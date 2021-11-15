@@ -19,7 +19,7 @@ if (isset($_POST["submit-login"])) {
 		if (mysqli_num_rows($result) > 0) {
 			$data = $result->fetch_array();
 			$_SESSION['id-driver'] = $data['DriverID'];
-			header("Location: Driver-Main.html");
+			header("Location: Driver-Main.php");
 		}
 	}
 }

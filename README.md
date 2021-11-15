@@ -6,4 +6,6 @@ INSERT INTO `driver` ( `Password`, `Email`, `Gender`, `DateOfBirth`, `FName`, `L
 
 INSERT INTO `restaurant` ( `Name`, `Location`, `PhoneNumner`, `Type`, `Opening_Times`, `Opening_Days`, `Rating`, `Email`, `Password`) VALUES ( 'Junior\' Chicken', 'Chiangmai', '08696969420', 'Fastfood', '00:00 - 00:00', 'Everyday','0', 'junior@email.com', 'junior') 
 
-INSERT INTO `foodordering` ( `ClientID`, `DriverID`, `Accepting_TimeStamp`, `Arrival_TimeStamp`, `Departure_TimeStamp`, `AcceptingAddress`, `DestinationAddress`, `RideDuration`, `Status`) VALUES ('1', '1', '2021-11-12 21:17:00.69', '2021-11-12 21:17:00.69', '2021-11-12 21:17:00.69', 'Bangkok', 'Nonthaburi', '1.5hrs', 'Complete');
+INSERT INTO `foodordering` ( `ClientID`,  `Accepting_TimeStamp`, `Arrival_TimeStamp`, `Departure_TimeStamp`, `AcceptingAddress`, `DestinationAddress`, `RideDuration`, `Status`) VALUES ('1', '2021-11-12 21:17:00.69', '2021-11-12 21:17:00.69', '2021-11-12 21:17:00.69', 'Bangkok', 'Nonthaburi', '1.5hrs', 'Looking For Driver');
+
+SELECT * FROM `foodordering` WHERE `foodordering`.`Status` = 'Looking for Driver';
