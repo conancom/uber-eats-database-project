@@ -68,6 +68,10 @@ if (isset($_POST["submit-register"])) {
             <div id="div_subcontent" class="form">
 
                 <form name="submit-register" action="#" method="post">
+
+                    Select Image to upload:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+
                     <h2>Welcome to Uber!</h2>
 
                     <div class="center">
