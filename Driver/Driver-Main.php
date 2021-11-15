@@ -170,7 +170,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
                         echo '<div class="rightcontainer">';
                         echo '<form name="submit-accept" action="#" method="post">';
                         echo '<label name="label" value="' . $data['FoodOrderingID'] . '"> DELIVERY REQUEST ' . $data['FoodOrderingID'] . '</label>';
-                        echo '<input type="hidden" name="id" value="'.$data['FoodOrderingID']. '">';
+                        echo '<input type="hidden" name="id" value="' . $data['FoodOrderingID'] . '">';
                         /*echo '<button class="redbutton"> Reject</button><br>';*/
                         echo '<input name="accept-order" type="submit" class="greenbutton" value="Accept"></button>';
                         echo '</form>';
@@ -202,7 +202,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
                         echo '<div class="rightcontainer">';
                         echo '<form name="submit-complete" action="#" method="post">';
                         echo '<label name="label" value="' . $data['FoodOrderingID'] . '"> DELIVERY REQUEST ' . $data['FoodOrderingID'] . '</label>';
-                        echo '<input type="hidden" name="id" value="'.$data['FoodOrderingID']. '">';
+                        echo '<input type="hidden" name="id" value="' . $data['FoodOrderingID'] . '">';
                         /*echo '<button class="redbutton"> Reject</button><br>';*/
                         echo '<input name="complete-order" type="submit" class="greenbutton" value="Completed Order"></button>';
                         echo '</form>';
