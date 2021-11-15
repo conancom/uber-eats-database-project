@@ -109,7 +109,7 @@ if (isset($_POST["submit-find-food"])) {
                     if ($count <= 3) {
                         echo "<div class='col-md-4'>";
                         echo "  <div class='PrevOrderContainer'>";
-                        echo "      <img src='UI Pictures/pexels-".$row2[$rowCount].".jpg' alt='Previous Order'>";
+                        echo "      <img src='Restaurant/".$row2[$rowCount].".jpg' alt='Previous Order'>";
                         echo "  </div>";
                         echo "</div>";
                         $rowCount = $rowCount + 1;

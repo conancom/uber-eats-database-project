@@ -64,8 +64,8 @@ Functions:
                 $address = $result->fetch_array();
 
                 echo '<div class="col AddressBoxCol">';
-                echo '  <div class="AddressBox" style="width: 750px; height: 45px; background-color: rgba(255, 255, 255, 1.0);">';
-                echo '      <label id="Address" class="Address" style="padding-left: 10px;">'.$address['Address'].'</label> ';
+                echo '  <div class="AddressBox" style="width: 100%; height: 45px; background-color: rgba(255, 255, 255, 1.0); border-radius: 10px;">';
+                echo '      <label id="Address" class="Address" style="padding-left: 10px; overflow-x: hidden;">'.$address['Address'].'</label> ';
                 echo '  </div>';
                 echo '</div>';
             ?>
@@ -187,7 +187,7 @@ Functions:
         echo '  <div class="col-md-4">';
         echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '          <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
         echo '       </div>';
         echo '  </div>';
 
@@ -198,7 +198,7 @@ Functions:
         echo '  <div class="col-md-4">';
         echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 2">';
+        echo '          <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 2">';
         echo '      </div>';
         echo '  </div>';
         
@@ -209,7 +209,7 @@ Functions:
         echo '  <div class="col-md-4">';
         echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 3">';
+        echo '          <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 3">';
         echo '      </div>';
         echo '  </div>';
         echo '</div>';
@@ -222,7 +222,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
         echo '          </div>';
         echo '      </div>';
 
@@ -232,7 +232,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
         echo '          </div>';
         echo '      </div>';
                 
@@ -242,7 +242,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
         echo '          </div>';
         echo '      </div>';
         echo '  </div>';
@@ -255,7 +255,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
         echo '          </div>';
         echo '      </div>';
 
@@ -265,7 +265,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
         echo '          </div>';
         echo '      </div>';
                 
@@ -275,7 +275,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="UI Pictures/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
         echo '          </div>';
         echo '      </div>';
         echo '  </div>';
@@ -313,7 +313,7 @@ Functions:
                 modal.style.display = "none";
             }
         }
-    </script
+    </script>
 
 </body>
 
