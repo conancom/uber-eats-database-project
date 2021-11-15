@@ -9,6 +9,10 @@ $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
 /*Junior's Database*/ 
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
+if ($mysqli->connect_errno) {
+	echo $mysqli->connect_error;
+}
+
 /* 
 Functions:
 - Address Label Shows the stored address in Client Database
@@ -18,6 +22,12 @@ Functions:
 - Restaurant: Drop Down Menu for List of Restaurants (Query) (DONE)
 - Promotion: Pop-up for promotion showcases (DONE)
 */ 
+
+if (isset($_POST["uber-restaurant"])) {
+    $restaurantID = $_POST['restaurant'];
+    $_SESSION['restaurant-id'] = '$restaurantID';
+    header("Location: Food-Main-3.php");
+}
 
 ?>
 
@@ -60,7 +70,6 @@ Functions:
 
                 $query = "SELECT `Address` FROM `client` WHERE `ClientId` = '$clientid'";
                 $result = $mysqli->query($query);
-
                 $address = $result->fetch_array();
 
                 echo '<div class="col AddressBoxCol">';
@@ -119,7 +128,9 @@ Functions:
             </div>
         </div>
     </section>
-
+    
+    <section class="MainSelections">
+        
     <?php 
     
         $query2 = "SELECT * FROM `restaurant`";
@@ -180,16 +191,17 @@ Functions:
 
         $count = 0;
         $rowCount = 0;
-        echo '<section class="MainSelections">';
-
+        
         /*First Row*/ 
+        echo '<form id="uber-restaurant" name="uber-restaurant" action="Food-Main-3.php" method="post" >';
         echo '<div class="row OrderRow FirstRow">';
         echo '  <div class="col-md-4">';
         echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="1"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1"></button>';
         echo '       </div>';
         echo '  </div>';
+        
 
         $count = $count + 1;
         $rowCount = $rowCount + 1;
@@ -198,7 +210,7 @@ Functions:
         echo '  <div class="col-md-4">';
         echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 2">';
+        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="2"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 2"></button>';
         echo '      </div>';
         echo '  </div>';
         
@@ -209,7 +221,7 @@ Functions:
         echo '  <div class="col-md-4">';
         echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 3">';
+        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="3"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 3"></button>';
         echo '      </div>';
         echo '  </div>';
         echo '</div>';
@@ -222,7 +234,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="4"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 4"></button>';
         echo '          </div>';
         echo '      </div>';
 
@@ -232,7 +244,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="5"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 5"></button>';
         echo '          </div>';
         echo '      </div>';
                 
@@ -242,7 +254,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="6"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 6"></button>';
         echo '          </div>';
         echo '      </div>';
         echo '  </div>';
@@ -255,7 +267,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="7"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 7"></button>';
         echo '          </div>';
         echo '      </div>';
 
@@ -265,7 +277,7 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="8"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 8"></button>';
         echo '          </div>';
         echo '      </div>';
                 
@@ -275,19 +287,20 @@ Functions:
         echo '      <div class="col-md-4">';
         echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="9"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 9"></button>';
         echo '          </div>';
         echo '      </div>';
         echo '  </div>';
-            
+        echo '</form>';   
+        
         $count = $count + 1;
-        $rowCount = $rowCount + 1;  
-
-        echo '</section>';
+        $rowCount = $rowCount + 1; 
+        
     ?>
+        </form>
+    </section>
 
     <script>
-
         // Get the modal
         var modal = document.getElementById("myModal");
 

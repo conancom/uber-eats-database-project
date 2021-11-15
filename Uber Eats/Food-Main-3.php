@@ -3,10 +3,10 @@
 <?php
     /*
     Funtion:
-    - Address Box
-    - Delete Category and Restaurant Nav Bar
-    - Shopping Cart 
-    - Menu Layout 
+    - Address Box (DONE)
+    - Delete Category and Restaurant Nav Bar (DONE)
+    - Shopping Cart (JavaScript)
+    - Menu Layout ()
     */ 
 
     session_start();
@@ -15,6 +15,7 @@
 
     /*Junior's Database*/ 
     $mysqli = new mysqli("localhost", "root", '', "uber");
+    $restaurantID = $_POST['restaurant'];
 
 ?>
     <html>
@@ -50,6 +51,7 @@
 
             <?php 
                 $clientid = $_SESSION['id-client'];
+                /*$restaurantID = $_SESSION['restaurant-id'];*/
 
                 $query = "SELECT `Address` FROM `client` WHERE `ClientId` = '$clientid'";
                 $result = $mysqli->query($query);
@@ -61,6 +63,7 @@
                 echo '      <label id="Address" class="Address" style="padding-left: 10px; overflow-x: hidden;">'.$address['Address'].'</label> ';
                 echo '  </div>';
                 echo '</div>';
+
             ?>
                 <!--
                 <div class="col AddressBoxCol">
@@ -117,6 +120,12 @@
                 </div>
             </div>
         </section>
+
+        <?php 
+
+
+
+        ?>
 
         <section class="MenuSelections">
             <div class="row MenuRow">
@@ -328,7 +337,7 @@
             }
         }
     </script>
-    
+
     </body>
 
     </html>
