@@ -81,7 +81,7 @@ if (isset($_SESSION['id-client'])) {
                     ?>
                 </label>
             </div><br>
-            <a class="editprofile" href=""> Edit Profile -></a>
+            <a class="editprofile" href="Edit-Acc-Client.php"> Edit Profile -></a>
         </div>
     </div>
     <div class="underheadbar">

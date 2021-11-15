@@ -80,7 +80,7 @@ if (isset($_SESSION['id-client'])) {
                 ?>
             </label>
         </div><br>
-        <a class="editprofile" href=""> Edit Profile -></a>
+        <a class="editprofile" href="Edit-Acc-Client.php"> Edit Profile -></a>
     </div>
     </div>
     <div class="underheadbar">
@@ -100,10 +100,11 @@ if (isset($_SESSION['id-client'])) {
                     <th> Departure Time </th>
                     <th> Arrival Time </th>
                     <th> Price </th>
-                    <th> Rating </th>
+                    <th> Rating To Driver </th>
+                    <th> Rating To Restaurant </th>
 
                     <?php
-                    
+
                     /*Leon's Database*/
                     $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
 
@@ -116,7 +117,7 @@ if (isset($_SESSION['id-client'])) {
                     if (isset($_SESSION['id-client'])) {
                         $clientid = $_SESSION['id-client'];
 
-                        $query = "SELECT DISTINCT `foodordering`.`FoodOrderingID` AS 'ID', concat(`driver`.`FName`,'-',`driver`.`LName`) AS `DName`, `restaurant`.`Name` AS 'RName',`Foodordering`.*,`FoodPayment`.*, TIME(`Foodordering`.`Accepting_TimeStamp`) AS 'starttime', DATE(`Foodordering`.`Accepting_TimeStamp`) AS 'orderdate',TIME(`Foodordering`.`Arrival_TimeStamp`) AS 'arrivetime'
+                        $query = "SELECT DISTINCT `foodordering`.`FoodOrderingID` AS 'ID', concat(`driver`.`FName`,' ',`driver`.`LName`) AS `DName`, `restaurant`.`Name` AS 'RName',`Foodordering`.*,`FoodPayment`.*, TIME(`Foodordering`.`Accepting_TimeStamp`) AS 'starttime', DATE(`Foodordering`.`Accepting_TimeStamp`) AS 'orderdate',TIME(`Foodordering`.`Arrival_TimeStamp`) AS 'arrivetime'
                         FROM `client`,`driver`,`restaurant`,`foodordering`,`foodpayment`,`menuiteminrestaurant`,`ordereditem` 
                         WHERE `client`.`ClientID` = $clientid
                         AND `foodordering`.`ClientID` = `client`.`ClientID`
@@ -136,15 +137,16 @@ if (isset($_SESSION['id-client'])) {
                                 while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                                     // Do stuff with $data
                                     echo "<tr>";
-                                    echo '<td>' .$data['ID']. '</td>';
-                                    echo '<td>' .$data['RName']. '</td>';
-                                    echo '<td>' .$data['DName']. '</td>';
-                                    echo '<td>' .$data['DestinationAddress']. '</td>';
-                                    echo '<td>' .$data['orderdate']. ' </td>';
-                                    echo '<td>' .$data['starttime']. ' </td>';
-                                    echo '<td>' .$data['arrivetime']. '</td>';
-                                    echo '<td>' .$data['ClientPrice']. '</td>';
-                                    echo '<td>' .$data['RatingFromClientDriver']. '</td>';
+                                    echo '<td>' . $data['ID'] . '</td>';
+                                    echo '<td>' . $data['DName'] . '</td>';
+                                    echo '<td>' . $data['RName'] . '</td>';
+                                    echo '<td>' . $data['DestinationAddress'] . '</td>';
+                                    echo '<td>' . $data['orderdate'] . ' </td>';
+                                    echo '<td>' . $data['starttime'] . ' </td>';
+                                    echo '<td>' . $data['arrivetime'] . '</td>';
+                                    echo '<td>' . $data['ClientPrice'] . '</td>';
+                                    echo '<td>' . $data['RatingFromClientDriver'] . '</td>';
+                                    echo '<td>' . $data['RatingFromClientRestaurant'] . '</td>';
                                     echo  "</tr>";
                                     $x++;
                                 }
