@@ -105,16 +105,16 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
 
                             <label>Gender</label>
                             <input type="radio" name="gender" value="male" <?php
-                                                                            if ($data['Gender'] = "male")
-                                                                                echo  'checked';;
+                                                                            if ($data['Gender'] == "male")
+                                                                        echo  'checked';
                                                                             ?>>Male
                             <input type="radio" name="gender" value="female" <?php
-                                                                                if ($data['Gender'] = "female")
-                                                                                    echo  'checked';;
+                                                                                if ($data['Gender'] == "female")
+                                                                                    echo  'checked';
                                                                                 ?>>Female
                             <input type="radio" name="gender" value="others" <?php
-                                                                                if ($data['Gender'] = "others")
-                                                                                    echo  'checked';;
+                                                                                if ($data['Gender'] == "others")
+                                                                                    echo  'checked';
                                                                                 ?>>Others<br><br>
 
                             <input name="occupation" type="occupation" value=<?php

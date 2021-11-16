@@ -79,7 +79,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
         height: 145px;
         left: 126px;
         top: 198px;
-        background: url(Driver\ Picture/" . $data['DriverID'] . ".jpg);
+        background: url(img/" . $data['DriverID'] . ".jpg);
         border-radius: 202px;
         background-size: cover;
         /*margin-top: -45px;*/

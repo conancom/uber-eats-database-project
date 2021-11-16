@@ -43,14 +43,6 @@ if (isset($_POST["submit-register"])) {
     if (!$insert) {
         echo $mysqli->error;
     } else {
-
-            $target_dir = "img/";
-            $file = $_FILES['my_file']['3'];
-            $path = pathinfo($file);
-            $filename = $path['3'];
-            $ext = $path['jpg'];
-            $temp_name = $_FILES['my_file']['tmp_name'];
-            $path_filename_ext = $target_dir . $filename . "." . $ext;
             move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/'.mysqli_insert_id($mysqli).'.jpg');
             header("Location: Login-Page-Client.php");
     }

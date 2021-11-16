@@ -50,7 +50,7 @@ if (isset($_SESSION['id-client'])) {
     height: 145px;
     left: 126px;
     top: 198px;
-    background: url(Client\ Picture/" .$data['ClientID'].  ".jpg);
+    background: url(img/" .$data['ClientID'].  ".jpg);
     border-radius: 202px;
     background-size: contain;
     /*margin-top: -45px;*/

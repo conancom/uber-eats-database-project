@@ -1,3 +1,61 @@
+<?php
+session_start();
+/*Leon's Database*/
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+
+/*Junior's Database
+$mysqli = new mysqli("localhost", "root", '', "uber");*/
+
+if ($mysqli->connect_errno) {
+    echo $mysqli->connect_error;
+}
+if (isset($_SESSION['id-driver'])) {
+    $id = $_SESSION['id-driver'];
+
+    $query = "SELECT `driver`.*, `vehicle`.* FROM `driver`, `vehicle` WHERE `driver`.`DriverID` = '$id' AND `driver`.`DriverID` = `vehicle`.`DriverID`";
+    // print($query); 
+    $result = $mysqli->query($query);
+    if (!$result) {
+        echo $mysqli->error;
+    } else {
+        if (mysqli_num_rows($result) > 0) {
+            $data = $result->fetch_array();
+            $_SESSION['id-driver'] =  $id;
+            
+        }
+    }
+}
+if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
+    $id = $_SESSION['id-driver'];
+    $emailaddress = $_POST['emailaddress'];
+    $password = $_POST['password'];
+    $confirmpassword = $_POST['confirmpassword'];
+    $gender = $_POST['gender'];
+    $name =  $_POST['name'];
+    $surname = $_POST['surname'];
+    $phonenumber = $_POST['phonenumber'];
+    $driverlicense = $_POST['driverlicenseid'];
+    $day = $_POST['day'];
+    $month = $_POST['month'];
+    $year = $_POST['year'];
+    if (strlen($month) == 1) {
+        $dateofbirth = "$year-0$month-$day";
+    } else {
+        $dateofbirth = "$year-$month-$day";
+    }
+
+    $query = "UPDATE `driver` SET `Password` = '$password', `Email` = '$emailaddress', `Gender` = '$gender', `DateOfBirth`= '$dateofbirth', `FName` = '$name', `LName` = '$surname', `DriverLicenseID` = '$driverlicense',`PhoneNumber` = '$phonenumber' WHERE `DriverID` = '$id'";
+    // print($query); 
+    print $query;
+    $insert = $mysqli->query($query);
+    if (!$insert) {
+        echo $mysqli->error;
+    } else {
+        header("Location: Driver-Main.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,42 +75,72 @@
         </div>
 
         <div id="div_content" class="form">
-            <form action="user.php" method="post">
+    
                 <h1>Setting the World in Motion</h1>
                 <!--%%%%% Main block %%%%-->
                 <!--Form -->
                 <div id="div_subcontent" class="form">
 
-                    <form action="user.php" method="post">
+                    <form name = "update" action="#" method="post">
                         <h2>Welcome to Uber!</h2>
 
                         <div class="center">
-                            <input type="email" value="Email"><br><br>
-                            <input type="password" value="Password"><br><br>
-                            <input type="confirm password" value="Confirm Password"><br><br>
-                            <input type="first name" value="First Name"><br><br>
-                            <input type="last name" value="Last name"><br><br>
+                            <input name="emailaddress" type="email" value=<?php
+                                                        echo $data['Email'];
+                                                        ?>><br><br>
+                            <input name="password" type="password" value=<?php
+                                                        echo $data['Password'];
+                                                        ?>><br><br>
+                            <input name ="confirmpassword" type="confirm password" value=<?php
+                                                        echo $data['Password'];
+                                                        ?>><br><br>
+                            <input name='name' type="first name" value=<?php
+                                                        echo $data['FName'];
+                                                        ?>><br><br>
+                            <input name="surname" type="last name" value=<?php
+                                                        echo $data['LName'];
+                                                        ?>><br><br>
 
                             <label>Gender</label>
-                            <input type="radio" name="gender" value="male" checked>Male
-                            <input type="radio" name="gender" value="female">Female
-                            <input type="radio" name="gender" value="others">Others<br><br>
+                            <input type="radio" name="gender" value="male" <?php
+                                                                            if ($data['Gender'] == "male")
+                                                                                echo  'checked';
+                                                                            ?>>Male
+                            <input type="radio" name="gender" value="female" <?php
+                                                                                if ($data['Gender'] == "female")
+                                                                                    echo  'checked';
+                                                                                ?>>Female
+                            <input type="radio" name="gender" value="others" <?php
+                                                                                if ($data['Gender'] == "others")
+                                                                                    echo  'checked';
+                                                                                ?>>Others<br><br>
 
-                            <input type="occupation" value="Occupation"><br><br>
-                            <input type="phone number" value="Phone Number"><br><br>
-                            <input type="driver license id" value="Driver License ID"><br><br>
-                            <input type="birth date" value="Birth Date">
-                            <input type="birth month" value="Birth Month">
-                            <input type="birth year" value="Birth Year"><br><br><br>
+                            <input name="phonenumber" type="phone number" value=<?php
+                                                                echo $data['PhoneNumber'];
+                                                                ?>><br><br>
+                            <input name="driverlicenseid" type="driverlicenseid" value=<?php
+                                                                echo $data['DriverLicenseID'];
+                                                                ?>><br><br>
+                            <input name="day" type="birth date" value=<?php
+                                                            echo date("d", strtotime($data['DateOfBirth']));
+                                                            ?>>
+                            <input name="month" type="birth month" value=<?php
+                                                            echo date("m", strtotime($data['DateOfBirth']));
+                                                            ?>>
+                            <input name="year" type="birth year" value=<?php
+                                                            $dt = DateTime::createFromFormat('Y', date('Y', strtotime($data['DateOfBirth'])));
+                                                            echo $dt->format('Y');
+                                                            ?>><br><br><br>
 
                         </div>
-                    </form>
+                    
                 </div>
 
                 <div class="center">
-                    <button type="submit" value="Submit" class="Submit">Submit</button><br><br>
+                    <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
                     <label>Terms and Agreement</label>
                 </div>
+                </form>
 
         </div>
         <!-- end div_content -->
