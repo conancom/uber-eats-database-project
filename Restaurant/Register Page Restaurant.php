@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "root", '', "uber");
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
 
 
 if ($mysqli->connect_errno) {
@@ -24,6 +24,7 @@ if (isset($_POST["submit-register"])) {
     if (!$insert) {
         echo $mysqli->error;
     } else {
+		move_uploaded_file($_FILES["my_file"]["tmp_name"], 'profileimg/'.mysqli_insert_id($mysqli).'.jpg');
         header("Location: Login-Page-Restaurant.php");
     }
 }
@@ -52,10 +53,10 @@ if (isset($_POST["submit-register"])) {
 			<!--Form -->
 			<div id="div_subcontent" class="form">
 
-            <form name="submit-register" action="#" method="post">
+            <form name="form" method="post" enctype="multipart/form-data">
 
 				Select Image to upload:
-                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="file" name="my_file" />
 
 				<h2>Welcome to Uber!</h2>
 
