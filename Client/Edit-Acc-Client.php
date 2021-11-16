@@ -137,7 +137,7 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
                                                             echo date("m", strtotime($data['DateOfBirth']));
                                                             ?>>
                             <input name="year" type="birth year" value=<?php
-                                                            $dt = DateTime::createFromFormat('y', date('y', strtotime($data['DateOfBirth'])));
+                                                            $dt = DateTime::createFromFormat('y', date('Y', strtotime($data['DateOfBirth'])));
                                                             echo $dt->format('y');
                                                             ?>><br><br>
 

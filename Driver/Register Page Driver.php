@@ -40,6 +40,7 @@ if (isset($_POST["submit-register"])) {
             echo $mysqli->error;
         } else {
             $data = $select->fetch_array();
+            move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/'.$data['DriverID'].'.jpg');
             $_SESSION['id-driver'] =  $data['DriverID'];
             header("Location: Register-Vehicle-Page.php");
         }
@@ -69,12 +70,12 @@ if (isset($_POST["submit-register"])) {
                 <h1>Setting the World in Motion</h1>
                 <!--%%%%% Main block %%%%-->
                 <!--Form -->
-                <div id="div_subcontent" class="form">
+                <form name="form" method="post" enctype="multipart/form-data">
 
                     <form name="submit-register" action="#" method="post">
 
                         Select Image to upload:
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="my_file" id="fileToUpload">
 
                         <h2>Welcome to Uber!</h2>
 
