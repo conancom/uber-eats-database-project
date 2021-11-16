@@ -9,6 +9,8 @@ if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
 
+
+
 ?>
 
 <html>
@@ -46,73 +48,75 @@ if ($mysqli->connect_errno) {
                 <div class="row DetailHeading">
                     <h2 style="text-align: center;">Driver Details</h2>
                 </div>
+                <?php
 
-                <div class="row DriverPicture">
-                    <img src="UI Pictures/pexels-nappy-3214023.jpg" alt="Driver Profile Picture">
-                </div>
+                $query = 'SELECT * FROM foodordering, driver, ordereditem WHERE foodordering.status = "Picking up Food" AND foodordering.foodordertingid = foodpayment.foodorderingid AND foodordering.foodorderingid = orderedfood.foodorderingid AND foodordering.driverid = driver.driverid AND vehicle.driverID = driver.driverid';
+                $result = $mysqli->query($query);
 
-                <div class="DriverInformationContainer">
-                    <div class="row">
-                        <div class="row">
-                            <p>Name: </p>
-                        </div>
+                echo '<div class="row DriverPicture">';
+                echo '  <img src="UI Pictures/pexels-nappy-3214023.jpg" alt="Driver Profile Picture">';
+                echo '</div>';
+                echo '<div class="DriverInformationContainer">';
+                echo '  <div class="row">';
+                echo '      <div class="row">';
+                echo '          <p>Name: '. $result['FName'] .' '.$result['LName'].'</p>';
+                echo '      </div>';
+                echo '      <div class="row">';
+                echo '          <p>Vehicle: '. $result['VehicleBrand'] .'</p>';
+                echo '      </div>';
+                echo '      <div class="row">';
+                echo '          <p>Rating: '. $result['Rating'] .'</p>';
+                echo '      </div>';
 
-                        <div class="row">
-                            <p>Vehicle: </p>
-                        </div>
-
-                        <div class="row">
-                            <p>Rating: </p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row CallButton">
-                    <button>Call</button>
-                </div>
+                ?>
             </div>
         </div>
 
-        <div class="col-8 Map">
-            <div id="floating-panel">
-                <b>Start: </b>
-                <select id="start">
-                    <option value="chicago, il">Chicago</option>
-                    <option value="st louis, mo">St Louis</option>
-                    <option value="joplin, mo">Joplin, MO</option>
-                    <option value="oklahoma city, ok">Oklahoma City</option>
-                    <option value="amarillo, tx">Amarillo</option>
-                    <option value="gallup, nm">Gallup, NM</option>
-                    <option value="flagstaff, az">Flagstaff, AZ</option>
-                    <option value="winona, az">Winona</option>
-                    <option value="kingman, az">Kingman</option>
-                    <option value="barstow, ca">Barstow</option>
-                    <option value="san bernardino, ca">San Bernardino</option>
-                    <option value="los angeles, ca">Los Angeles</option>
-                </select>
-                <b>End: </b>
-                <select id="end">
-                    <option value="chicago, il">Chicago</option>
-                    <option value="st louis, mo">St Louis</option>
-                    <option value="joplin, mo">Joplin, MO</option>
-                    <option value="oklahoma city, ok">Oklahoma City</option>
-                    <option value="amarillo, tx">Amarillo</option>
-                    <option value="gallup, nm">Gallup, NM</option>
-                    <option value="flagstaff, az">Flagstaff, AZ</option>
-                    <option value="winona, az">Winona</option>
-                    <option value="kingman, az">Kingman</option>
-                    <option value="barstow, ca">Barstow</option>
-                    <option value="san bernardino, ca">San Bernardino</option>
-                    <option value="los angeles, ca">Los Angeles</option>
-                </select>
-            </div>
-            <div id="map"></div>
-
-            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCurNekcoY8lBoPLMJNIkB1MfHTltAq4UQ&callback=initMap"></script>
-            <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCurNekcoY8lBoPLMJNIkB1MfHTltAq4UQ&callback=initMap&v=weekly&channel=2" async></script>-->
+        <div class="row CallButton">
+            <button>Call</button>
         </div>
+    </div>
+    </div>
+
+    <div class="col-8 Map">
+        <div id="floating-panel">
+            <b>Start: </b>
+            <select id="start">
+                <option value="chicago, il">Chicago</option>
+                <option value="st louis, mo">St Louis</option>
+                <option value="joplin, mo">Joplin, MO</option>
+                <option value="oklahoma city, ok">Oklahoma City</option>
+                <option value="amarillo, tx">Amarillo</option>
+                <option value="gallup, nm">Gallup, NM</option>
+                <option value="flagstaff, az">Flagstaff, AZ</option>
+                <option value="winona, az">Winona</option>
+                <option value="kingman, az">Kingman</option>
+                <option value="barstow, ca">Barstow</option>
+                <option value="san bernardino, ca">San Bernardino</option>
+                <option value="los angeles, ca">Los Angeles</option>
+            </select>
+            <b>End: </b>
+            <select id="end">
+                <option value="chicago, il">Chicago</option>
+                <option value="st louis, mo">St Louis</option>
+                <option value="joplin, mo">Joplin, MO</option>
+                <option value="oklahoma city, ok">Oklahoma City</option>
+                <option value="amarillo, tx">Amarillo</option>
+                <option value="gallup, nm">Gallup, NM</option>
+                <option value="flagstaff, az">Flagstaff, AZ</option>
+                <option value="winona, az">Winona</option>
+                <option value="kingman, az">Kingman</option>
+                <option value="barstow, ca">Barstow</option>
+                <option value="san bernardino, ca">San Bernardino</option>
+                <option value="los angeles, ca">Los Angeles</option>
+            </select>
+        </div>
+        <div id="map"></div>
+
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCurNekcoY8lBoPLMJNIkB1MfHTltAq4UQ&callback=initMap"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCurNekcoY8lBoPLMJNIkB1MfHTltAq4UQ&callback=initMap&v=weekly&channel=2" async></script>-->
+    </div>
     </div>
 
     <script>
