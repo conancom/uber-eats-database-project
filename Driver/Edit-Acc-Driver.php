@@ -34,6 +34,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
     $name =  $_POST['name'];
     $surname = $_POST['surname'];
     $phonenumber = $_POST['phonenumber'];
+    $address = $_POST['address'];
     $driverlicense = $_POST['driverlicenseid'];
     $day = $_POST['day'];
     $month = $_POST['month'];
@@ -44,7 +45,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
         $dateofbirth = "$year-$month-$day";
     }
 
-    $query = "UPDATE `driver` SET `Password` = '$password', `Email` = '$emailaddress', `Gender` = '$gender', `DateOfBirth`= '$dateofbirth', `FName` = '$name', `LName` = '$surname', `DriverLicenseID` = '$driverlicense',`PhoneNumber` = '$phonenumber' WHERE `DriverID` = '$id'";
+    $query = "UPDATE `driver` SET `Password` = '$password', `Email` = '$emailaddress', `Gender` = '$gender', `DateOfBirth`= '$dateofbirth', `FName` = '$name', `LName` = '$surname', `DriverLicenseID` = '$driverlicense',`PhoneNumber` = '$phonenumber',`Address` = '$address' WHERE `DriverID` = '$id'";
     // print($query); 
     print $query;
     $insert = $mysqli->query($query);
@@ -118,6 +119,11 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
                             <input name="phonenumber" type="phone number" value=<?php
                                                                 echo $data['PhoneNumber'];
                                                                 ?>><br><br>
+
+                            <input name="address" type="address" value=<?php
+                                                                echo $data['Address'];
+                                                                ?>><br><br>
+
                             <input name="driverlicenseid" type="driverlicenseid" value=<?php
                                                                 echo $data['DriverLicenseID'];
                                                                 ?>><br><br>
