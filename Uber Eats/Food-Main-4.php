@@ -4,11 +4,23 @@
 
 /*
 Function:
-- Recommendations
-- Order Details
+- Recommendations (DONE)
+- Order Details 
 - Payment
 
-*/ 
+*/
+
+use phpseclib\Crypt\Random;
+
+session_start();
+/*Leon's Database
+    $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
+
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
+if ($mysqli->connect_errno) {
+	echo $mysqli->connect_error;
+}
 
 ?>
 
@@ -73,132 +85,191 @@ Function:
     </section>
 
     <section class="RecomAndDetails">
-        <div class="row">
-            <div class="col-3">
 
-                <h3 class="RecommendHeading">Recommendations</h3>
-                <div class="row RecommendRow">
-                    <div class="MenuContainer">
-                        <div class="row">
-                            <div class="col">
-                                <img src="UI Pictures/pexels-engin-akyurt-2703468.jpg" alt="Menu Picture">
-                            </div>
+        <?php
 
-                            <div class="col MenuName">
+        $query = 'SELECT MenuItemInRestaurant.*, MenuItem.* FROM Menuiteminrestaurant, MenuItem WHERE Menuiteminrestaurant.MenuItemID = MenuItem.MenuItemID';
+        $result = $mysqli->query($query);
 
-                                <h2 style="padding-top: 10px;">Carbonara</h2>
-                                <br>
-                                <h3>125 Baht</h3>
-                                <br>
-                                <button class="AddCartButton"> Add to Cart</button>
-                            </div>
+        $restinformation = array(); /*Storing the name indexing*/
+        $index = 0;
+        while ($row = $result->fetch_array()) {
+            $restinformation[$index] = $row;
+            $index++;
+        }
+
+        $rowCount = rand(1,81);
+
+            echo '<div class="row">';
+            echo '  <div class="col-3">';
+            echo '      <h3 class="RecommendHeading">Recommendations</h3>';
+            echo '      <div class="row RecommendRow">';
+            echo '          <div class="MenuContainer">';
+            echo '              <div class="row">';
+            echo '                  <div class="col">';
+            echo '                      <img src="Restaurant/Menu/' . $restinformation[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
+            echo '                  </div>';
+            echo '              <div class="col MenuName">';
+            echo '                  <h2 style="padding-top: 10px;">' . $restinformation[$rowCount]['FoodName'] . '</h2>';
+            echo '                  <br>';
+            echo '                  <h3>' . $restinformation[$rowCount]['Price'] . '</h3>';
+            echo '                  <br>';
+            /*echo '                  <button class="AddCartButton"> Add to Cart</button>';*/
+            echo '              </div>';
+            echo '          </div>';
+            echo '      </div>';
+            echo '  </div>';
+
+            $rowCount = rand(1,81);
+
+            echo '      <div class="row RecommendRow">';
+            echo '          <div class="MenuContainer">';
+            echo '              <div class="row">';
+            echo '                  <div class="col">';
+            echo '                      <img src="Restaurant/Menu/' . $restinformation[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
+            echo '                  </div>';
+            echo '              <div class="col MenuName">';
+            echo '                  <h2 style="padding-top: 10px;">' . $restinformation[$rowCount]['FoodName'] . '</h2>';
+            echo '                  <br>';
+            echo '                  <h3>' . $restinformation[$rowCount]['Price'] . '</h3>';
+            echo '                  <br>';
+            /*echo '                  <button class="AddCartButton"> Add to Cart</button>';*/
+            echo '              </div>';
+            echo '          </div>';
+            echo '      </div>';
+            echo '  </div>';
+
+            $rowCount = rand(1,81);
+
+            echo '      <div class="row RecommendRow">';
+            echo '          <div class="MenuContainer">';
+            echo '              <div class="row">';
+            echo '                  <div class="col">';
+            echo '                      <img src="Restaurant/Menu/' . $restinformation[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
+            echo '                  </div>';
+            echo '              <div class="col MenuName">';
+            echo '                  <h2 style="padding-top: 10px;">' . $restinformation[$rowCount]['FoodName'] . '</h2>';
+            echo '                  <br>';
+            echo '                  <h3>' . $restinformation[$rowCount]['Price'] . '</h3>';
+            echo '                  <br>';
+            /*echo '                  <button class="AddCartButton"> Add to Cart</button>';*/
+            echo '              </div>';
+            echo '          </div>';
+            echo '      </div>';
+            echo '  </div>';
+            echo '</div>';
+            
+        ?>
+
+        <div class="col-9" style="padding-left: 50px;">
+
+            <h3>Order Details</h3>
+            <div class="OrderDetailContainer">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="DetailContainer">
+                            <h3>Your Order</h3>
+                            <table>
+                                <tr>
+                                    <td>1. Your Order</td>
+                                </tr>
+                                <tr>
+                                    <td>2. Your Order</td>
+                                </tr>
+                                <tr>
+                                    <td>3. Your Order</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="DetailContainer">
+                            <h3>Payment</h3>
+                            <table>
+                                <tr>
+                                    <td>1. Payment 1</td>
+                                </tr>
+                                <tr>
+                                    <td>2. Payment 2</td>
+                                </tr>
+                                <tr>
+                                    <td>3. Payment 3</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="DetailContainer">
+                            <h3>Delivery</h3>
+                            <table>
+                                <tr>
+                                    <td>1. Destination 1</td>
+                                </tr>
+                                <tr>
+                                    <td>2. Destination 2</td>
+                                </tr>
+                                <tr>
+                                    <td>3. Destination 3</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
 
-                <div class="row RecommendRow">
-                    <div class="MenuContainer">
-                        <div class="row">
-                            <div class="col">
-                                <img src="UI Pictures/pexels-engin-akyurt-2703468.jpg" alt="Menu Picture">
-                            </div>
-
-                            <div class="col MenuName">
-
-                                <h2 style="padding-top: 10px;">Carbonara</h2>
-                                <br>
-                                <h3>125 Baht</h3>
-                                <br>
-                                <button class="AddCartButton"> Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row RecommendRow">
-                    <div class="MenuContainer">
-                        <div class="row">
-                            <div class="col">
-                                <img src="UI Pictures/pexels-engin-akyurt-2703468.jpg" alt="Menu Picture">
-                            </div>
-
-                            <div class="col MenuName">
-
-                                <h2 style="padding-top: 10px;">Carbonara</h2>
-                                <br>
-                                <h3>125 Baht</h3>
-                                <br>
-                                <button class="AddCartButton"> Add to Cart</button>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="Checkout">
+                        <button class="CheckoutButton">Checkout</button>
                     </div>
                 </div>
             </div>
-
-            <div class="col-9" style="padding-left: 50px;">
-
-                <h3>Order Details</h3>
-                <div class="OrderDetailContainer">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="DetailContainer">
-                                <h3>Your Order</h3>
-                                <table>
-                                    <tr>
-                                        <td>1. Your Order</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2. Your Order</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3. Your Order</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="DetailContainer">
-                                <h3>Payment</h3>
-                                <table>
-                                    <tr>
-                                        <td>1. Payment 1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2. Payment 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3. Payment 3</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="DetailContainer">
-                                <h3>Delivery</h3>
-                                <table>
-                                    <tr>
-                                        <td>1. Destination 1</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2. Destination 2</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3. Destination 3</td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="Checkout">
-                            <button class="CheckoutButton">Checkout</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
         </div>
     </section>
 </body>
 
 </html>
+
+<!--
+
+Old HTML Code
+
+<div class="row RecommendRow">
+            <div class="MenuContainer">
+                <div class="row">
+                    <div class="col">
+                        <img src="UI Pictures/pexels-engin-akyurt-2703468.jpg" alt="Menu Picture">
+                    </div>
+
+                    <div class="col MenuName">
+
+                        <h2 style="padding-top: 10px;">Carbonara</h2>
+                        <br>
+                        <h3>125 Baht</h3>
+                        <br>
+                        <button class="AddCartButton"> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row RecommendRow">
+            <div class="MenuContainer">
+                <div class="row">
+                    <div class="col">
+                        <img src="UI Pictures/pexels-engin-akyurt-2703468.jpg" alt="Menu Picture">
+                    </div>
+
+                    <div class="col MenuName">
+
+                        <h2 style="padding-top: 10px;">Carbonara</h2>
+                        <br>
+                        <h3>125 Baht</h3>
+                        <br>
+                        <button class="AddCartButton"> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+-->
