@@ -107,19 +107,18 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
                                         ?>>
 
                             <label> </label>
-                            <input name="type" type="radio" name="" value="gps location" checked>GPS Location<br><br>
+                            <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
 
-                            <input type="restaurant type" value=<?php
+                            <input name="type" type="restaurant type" value=<?php
                                         echo $data['Type'];
                                         ?>><br><br><br>
-
 
                         </div>
                     
                 </div>
 
                 <div class="center">
-                    <button type="submit" value="Submit" class="Submit">Submit</button><br><br>
+                    <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
                     <label>Terms and Agreement</label>
                 </div>
                 </form>
