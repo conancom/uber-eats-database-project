@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 
 <?php
-
 session_start();
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
-    echo $mysqli->connect_error;
+	echo $mysqli->connect_error;
 }
-
-
-
 ?>
-
 <html>
 
 <head>
-    <link rel="Stylesheet" href="Food-Tracking-Styling.css">
+    <link rel="Stylesheet" type="text/css" href="Food-Tracking-Styling.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="Tracking-Script.js"></script>
 
     <!--Bootstrap-->
     <meta charset="utf-8">
@@ -59,13 +55,13 @@ if ($mysqli->connect_errno) {
                 echo '<div class="DriverInformationContainer">';
                 echo '  <div class="row">';
                 echo '      <div class="row">';
-                echo '          <p>Name: '. $result['FName'] .' '.$result['LName'].'</p>';
+                echo '          <p>Name: ' . $result['FName'] . ' ' . $result['LName'] . '</p>';
                 echo '      </div>';
                 echo '      <div class="row">';
-                echo '          <p>Vehicle: '. $result['VehicleBrand'] .'</p>';
+                echo '          <p>Vehicle: ' . $result['VehicleBrand'] . '</p>';
                 echo '      </div>';
                 echo '      <div class="row">';
-                echo '          <p>Rating: '. $result['Rating'] .'</p>';
+                echo '          <p>Rating: ' . $result['Rating'] . '</p>';
                 echo '      </div>';
 
                 ?>
@@ -114,50 +110,10 @@ if ($mysqli->connect_errno) {
         <div id="map"></div>
 
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCurNekcoY8lBoPLMJNIkB1MfHTltAq4UQ&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7GLAny42CpzS5yeRs_QhEHRpWfwO91Ns&callback=initMap"></script>
         <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCurNekcoY8lBoPLMJNIkB1MfHTltAq4UQ&callback=initMap&v=weekly&channel=2" async></script>-->
     </div>
     </div>
-
-    <script>
-        function initMap() {
-            const directionsService = new google.maps.DirectionsService();
-            const directionsRenderer = new google.maps.DirectionsRenderer();
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 7,
-                center: {
-                    lat: 41.85,
-                    lng: -87.65
-                },
-            });
-
-            directionsRenderer.setMap(map);
-
-            const onChangeHandler = function() {
-                calculateAndDisplayRoute(directionsService, directionsRenderer);
-            };
-
-            document.getElementById("start").addEventListener("change", onChangeHandler);
-            document.getElementById("end").addEventListener("change", onChangeHandler);
-        }
-
-        function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-            directionsService
-                .route({
-                    origin: {
-                        query: document.getElementById("start").value,
-                    },
-                    destination: {
-                        query: document.getElementById("end").value,
-                    },
-                    travelMode: google.maps.TravelMode.DRIVING,
-                })
-                .then((response) => {
-                    directionsRenderer.setDirections(response);
-                })
-                .catch((e) => window.alert("Directions request failed due to " + status));
-        }
-    </script>
 </body>
 
 </html>
