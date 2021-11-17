@@ -19,3 +19,6 @@ SELECT *
                         AND `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
                         AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
                         AND `MenuItemInRestaurant`.`RestaurantID` = `Restaurant`.`RestaurantID`
+
+
+SELECT * FROM `foodordering`, `driver`, `orderitem` WHERE `foodordering`.`Status` = 'Picking up Food';"
