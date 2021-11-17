@@ -61,22 +61,21 @@ if (isset($_POST["submit-register"])) {
 				<h2>Welcome to Uber!</h2>
 
 				<div class="center">
-                    <input name="emailaddress" type="email" value="Email"><br><br>
-                    <input name="password" type="password" value="Password"><br><br>
-                    <input name="confirmpassword" type="confirm password" value="Confirm Password"><br><br>
-					<input name="location" type="location" value="Location"><br><br>
-					<input name="type" type="type" value="Type"><br><br>
-                    <input name="name" type="restaurant name" value="Restaurant Name"><br><br> 
-                    <input name="openingdays" type="opening days" value="Opening Days"><br><br>
-                    <input name="openingtimes" type="opening times" value="Opening Times"><br><br>
-                    <input name="phonenumber" type="phone number" value="Phone Number"><br><br>
+                    <input name="emailaddress" type="email" placeholder="Email"><br><br>
+                    <input name="password" type="password" placeholder="Password"><br><br>
+                    <input name="confirmpassword" type="confirm password" placeholder="Confirm Password"><br><br>
+					<input name="type" type="type" placeholder="Type"><br><br>
+                    <input name="name" type="restaurant name" placeholder="Restaurant Name"><br><br> 
+                    <input name="openingdays" type="opening days" placeholder="Opening Days"><br><br>
+                    <input name="openingtimes" type="opening times" placeholder="Opening Times"><br><br>
+                    <input name="phonenumber" type="phone number" placeholder="Phone Number"><br><br>
 
-                    <input type="main address" value="Main Address">
+    
 
                     <label> </label>
 				        <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
 
-                    <input type="restaurant type" value="Restaurant Type"><br><br><br>
+                    <input type="restaurant type" placeholder="Restaurant Type"><br><br><br>
                     
 		
 				</div>
