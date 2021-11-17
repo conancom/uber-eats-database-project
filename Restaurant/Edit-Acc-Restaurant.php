@@ -78,36 +78,36 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
                         <h2>Welcome to Uber!</h2>
 
                         <div class="center">
-                            <input type="email" value=<?php
+                            <input name="emailaddress" type="email" value=<?php
                                         echo $data['Email'];
                                         ?>><br><br>
-                            <input type="password" value=<?php
+                            <input name="password" type="password" value=<?php
                                         echo $data['Password'];
                                         ?>><br><br>
-                            <input type="confirm password" value=<?php
+                            <input name="confirmpassword" type="confirm password" value=<?php
                                         echo $data['Password'];
                                         ?>><br><br>
-                            <input type="restaurant name" value=<?php
+                            <input name="name" type="restaurant name" value=<?php
                                         echo $data['Name'];
                                         ?>><br><br>
-                            <input type="opening days" value=<?php
+                            <input name="openingdays" type="opening days" value=<?php
                                         echo $data['OpeningDays'];
                                         ?>><br><br>
-                            <input type="opening time" value=<?php
+                            <input name="openingtime" type="opening time" value=<?php
                                         echo $data['OpeningTime'];
                                         ?>>
-                            // <input type="closing time" value="Closing Time"><br><br>
+                            <!-- <input type="closing time" value="Closing Time"><br><br> -->
                             
-                            <input type="phone number" value=<?php
+                            <input name="phonenumber" type="phone number" value=<?php
                                         echo $data['PhoneNumber'];
                                         ?>><br><br>
 
-                            <input type="main address" value=<?php
+                            <input name="address" type="main address" value=<?php
                                         echo $data['Address'];
                                         ?>>
 
                             <label> </label>
-                            <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
+                            <input name="type" type="radio" name="" value="gps location" checked>GPS Location<br><br>
 
                             <input type="restaurant type" value=<?php
                                         echo $data['Type'];
