@@ -1,7 +1,10 @@
 <?php
 session_start();
+/*Leon's Database
 $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
@@ -54,6 +57,10 @@ if (isset($_POST["submit-register"])) {
 <head>
     <title>CSS326 Sample</title>
     <link rel="stylesheet" href="Register Page Driver.css">
+    <link rel="stylesheet" href="Edit-Acc-Client-Styling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 
