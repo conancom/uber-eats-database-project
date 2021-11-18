@@ -99,12 +99,6 @@ if (isset($_SESSION['id-restaurant'])) {
                         while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                             // Do stuff with $data
 
-
-
-
-
-
-
                             echo '<div class="grid-container">';
                             echo '<div class="grid-item1">';
                             $dt = DateTime::createFromFormat('Y', date("Y", strtotime($data['Arrival_TimeStamp'])));
@@ -119,10 +113,11 @@ if (isset($_SESSION['id-restaurant'])) {
                             echo '     Details: <br>';
 
                             $query2 = "SELECT *, COUNT(`MenuItemInRestaurant`.`MenuItemID`) AS 'amount'
-                FROM `ordereditem`,`foodordering`,`MenuItemInRestaurant`, `menuitem` 
-                WHERE `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
-                AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
-                AND `MenuItemInRestaurant`.`MenuItemID` = `menuitem`.`MenuItemID` GROUP BY `MenuItemInRestaurant`.`MenuItemID`";
+                            FROM `ordereditem`,`foodordering`,`MenuItemInRestaurant`, `menuitem` 
+                            WHERE `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
+                            AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
+                            AND `MenuItemInRestaurant`.`MenuItemID` = `menuitem`.`MenuItemID` 
+                            GROUP BY `MenuItemInRestaurant`.`MenuItemID`";
                             // print($query); 
                             $result2 = $mysqli->query($query2);
                             if (!$result2) {
@@ -134,8 +129,6 @@ if (isset($_SESSION['id-restaurant'])) {
                                     }
                                 }
                             }
-
-
 
                             echo '  </div>';
                             echo '  <div class="grid-item2">';
