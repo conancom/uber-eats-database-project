@@ -11,6 +11,11 @@ body {
     backdrop-filter: grayscale(0.35s);
 }
 
+.HeaderContainer {
+    top: 0;
+    position: relative;
+}
+
 .HeaderContainer,
 .FooterContainer {
     width: 100%;
@@ -90,6 +95,7 @@ body {
     color: white;
     background-color: #FFAD53;
     transition: background-color 0.2s;
+    width: 200px;
 }
 
 .SubmitButton:hover {

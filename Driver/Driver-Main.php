@@ -108,7 +108,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
                     echo $data['VehicleType'] . " " . $data['VehicleBrand'] . " " . $data['VehicleModel'] . " " . $data['VehicleColor'];
                     ?></label>
         </div><br>
-        <a class="editprofile" href="Edit-Acc-Driver.php" style="text-decoration: none; color: black;"> Edit Profile -></a>
+        <a class="editprofile" href="Edit-Acc-Driver.php" style="text-decoration: none; "> Edit Profile -></a>
     </div>
     
     </div>

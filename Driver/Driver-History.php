@@ -38,8 +38,8 @@ if (isset($_SESSION['id-driver'])) {
 
 <body>
 
-    <div class="header">
-        Header
+<div class="header" style="font-family: 'Kanit', sans-serif; z-index:999;">
+        Uber Eats
     </div>
 
 
@@ -210,9 +210,7 @@ $mysqli = new mysqli("localhost", "root", '', "uber");*/
     </div>
 
     <div class="div_footer">
-        Footer
-
-
+        <br>
     </div>
 </body>
 

@@ -1,7 +1,10 @@
 <?php
 
-session_start();
-$mysqli = new mysqli("127.0.0.1", "root", 'Wirz140328', "uber");
+/*Leon's Database
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
@@ -61,7 +64,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
     <section class="Header">
         <div class="row">
             <div class="HeaderContainer">
-                <h1>Header</h1>
+                <h1 style="font-size: 25px; font-weight: bold; letter-spacing: 7px;">Uber Eats</h1>
             </div>
         </div>
     </section>
@@ -136,21 +139,21 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
 
         <div class="row">
             <div class="SumbitButtonContainer">
-                <input type ="submit" name = 'register-vehicle-submit' class="SubmitButton" id="SubmitButton">
+                <input type ="submit" name = 'register-vehicle-submit' class="SubmitButton" id="SubmitButton" value="Submit">
             </div>
         </div>
         </form>
 
         <div class="row">
             <div class="TermsAndAgreementContainer">
-                <a href="#"><label class="TermsAndAgreement">Terms and Agreement</label></a>
+                <a href="#"><label class="TermsAndAgreement" style="font-weight: bold; letter-spacing: 5px; font-size: 17px;">Terms and Agreement</label></a>
             </div>
     </section>
 
     <section class="Footer">
         <div class="row">
             <div class="FooterContainer">
-                <h1>Footer</h1>
+                <h1></h1>
             </div>
         </div>
     </section>
