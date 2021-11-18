@@ -19,7 +19,7 @@ if (isset($_POST["submit-login"])) {
 		if (mysqli_num_rows($result) > 0) {
 			$data = $result->fetch_array();
 			$_SESSION['id-restaurant'] = $data['RestaurantID'];
-			header("Location: Restaurant-Main.html");
+			header("Location: Restaurant-Main.php");
 		}
 	}
 }

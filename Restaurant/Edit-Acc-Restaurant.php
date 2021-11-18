@@ -37,14 +37,14 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
     $address = $_POST['address'];
     $type = $_POST['type'];
 
-    $query = "UPDATE `restaurant` SET `Password` = '$password', `Email` = '$emailaddress', `Name` = '$name', `OpeningDays` = '$openingdays', `OpeningTime` = '$openingtime', `PhoneNumber` = '$phonenumber', `Address` = '$address', `Type` = '$type' WHERE `RestaurantID` = '$id'";
+    $query = "UPDATE `restaurant` SET `Password` = '$password', `Email` = '$emailaddress', `Name` = '$name', `Opening_Days` = '$openingdays', `Opening_Times` = '$openingtime', `PhoneNumber` = '$phonenumber', `Location` = '$address', `Type` = '$type' WHERE `RestaurantID` = '$id'";
     // print($query); 
     print $query;
     $insert = $mysqli->query($query);
     if (!$insert) {
         echo $mysqli->error;
     } else {
-        header("Location: Restaurant-Main.html");
+        header("Location: Restaurant-Main.php");
     }
 }
 ?>
@@ -68,7 +68,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
         </div>
 
         <div id="div_content" class="form">
-            <form action="user.php" method="post">
+            <form action="#" method="post">
                 <h1>Setting the World in Motion</h1>
                 <!--%%%%% Main block %%%%-->
                 <!--Form -->
@@ -91,10 +91,10 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
                                         echo $data['Name'];
                                         ?>><br><br>
                             <input name="openingdays" type="opening days" value=<?php
-                                        echo $data['OpeningDays'];
+                                        echo $data['Opening_Days'];
                                         ?>><br><br>
                             <input name="openingtime" type="opening time" value=<?php
-                                        echo $data['OpeningTime'];
+                                        echo $data['Opening_Times'];
                                         ?>>
                             <!-- <input type="closing time" value="Closing Time"><br><br> -->
                             
@@ -103,7 +103,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
                                         ?>><br><br>
 
                             <input name="address" type="main address" value=<?php
-                                        echo $data['Address'];
+                                        echo $data['Location'];
                                         ?>>
 
                             <label> </label>

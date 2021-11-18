@@ -1,3 +1,31 @@
+<?php
+session_start();
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+
+
+if ($mysqli->connect_errno) {
+	echo $mysqli->connect_error;
+}
+
+
+if (isset($_SESSION['id-restaurant'])) {
+    $restaurantid = $_SESSION['id-restaurant'];
+	
+	$query = "SELECT * FROM `restaurant` WHERE `RestaurantID` = '$restaurantid'";
+	// print($query); 
+	$result = $mysqli->query($query);
+	if (!$result) {
+		echo $mysqli->error;
+	} else {
+		if (mysqli_num_rows($result) > 0) {
+			$data = $result->fetch_array();
+		}
+	}
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -20,19 +48,19 @@
         </div>
         <div class="textgroup">
             <div class="headerbox">
-                <label> Chipotle California</label>
+                <label><?php echo $data['Name'] ?> </label>
             </div>
             <div class="headerbox">
-                <label> 51654897421354</label>
+                <label> <?php echo $data['RestaurantID'] ?> </label>
             </div>
             <br>
             <div class="bottombox">
-                <label> Opening days</label>
+                <label> <?php echo $data['Opening_Times'] ?></label>
             </div>
             <div class="bottombox">
-                <label> Opening times</label>
+                <label> <?php echo $data['Opening_Days'] ?></label>
             </div><br>
-            <a class="editprofile" href=""> Edit Profile -></a>
+            <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
         </div>
     </div>
 
