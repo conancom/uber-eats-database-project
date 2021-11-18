@@ -2,22 +2,13 @@ div#wrapper {
     color: white;
     min-width: 400px;
     padding-top: 0.00001em;
-    /*Set border to 1pixel solid line with black color*/
-    /*border: 1px solid black;*/
-    /*Set background color to #F2C063*/
     background-color: black;
-    /*Set margin to auto*/
     margin: auto;
-    /*Set width to 60%*/
     width: 100%;
-    /*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
-    /*border-top-left-radius: 10px;
-	border-top-right-radius: 10px;*/
 }
 
 body {
     font-family: sans-serif;
-    /*Set background color to #444444*/
     background-color: #444444;
 }
 
@@ -26,7 +17,6 @@ div#div_main {
 }
 
 div#div_header {
-    /*Set font size to 2em, font family to sans-serif, font weight to 700, and font variant to small-caps */
     text-decoration-color: white;
     background-color: black;
     margin: 4px;
@@ -34,20 +24,15 @@ div#div_header {
     font-family: sans-serif;
     font-weight: 700;
     padding: 0.4em;
-    /*Set bottom border to 1 pixel, solid line, with color #BF491F*/
-    /*color: #BF491F;*/
 }
 
 div#div_content {
-    /*Set background color to white*/
     background-color: rgb(228, 184, 91);
-    /*margin-left:25%;*/
     padding: 1em 0;
     min-height: 400px;
 }
 
 div#div_subcontent {
-    /*Set background color to white*/
     background-color: rgb(0, 0, 0);
     opacity: 0.8;
     margin: 2em;
@@ -69,13 +54,8 @@ div#div_footer {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 0.5em;
-    /*Set border to 1pixel solid line with black color*/
-    /*border: 1px solid black;*/
-    /*Set background color to #F2C063*/
     background-color: black;
-    /*Set margin to auto*/
     margin: auto;
-    /*Set width to 60%*/
     width: 100%;
 }
 
@@ -87,7 +67,6 @@ div#div_footer:before {
 .form input[type="Email"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -99,7 +78,6 @@ div#div_footer:before {
 .form input[type="Password"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -111,7 +89,6 @@ div#div_footer:before {
 .form input[type="Confirm Password"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -123,7 +100,6 @@ div#div_footer:before {
 .form input[type="First Name"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -135,7 +111,6 @@ div#div_footer:before {
 .form input[type="Last Name"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -151,7 +126,6 @@ div#div_footer:before {
 .form input[type="Occupation"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -163,7 +137,6 @@ div#div_footer:before {
 .form input[type="Phone Number"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -175,7 +148,6 @@ div#div_footer:before {
 .form input[type="Driver License ID"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -187,7 +159,6 @@ div#div_footer:before {
 .form input[type="Birth Date"] {
     padding-left: 0.00001em;
     padding-right: 0.00001em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -199,7 +170,6 @@ div#div_footer:before {
 .form input[type="Birth Month"] {
     padding-left: 0.00001em;
     padding-right: 0.000001em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -211,7 +181,6 @@ div#div_footer:before {
 .form input[type="Birth Year"] {
     padding-left: 0.00001em;
     padding-right: 0.00001em;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;
@@ -224,7 +193,6 @@ div#div_footer:before {
     color: white;
     background-color: orange;
     border: none;
-    /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
     border-top-left-radius: 10px;

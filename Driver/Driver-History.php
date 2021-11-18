@@ -1,10 +1,10 @@
 <?php
 session_start();
-/*Leon's Database*/
+/*Leon's Database
 $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-
-/*Junior's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");*/
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
@@ -60,26 +60,26 @@ if (isset($_SESSION['id-driver'])) {
     </div>
     <div class="textgroup">
         <div class="headerbox">
-            <label> <?php
+            <label style="padding: 20px;"> <?php
                     echo  $data['FName'] . " " . $data['LName'];
                     ?></label></label>
         </div>
         <div class="headerbox">
-            <label> <?php
+            <label style="padding: 20px;"> <?php
                     echo  $data['DriverID'];
                     ?></label>
         </div><br>
         <div class="licensebox">
-            <label> <?php
+            <label style="padding: 20px;"> <?php
                     echo  $data['LicensePlate'];
                     ?></label>
         </div>
         <div class="headerboxlong">
-            <label> <?php
+            <label style="padding: 20px;"> <?php
                     echo $data['VehicleType'] . " " . $data['VehicleBrand'] . " " . $data['VehicleModel'] . " " . $data['VehicleColor'];
                     ?></label>
         </div><br>
-        <a class="editprofile" href="Edit-Acc-Driver.php"> Edit Profile -></a>
+        <a class="editprofile" href="Edit-Acc-Driver.php"  style="text-decoration: none; color: black;"> Edit Profile -></a>
     </div>
     </div>
 
@@ -118,7 +118,7 @@ if (isset($_SESSION['id-driver'])) {
                                 echo   "       " . $data['startdate'];
                                 ?>
             </div>
-            <button class="previousordersonhistory"> Previous Trips </button>
+            <button class="previousordersonhistory" style="margin-left: 20px;"> Previous Trips </button>
 
         </div>
     </div>
@@ -190,8 +190,6 @@ $mysqli = new mysqli("localhost", "root", '', "uber");*/
                                     }
                                 }
                             }
-
-
 
                             echo '  </div>';
                             echo '  <div class="grid-item2">';

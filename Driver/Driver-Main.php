@@ -1,10 +1,10 @@
 <?php
 session_start();
-/*Leon's Database*/
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+/*Leon's Database
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
 
-/*Junior's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
@@ -24,7 +24,6 @@ if (isset($_SESSION['id-driver'])) {
         }
     }
 }
-
 
 if (isset($_SESSION['id-driver']) and isset($_POST['accept-order'])) {
     $driverid = $_SESSION['id-driver'];
@@ -68,49 +67,50 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
 
 <body>
 
-    <div class="header">
-        Header
+    <div class="header" style="font-family: 'Kanit', sans-serif; z-index:999;">
+        Uber Eats
     </div>
-
 
     <div class="header_details">
         <?php
-        echo   "<div class='profilepic' style=' width: 145px;
-        height: 145px;
+        echo   "<div class='profilepic' style=' 
+        width: 175px;
+        height: 175px;
         left: 126px;
         top: 198px;
         background: url(img/" . $data['DriverID'] . ".jpg);
         border-radius: 202px;
         background-size: cover;
-        /*margin-top: -45px;*/
-        margin-top: 1.5%;
+        margin-top: 1%;
         margin-left: 4%;
         align-items: center;';>";
         ?>
     </div>
+
     <div class="textgroup">
         <div class="headerbox">
-            <label> <?php
+            <label style="padding: 20px; font-size: 15px;"> <?php
                     echo  $data['FName'] . " " . $data['LName'];
                     ?></label>
         </div>
         <div class="headerbox">
-            <label> <?php
+            <label style="padding: 20px;"> <?php
                     echo  $data['DriverID'];
                     ?></label>
         </div><br>
         <div class="licensebox">
-            <label> <?php
+            <label style="padding: 20px;"> <?php
                     echo  $data['LicensePlate'];
                     ?></label>
         </div>
         <div class="headerboxlong">
-            <label> <?php
+            <label style="padding: 20px;"> <?php
                     echo $data['VehicleType'] . " " . $data['VehicleBrand'] . " " . $data['VehicleModel'] . " " . $data['VehicleColor'];
                     ?></label>
         </div><br>
-        <a class="editprofile" href="Edit-Acc-Driver.php"> Edit Profile -></a>
+        <a class="editprofile" href="Edit-Acc-Driver.php" style="text-decoration: none; color: black;"> Edit Profile -></a>
     </div>
+    
     </div>
     <?php
     if ($mysqli->connect_errno) {
@@ -146,11 +146,10 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
                                 echo   "       " . $data['startdate'];
                                 ?>
             </div>
-            <button class="previousorders" onclick="window.location.href='Driver-History.php'"> Previous Trips </button>
+            <button class="previousorders" onclick="window.location.href='Driver-History.php'" style="margin-left: 20px;"> Previous Trips </button>
 
         </div>
     </div>
-
 
     <div class="bigbuttoncontainer">
         <?php
@@ -185,6 +184,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
             }
         }
         ?>
+
         <?php
         if (isset($_SESSION['id-order'])) {
             $orderid = $_SESSION['id-order'];
@@ -218,14 +218,9 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
         }
         ?>
 
-
-
-
     </div>
     <div class="div_footer">
-        Footer
-
-
+        <br>
     </div>
 </body>
 
