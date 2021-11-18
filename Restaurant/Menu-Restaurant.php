@@ -98,7 +98,6 @@ if (isset($_SESSION['id-restaurant'])) {
                     $query = "SELECT *, `menuitem`.`MenuItemID` AS 'itemId'
                     FROM `restaurant`,`foodordering`,`foodpayment`,`menuiteminrestaurant`,`ordereditem`, `menuitem`
                     WHERE `restaurant`.`RestaurantID` = '$id'
-                    AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
                     AND `MenuItemInRestaurant`.`RestaurantID` = `Restaurant`.`RestaurantID`
                     AND `MenuItemInRestaurant`.`MenuItemID` = `menuitem`.`MenuItemID`
                     GROUP BY `menuitem`.`MenuItemID`;";

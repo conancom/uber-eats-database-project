@@ -1,3 +1,65 @@
+<?php
+session_start();
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+
+
+if ($mysqli->connect_errno) {
+    echo $mysqli->connect_error;
+}
+
+
+if (isset($_SESSION['id-restaurant'])) {
+    $restaurantid = $_SESSION['id-restaurant'];
+
+    $query = "SELECT * FROM `restaurant` WHERE `RestaurantID` = '$restaurantid'";
+    // print($query); 
+    $result = $mysqli->query($query);
+    if (!$result) {
+        echo $mysqli->error;
+    } else {
+        if (mysqli_num_rows($result) > 0) {
+            $data = $result->fetch_array();
+        }
+    }
+}
+
+
+if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
+    $restaurantid = $_SESSION['id-restaurant'];
+    $name = $_POST['name'];
+    $type = $_POST['type'];
+    $price = $_POST['price'];
+    $calories = $_POST['calories'];
+    $ingredient = $_POST['ingredients'];
+    $portion = $_POST['portion'];
+    $FoodDescription = $_POST['FoodDescription'];
+    $query = "INSERT 
+    INTO `menuitem` (`FoodName`, `FoodType`, `Price`, `Calories`, `Ingredient`, `AmountSold`, `Portion`, `FoodDescription`) 
+    VALUES ('$name', '$type', '$price', '$calories', '$ingredient', '$portion', '$portion', '$FoodDescription') ";
+    // print($query); 
+    $result = $mysqli->query($query);
+    if (!$result) {
+        echo $mysqli->error;
+    } else {
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'foodimg/' . mysqli_insert_id($mysqli) . '.jpg');
+        $insertedid =mysqli_insert_id($mysqli);
+        $query1 = "INSERT INTO `menuiteminrestaurant` (`MenuItemID`, `RestaurantID`, `LimitedTimeDate`, `Discount`) 
+        VALUES ('$insertedid', '$restaurantid', NULL, '0') ";
+        // print($query); 
+        $result1 = $mysqli->query($query1);
+        if (!$result1) {
+            echo $mysqli->error;
+        } else {
+            header("Location: Menu-Restaurant.php");
+
+        }
+    }
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,29 +82,33 @@
         </div>
         <div class="textgroup">
             <div class="headerbox">
-                <label> Chipotle California</label>
+                <label><?php echo $data['Name'] ?> </label>
             </div>
             <div class="headerbox">
-                <label> 51654897421354</label>
+                <label> <?php echo $data['RestaurantID'] ?> </label>
             </div>
             <br>
             <div class="bottombox">
-                <label> Opening days</label>
+                <label> <?php echo $data['Opening_Times'] ?></label>
             </div>
             <div class="bottombox">
-                <label> Opening times</label>
+                <label> <?php echo $data['Opening_Days'] ?></label>
             </div><br>
-            <a class="editprofile" href=""> Edit Profile -></a>
+            <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+        </div>
+    </div>
+
+    <div class="underheadbar">
+        <div class="buttoncontainer">
+            <button class="menulistonmenulist"> Menu List </button>\ &nbsp; &nbsp;
+            <! –– for Spacing inbetween buttons ––>
+                <button class="previousorders" onclick="location.href='Restaurant-History.php'"> Previous Orders </button>
         </div>
     </div>
 
     <div class="AddMenuFormContainer">
         <div class="div_content" class="form">
-            <form name="add-menuitem" action="" method="post">
-                <div class="text_wrapper" style="margin-top:25;">
-                    <label class="text_itemdi" style="padding-right: 35px;">Item ID</label>
-                    <input type="text" name="itemid" class="text_field" placeholder=" Item ID"><br>
-                </div>
+            <form name="add-menuitem" action="" method="post" enctype="multipart/form-data">>
 
                 <div class="text_wrapper">
                     <label class="text_name" style="padding-right: 47px"> Name </label>
@@ -69,10 +135,6 @@
                     <input type="text" name="ingredients" class="text_field" placeholder=" Ingredients"><br>
                 </div>
 
-                <div class="text_wrapper">
-                    <label class="text_amountsold"> Amount Sold </label>
-                    <input type="text" name="amountsold" class="text_field" placeholder=" Amount Sold"><br>
-                </div>
 
                 <div class="text_wrapper">
                     <label class="text_portion" style="padding-right: 37px"> Portion </label>
@@ -81,11 +143,17 @@
 
                 <div class="text_wrapper">
                     <label class="text_portion"> Description </label> <br>
-                    <textarea name="w3review" rows="4" cols="50" class="text_area" placeholder=" Description" style="margin-left: 155px;"></textarea>
+                    <textarea name="FoodDescription" rows="4" cols="50" class="text_area" placeholder=" Description" style="margin-left: 155px;"></textarea>
                 </div>
+                <br><br>
+
+                Select Image to upload:
+                <input type="file" name="my_file" />
+
+                <br><br>
 
                 <div class="button">
-                    <button type="submit" name="submit" value="Add" class="AddButton">Add</button>
+                    <input type="submit" name="submit-add" value="Add" class="AddButton"></button>
                 </div>
             </form>
 
@@ -97,11 +165,10 @@
     </div>
 
     <div class="edittext">
-        Edit
+
     </div>
     <div class="buttonbox">
-        <button class="AddItemButton"> Add Item </button>
-        <button class="DeleteItemButton"> Delete Item </button>
+
     </div>
     </div>
 
