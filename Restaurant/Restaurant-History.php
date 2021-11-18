@@ -38,9 +38,9 @@
 
     <div class="underheadbar">
         <div class="buttoncontainer">
-            <button class="previousorders"> Menu List </button>\ &nbsp; &nbsp;
+            <button class="previousorders" onclick="location.href='Menu-Restaurant.php'"> Menu List </button>\ &nbsp; &nbsp;
             <! –– for Spacing inbetween buttons ––>
-                <button class="previousordersonsame"> Previous Orders </button>
+                <button class="previousordersonsame" > Previous Orders </button>
         </div>
     </div>
 

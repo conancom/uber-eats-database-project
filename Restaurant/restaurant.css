@@ -406,3 +406,12 @@ td {
     background-color: var(--main-color-dark);
     width: 10%;
 }
+.greenbutton{
+    background-color: yellowgreen;
+    border-color: yellowgreen;
+    border-radius: 10px;
+    width: 120px;
+    cursor: pointer;
+    border-style: solid;
+    margin-top: 10px;
+}

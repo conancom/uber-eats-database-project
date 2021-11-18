@@ -40,7 +40,7 @@
         <div class="buttoncontainer">
             <button class="menulistonmenulist"> Menu List </button>\ &nbsp; &nbsp;
             <! –– for Spacing inbetween buttons ––>
-                <button class="previousorders"> Previous Orders </button>
+                <button class="previousorders" onclick="location.href='Restaurant-History.php'"> Previous Orders </button>
         </div>
     </div>
 
