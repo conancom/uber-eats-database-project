@@ -1,10 +1,10 @@
 <?php
 session_start();
-/*Leon's Database*/
+/*Leon's Database
 $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-
-/*Junior's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");*/
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 
 if ($mysqli->connect_errno) {
@@ -12,8 +12,6 @@ if ($mysqli->connect_errno) {
 }
 
 if (isset($_POST["submit-register"])) {
-
-
 
     $emailaddress = $_POST['emailaddress'];
     $password = $_POST['password'];
@@ -39,12 +37,12 @@ if (isset($_POST["submit-register"])) {
     //print $query;
 
     $insert = $mysqli->query($query);
-    
+
     if (!$insert) {
         echo $mysqli->error;
     } else {
-            move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/'.mysqli_insert_id($mysqli).'.jpg');
-            header("Location: Login-Page-Client.php");
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/' . mysqli_insert_id($mysqli) . '.jpg');
+        header("Location: Login-Page-Client.php");
     }
 }
 ?>
@@ -55,19 +53,22 @@ if (isset($_POST["submit-register"])) {
 <head>
     <title>CSS326 Sample</title>
     <link rel="stylesheet" href="Register Page Client.css">
-</head>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
 
 <body>
     <div id="wrapper">
         <div id="div_header">
-            Header
+            Uber Eats
         </div>
         <div id="div_subhead">
 
         </div>
 
-        <div id="div_content" ">
+        <div id="div_content" >
 
             <h1>Setting the World in Motion</h1>
             <!--%%%%% Main block %%%%-->
@@ -75,9 +76,10 @@ if (isset($_POST["submit-register"])) {
             <div id=" div_subcontent" class="form">
 
             <form name="form" method="post" enctype="multipart/form-data">
-
-                Select Image to upload:
-                <input type="file" name="my_file" />
+                <label style="color: rgba(255, 115, 50, 1); font-weight: bold;">
+                  Select Image to upload:  
+                </label> <br> <br>
+                <input type="file" name="my_file" style="position: relative; left: 2%;"/>
 
                 <h2>Welcome to Uber!</h2>
 
@@ -88,7 +90,7 @@ if (isset($_POST["submit-register"])) {
                     <input name="name" type="first name" value="First Name"><br><br>
                     <input name="surname" type="last name" value="Last name"><br><br>
 
-                    <label>Gender</label>
+                    <label style="color: rgba(255, 115, 50, 1);">Gender</label>
                     <input type="radio" name="gender" value="male" checked>Male
                     <input type="radio" name="gender" value="female">Female
                     <input type="radio" name="gender" value="others">Others<br><br>
@@ -105,12 +107,10 @@ if (isset($_POST["submit-register"])) {
                     <input name="year" type="birth year" value="Birth Year"><br><br>
 
                 </div>
-
-
         </div>
 
         <div class="center">
-            <input type="submit" value="Submit" name="submit-register" class="Submit"><br><br>
+            <input type="submit" value="Submit" name="submit-register" class="Submit" style="cursor: pointer;"><br><br>
             <label>Terms and Agreement</label>
         </div>
         </form>
@@ -120,7 +120,7 @@ if (isset($_POST["submit-register"])) {
     <!-- end div_main -->
 
     <div id="div_footer">
-        Footer
+        <br>
     </div>
 
     </div>

@@ -1,10 +1,10 @@
 <?php
 session_start();
-/*Leon's Database*/
+/*Leon's Database
 $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-
-/*Junior's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");*/
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
@@ -56,21 +56,22 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>CSS326 Sample</title>
     <link rel="stylesheet" href="Edit-Acc-Client-Styling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
     <div id="wrapper">
         <div id="div_header">
-            Header
+            Uber Eats
         </div>
         <div id="div_subhead">
 
@@ -142,8 +143,6 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
                                                             ?>><br><br>
 
                         </div>
-
-
                 </div>
 
                 <div class="center">
@@ -157,7 +156,7 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
     <!-- end div_main -->
 
     <div id="div_footer">
-        Footer
+        <br>
     </div>
 
     </div>

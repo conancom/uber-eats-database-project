@@ -1,220 +1,189 @@
+* {
+    overflow-x: hidden;
+    font-family: 'Kanit', sans-serif;
+}
+
 div#wrapper {
-	color: white;
-
-	min-width:400px;
-	
-	padding-top: 0.00001em;
-	/*Set border to 1pixel solid line with black color*/
-	/*border: 1px solid black;*/
-	
-	/*Set background color to #F2C063*/
-	background-color: black;
-	
-	/*Set margin to auto*/
-	margin: auto;
-	
-	/*Set width to 60%*/
-	width: 100%;
-	
-	/*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
-	/*border-top-left-radius: 10px;
-	border-top-right-radius: 10px;*/
-	
-}
-body {	
-	font-family:sans-serif;
-	
-	/*Set background color to #444444*/
-	background-color: #444444;
-	
+    color: white;
+    min-width: 400px;
+    padding-top: 0.00001em;
+    background-color: black;
+    margin: auto;
+    width: 100%;
 }
 
-div#div_main{
-	position:relative;	
+body {
+    font-family: sans-serif;
+    background-color: #444444;
 }
 
-div#div_header{
-	/*Set font size to 2em, font family to sans-serif, font weight to 700, and font variant to small-caps */
-	text-decoration-color: white;
-	background-color: black;
-	margin: 4px;
-	font-size: 2em;
-	font-family: sans-serif;
-	font-weight: 700;
-
-	padding:0.4em;
-	
-	/*Set bottom border to 1 pixel, solid line, with color #BF491F*/
-	/*color: #BF491F;*/
-	
+div#div_main {
+    position: relative;
 }
 
-
-
-#div_content{	
-	/*Set background color to white*/
-	background-color: rgb(228, 184, 91);
-	
-	/*margin-left:25%;*/ 
-	min-height: 400px;
-	padding: 5em;
+div#div_header {
+    text-decoration-color: white;
+    background-color: black;
+    margin: 4px;
+    font-size: 2em;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 0.4em;
 }
 
-div#div_subcontent{	
-	/*Set background color to white*/
-	background-color: rgba(0, 0, 0, 0.699);
-	align-items: center;
-	margin: auto;
-	border-radius: 10px;
-	width: fit-content;
+#div_content {
+    background-color: rgb(228, 184, 91);
+    min-height: 400px;
+    padding: 5em;
 }
 
-div#div_content{
-	background-image: url("Client Picture/lpc.png");
-	-webkit-backdrop-size: cover;
+div#div_subcontent {
+    background-color: rgba(0, 0, 0, 0.699);
+    align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+div#div_content {
+    background-image: url("Client Picture/lpc.png");
+    -webkit-backdrop-size: cover;
     background-size: cover;
     background-position: center center;
 }
 
-div#div_footer{
-	color: white;
-
-	font: large;
-	font: bolder;
-
-	font-size:xx-large;
-
-	min-width:400px;
-	
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	padding-left: 0.5em;
-	
-	/*Set border to 1pixel solid line with black color*/
-	/*border: 1px solid black;*/
-	
-	/*Set background color to #F2C063*/
-	background-color: black;
-	
-	/*Set margin to auto*/
-	margin: auto;
-	
-	/*Set width to 60%*/
-	width: 100%;
+div#div_footer {
+    color: white;
+    font: large;
+    font: bolder;
+    font-size: xx-large;
+    min-width: 400px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    background-color: black;
+    margin: auto;
+    width: 100%;
 }
 
-div#div_footer:before{
-
-	text-decoration: white;;
+div#div_footer:before {
+    text-decoration: white;
+    ;
 }
 
-.form{
-	padding: 10%;
+.form {
+    padding: 10%;
 }
 
-.form label{
+.form label {
     align-items: center;
 }
 
-.form input[type="Email"]{
-	padding-left: 4.5em;
-	padding-right: 4.5em;
-
-	/*Set width to 150 pixels to have a big submit button*/
-	text-align: center;
-	width: 150px;
-
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-.form input[type="Password"]{
-	align-content: center;
+.form input[type="Email"] {
     padding-left: 4.5em;
-	padding-right: 4.5em;
-
-	/*Set width to 150 pixels to have a big submit button*/
-	text-align: center;
-	width: 150px;
-
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.form input[type="Login"]{
-	/*Set width to 150 pixels to have a big submit button*/
-	text-align: center;
-	width: 150px;
-	border: none;
-
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-.form input[type="Register"]{
+.form input[type="Password"] {
+    align-content: center;
     padding-left: 4.5em;
-	padding-right: 4.5em;
-    
+    padding-right: 4.5em;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Login"] {
+    text-align: center;
+    width: 150px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Register"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
     color: black;
-	background-color: orange;
-	border: none;
-
-	/*Set width to 150 pixels to have a big submit button*/
-	text-align: center;
-	width: 150px;
-
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+    background-color: orange;
+    border: none;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.form input[type="checkbox"]{
-	display:block;
+.form input[type="checkbox"] {
+    display: block;
 }
 
-.form select{
-	padding: 4px 2px;
-	display:block;
-	margin: 2px 2px 10px 10px;
+.form select {
+    padding: 4px 2px;
+    display: block;
+    margin: 2px 2px 10px 10px;
 }
 
-.center{
-	text-align: center;
-	align-items: center;
-	justify-content: center;
+.center {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
-.center input{
-	justify-content: center;
-	align-items: center;
-	margin: 2%;
+.center input {
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 3%;
+    margin-top: 2%;
 }
 
-
-.center label:hover{
-	color: #d8781d;
+.LoginButton {
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    padding: 2px;
+    font-weight: bolder;
+    height: 30px;
+    width: 100px;
+    cursor: pointer;
+    transition: background-color 0.5s;
 }
 
-#button1{
-	border: none;
-	border-radius: 10px;
-	width: 20%;
-	padding: 2px;
-	font-weight: bolder;
+.RegisterButton {
+    border: none;
+    border-radius: 10px;
+    width: 20%;
+    padding: 2px;
+    font-weight: bolder;
+    background-color: rgba(255, 115, 21, 1);
+    height: 30px;
+    width: 150px;
+    cursor: pointer;
 }
 
-#button2{
-	border: none;
-	border-radius: 10px;
-	width: 20%;
-	padding: 2px;
-	font-weight: bolder;
-	background-color: orange;
+.LoginButton:hover {
+    background-color: rgba(255, 115, 21, 1);
+}
+
+.RegisterButton:hover {
+    background-color: rgb(231, 117, 40);
+}
+
+.EmailText,
+.PasswordText {
+    padding: 10px;
+    border: none;
 }

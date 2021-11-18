@@ -1,11 +1,10 @@
 <?php
 session_start();
-/*Leon's Database*/ 
+/*Leon's Database
 $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-
-/*Junior's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");*/ 
-
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
 	echo $mysqli->connect_error;
@@ -21,14 +20,13 @@ if (isset($_POST["submit-login"])) {
 		echo $mysqli->error;
 	} else {
 		if (mysqli_num_rows($result) > 0) {
-		$data = $result->fetch_array();
-		$_SESSION['id-client'] = $data['ClientID'];
-		header("Location: Client-Main.php");
+			$data = $result->fetch_array();
+			$_SESSION['id-client'] = $data['ClientID'];
+			header("Location: Client-Main.php");
 		}
 	}
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -36,13 +34,21 @@ if (isset($_POST["submit-login"])) {
 <head>
 	<title>CSS326 Sample</title>
 	<link rel="stylesheet" href="Login Page Client.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 
 <body>
+
+	<style>
+		
+	</style>
+
 	<div id="wrapper">
 		<div id="div_header">
-			Header
+			Uber Eats
 		</div>
 		<div id="div_subhead">
 
@@ -56,28 +62,24 @@ if (isset($_POST["submit-login"])) {
 				<form name="client-login" action="#" method="post">
 
 					<div class="center">
-						<input name="emailaddress" type="email" placeholder="Email"><br>
-						<input name="password" type="password" placeholder="Password">
-
+						<input name="emailaddress" type="email" placeholder="Email" class="EmailText" style="border-radius: 20px;"><br>
+						<input name="password" type="password" placeholder="Password" class="PasswordText" style="border-radius: 20px;">
 					</div>
-
-
 
 					<div class="center"><br><br><br>
-						<input id="button1" type="submit" value="Login" name="submit-login"><br><br>
+						<input id="button1" type="submit" value="Login" name="submit-login" class="LoginButton"><br><br>
 						<label id="text">Don't have an account?</label><br><br>
-						<button id="button2" type="submit" value="submit">Register</button>
+						<button id="button2" type="submit" value="submit" class="RegisterButton">Register</button>
 					</div>
+
 				</form>
 			</div>
-
-
 
 		</div> <!-- end div_content -->
 	</div> <!-- end div_main -->
 
 	<div id="div_footer">
-		Footer
+		<br>
 	</div>
 
 	</div>
