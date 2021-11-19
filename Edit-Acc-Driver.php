@@ -88,7 +88,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
             <!--Form -->
             <div id="div_subcontent" class="form">
 
-                <form name="update" action="#" method="post" enctype="multipart/form-data">>
+                <form name="update" action="#" method="post" enctype="multipart/form-data">
                     <h2>Welcome to Uber!</h2>
 
                     <div class="center">

@@ -80,7 +80,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
                 <h1>Setting the World in Motion</h1>
                 <!--%%%%% Main block %%%%-->
                 <!--Form -->
-                <div id="div_subcontent" class="form" enctype="multipart/form-data">>
+                <div id="div_subcontent" class="form" enctype="multipart/form-data">
 
                   
                         <h2>Welcome to Uber!</h2>

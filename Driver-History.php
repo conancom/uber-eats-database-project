@@ -1,9 +1,7 @@
 <?php
 session_start();
-/*Leon's Database
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-*/
-/*Junior's Database*/
+
+
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
@@ -130,11 +128,6 @@ if (isset($_SESSION['id-driver'])) {
         <div class="history_container">
             <?php
 
-            /*Leon's Database*/
-            $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-
-            /*Junior's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");*/
 
             if ($mysqli->connect_errno) {
                 echo $mysqli->connect_error;

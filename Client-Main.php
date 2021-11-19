@@ -85,7 +85,7 @@ if (isset($_SESSION['id-client'])) {
     </div>
     <div class="underheadbar">
         <div class="buttoncontainer">
-            <button class="previousorders" type="submit" onclick="window.location.href='Client-History.php';" style=""> Previous Orders</button> 
+            <button class="previousorders" type="submit" onclick="window.location.href='Client-History.php';"> Previous Orders</button> 
         </div>
     </div>
 
@@ -99,7 +99,7 @@ if (isset($_SESSION['id-client'])) {
     
     if(isset($_POST['orderfood'])){
         /*header("Location: D:\Online Lecture\Year 3\CSS326 Database Systems Programming\Project Uber\Uber Source Code\css326\Uber EatsFood-Main.php");Junior*/
-        header("Location: C:\Users\Leon\Documents\GitHub\css326\Uber Eats\Food-Main.php");/*Leon*/
+        header("Location: Food-Main.php");/*Leon*/
         exit;
     }
 
