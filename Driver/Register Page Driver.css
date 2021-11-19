@@ -19,6 +19,7 @@ body {
     font-family: sans-serif;
     /*Set background color to #444444*/
     background-color: #444444;
+    overflow-x: hidden;
 }
 
 div#div_main {
@@ -39,6 +40,7 @@ div#div_header {
 }
 
 div#div_content {
+    color: #adaaaa;
     /*Set background color to white*/
     background-color: rgb(228, 184, 91);
     /*margin-left:25%;*/
@@ -47,16 +49,21 @@ div#div_content {
 }
 
 div#div_subcontent {
-    /*Set background color to white*/
-    background-color: rgb(0, 0, 0);
-    opacity: 0.8;
-    margin: 2em;
-    padding: 2em;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.699);
+    align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    width: 420px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    padding-left: 3em;
+    padding-right: 8em;
 }
 
 div#div_content {
-    background-image: url("Driver Picture/rpd.jpg");
-    background-size: contain;
+    background-image: url("Driver Picture/rpd.jpeg");
+    background-size: cover;
     text-align: center;
 }
 
@@ -69,13 +76,8 @@ div#div_footer {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 0.5em;
-    /*Set border to 1pixel solid line with black color*/
-    /*border: 1px solid black;*/
-    /*Set background color to #F2C063*/
     background-color: black;
-    /*Set margin to auto*/
     margin: auto;
-    /*Set width to 60%*/
     width: 100%;
 }
 
@@ -144,6 +146,18 @@ div#div_footer:before {
     border-bottom-right-radius: 10px;
 }
 
+.form input[type="Address"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    /*Set width to 150 pixels to have a big submit button*/
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 .form label {
     font-size: large;
 }
@@ -185,8 +199,6 @@ div#div_footer:before {
 }
 
 .form input[type="Birth Date"] {
-    padding-left: 0.00001em;
-    padding-right: 0.00001em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -197,8 +209,6 @@ div#div_footer:before {
 }
 
 .form input[type="Birth Month"] {
-    padding-left: 0.00001em;
-    padding-right: 0.000001em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -209,8 +219,6 @@ div#div_footer:before {
 }
 
 .form input[type="Birth Year"] {
-    padding-left: 0.00001em;
-    padding-right: 0.00001em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -244,14 +252,27 @@ div#div_footer:before {
 }
 
 .center {
+    color:rgba(180, 175, 175, 0.808);
     text-align: center;
+    width: 500px;
 }
 
-.center label {
+.center1 {
+    text-align: center;
+    align-items: center;
+}
+
+.center2 {
+    color:rgba(180, 175, 175, 0.808);
+    text-align: center;
+    width: 500px;
+}
+
+.center1 label {
     transition: color 0.3s;
 }
 
-.center label:hover {
+.center1 label:hover {
     color: #df9408;
 }
 
@@ -260,7 +281,7 @@ div#div_footer:before {
     padding: 5px;
     border: none;
     border-radius: 15px;
-    width: 250px;
+    width: 350px;
     transition: background-color 0.2s;
 }
 

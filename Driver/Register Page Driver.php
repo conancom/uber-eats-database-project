@@ -67,7 +67,7 @@ if (isset($_POST["submit-register"])) {
 <body>
     <div id="wrapper">
         <div id="div_header">
-            Header
+            Uber Eats
         </div>
         <div id="div_subhead">
 
@@ -79,12 +79,14 @@ if (isset($_POST["submit-register"])) {
                 <!--Form -->
                 <form name="form" method="post" enctype="multipart/form-data">
 
-                    <form name="submit-register" action="#" method="post">
-
-                        Select Image to upload:
+                Select Image to upload:
                         <input type="file" name="my_file" id="fileToUpload">
 
-                        <h2>Welcome to Uber!</h2>
+                <div id="div_subcontent" class="form">
+
+                    <form name="submit-register" action="#" method="post">
+                        <h2 style="width: 500px;"> Welcome to Uber</h2>
+
 
                         <div class="center">
                             <input name="emailaddress" type="email" value="Email"><br><br>
@@ -94,34 +96,36 @@ if (isset($_POST["submit-register"])) {
                             <input name="surname" type="last name" value="Last name"><br><br>
                             <input name="address" type="address" value="Address"><br><br>
 
-                            <label>Gender</label>
+                            <label> Gender</label>
                             <input type="radio" name="gender" value="male" checked>Male
                             <input type="radio" name="gender" value="female">Female
                             <input type="radio" name="gender" value="others">Others<br><br>
 
                             <input name="phonenumber" type="phone number" value="Phone Number"><br><br>
-                            <input name="driverlicenseid" type="driver license id" value="Driver License ID"><br><br>
+                            <input name="driverlicenseid" type="driver license id" value="Driver License ID"><br><br>      
+                        </div>
+
+                        <div class="center2">
                             <input name="day" type="birth date" value="Birth Date">
                             <input name="month" type="birth month" value="Birth Month">
                             <input name="year" type="birth year" value="Birth Year"><br><br><br>
-
                         </div>
                     
                 </div>
 
-                <div class="center">
+                <div class="center1">
                     <input type="submit" value="Submit" name="submit-register" class="Submit"><br><br>
                     <label>Terms and Agreement</label>
                 </div>
                 </form>
-
+            
         </div>
         <!-- end div_content -->
     </div>
     <!-- end div_main -->
 
     <div id="div_footer">
-        Footer
+        <br>
     </div>
 
     </div>
