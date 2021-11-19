@@ -153,7 +153,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
             </div>
 
             <div class="center">
-                <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
+                <input name="update-edit" type="submit" value="Update" class="Submit" style="cursor: pointer; font-size: 15px; font-weight: bold; width: 200px;"><br><br>
                 <label>Terms and Agreement</label>
             </div>
             </form>
@@ -164,7 +164,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
     <!-- end div_main -->
 
     <div id="div_footer">
-        Footer
+        <br>
     </div>
 
     </div>

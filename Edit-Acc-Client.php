@@ -74,6 +74,8 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
 
 
 <body>
+
+</style>
     <div id="wrapper">
         <div id="div_header">
             Uber Eats
@@ -89,7 +91,7 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
             <!--Form -->
             <div id="div_subcontent" class="form">
 
-                <form action="#" method="post" enctype="multipart/form-data">>
+                <form action="#" method="post" enctype="multipart/form-data">
                     <h2>Edit your information</h2>
 
                     <div class="center">
@@ -152,7 +154,7 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
             </div>
 
             <div class="center">
-                <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
+                <input name="update-edit" type="submit" value="Update" class="Submit" style="cursor: pointer; font-size: 15px; font-weight: bold; width: 200px;"><br><br>
                 <label>Terms and Agreement</label>
             </div>
             </form>
