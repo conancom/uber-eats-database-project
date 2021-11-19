@@ -52,6 +52,7 @@ div#div_subcontent {
     padding-right: 8em;
 }
 
+
 /* div#div_subcontent {
     background-color: rgba(0, 0, 0, 0.842);
     margin: 2em;
@@ -241,11 +242,8 @@ div#div_footer:before {
     transition: color 0.3s;
 }
 
-.center label:hover {
-    color: #df9408;
-}
-
-.Submit {
+.center .Submit {
+    margin-top: 25px;
     background-color: #FFAD53;
     padding: 5px;
     border: none;
@@ -254,6 +252,6 @@ div#div_footer:before {
     transition: background-color 0.2s;
 }
 
-.Submit:hover {
+.center .Submit:hover {
     background-color: #ff8400;
 }
