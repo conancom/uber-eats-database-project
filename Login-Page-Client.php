@@ -31,20 +31,17 @@ if (isset($_POST["submit-login"])) {
 <!DOCTYPE html>
 <html>
 
+
 <head>
 	<title>CSS326 Sample</title>
 	<link rel="stylesheet" href="Login Page Client.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<!-- <link rel="stylesheet" href="Edit-Acc-Client-Styling.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
-
 <body>
-
-	<style>
-		
-	</style>
 
 	<div id="wrapper">
 		<div id="div_header">
@@ -57,13 +54,12 @@ if (isset($_POST["submit-login"])) {
 		<div id="div_content" class="form">
 			<!--%%%%% Main block %%%%-->
 			<!--Form -->
+			
 			<div id="div_subcontent" class="form">
-
-				<form name="client-login" action="#" method="post">
-
+				<form name="submit-login" action="#" method="post"><br><br><br><br><br>
 					<div class="center">
-						<input name="emailaddress" type="email" placeholder="Email" class="EmailText" style="border-radius: 20px;"><br>
-						<input name="password" type="password" placeholder="Password" class="PasswordText" style="border-radius: 20px;">
+						<input name="emailaddress" type="email" placeholder="Email" class="EmailText"><br><br>
+						<input name="password" type="password" placeholder="Password" class="PasswordText"><br><br><br><br><br>
 					</div>
 
 					<div class="center"><br><br><br>
@@ -71,7 +67,6 @@ if (isset($_POST["submit-login"])) {
 						<label id="text">Don't have an account?</label><br><br>
 						<button id="button2" type="submit" value="submit" class="RegisterButton">Register</button>
 					</div>
-
 				</form>
 			</div>
 

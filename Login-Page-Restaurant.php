@@ -42,7 +42,7 @@ if (isset($_POST["submit-login"])) {
 
 	<div id="wrapper">
 		<div id="div_header">
-			Header
+			Uber Eats
 		</div>
 		<div id="div_subhead">
 
