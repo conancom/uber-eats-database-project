@@ -2,7 +2,11 @@
 
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+/*Leon's Database
+$mysqli = new mysqli("localhost", "root", '', "uber");
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
 	echo $mysqli->connect_error;

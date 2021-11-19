@@ -8,6 +8,7 @@ body {
     overflow-x: hidden;
     background-size: cover;
     background-repeat: no-repeat;
+    font-size: 15px;
 }
 
 .LogoContainer {

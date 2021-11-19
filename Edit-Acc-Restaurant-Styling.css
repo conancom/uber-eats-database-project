@@ -230,11 +230,7 @@ div#div_footer:before {
     transition: color 0.3s;
 }
 
-.center label:hover {
-    color: #df9408;
-}
-
-.Submit {
+.center .Submit {
     background-color: #FFAD53;
     padding: 5px;
     border: none;
@@ -243,6 +239,6 @@ div#div_footer:before {
     transition: background-color 0.2s;
 }
 
-.Submit:hover {
+.center .Submit:hover {
     background-color: #ff8400;
 }

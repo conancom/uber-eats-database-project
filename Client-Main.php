@@ -85,31 +85,17 @@ if (isset($_SESSION['id-client'])) {
     </div>
     <div class="underheadbar">
         <div class="buttoncontainer">
-            <button class="previousorders" type="submit" onclick="window.location.href='Client-History.php';"> Previous Orders</button> 
+            <button class="previousorders" onclick="window.location.href='Client-History.php'"> Previous Orders</button> 
         </div>
     </div>
 
-    <form>
+    
         <div class="bigbuttoncontainer">
-            <button class="orderfood" type="submit" href="css326\Uber Eats\Food-Main.php"> Order Food</button>
+            <button class="orderfood" onclick="window.location.href='Food-Main.php'"> Order Food</button>
         </div>
-    </form>
     
-    <?php 
     
-    if(isset($_POST['orderfood'])){
-        /*header("Location: D:\Online Lecture\Year 3\CSS326 Database Systems Programming\Project Uber\Uber Source Code\css326\Uber EatsFood-Main.php");Junior*/
-        header("Location: Food-Main.php");/*Leon*/
-        exit;
-    }
-
-    if(isset($_POST['prevorder'])){
-        /*header("Location: D:\Online Lecture\Year 3\CSS326 Database Systems Programming\Project Uber\Uber Source Code\css326\Uber EatsFood-Main.php");Junior*/
-        header("Location: Client-History.php");/*Leon*/
-        exit;
-    }
-
-    ?>
+   
 
     <div class="div_footer">
         <br>
