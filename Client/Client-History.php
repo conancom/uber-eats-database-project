@@ -38,8 +38,8 @@ if (isset($_SESSION['id-client'])) {
 
 <body>
 
-    <div class="header">
-        Header
+<div class="header" style="font-family: 'Kanit', sans-serif; z-index:999;">
+        Uber Eats
     </div>
 
 
@@ -60,32 +60,32 @@ if (isset($_SESSION['id-client'])) {
     </div>
     <div class="textgroup">
         <div class="headerbox">
-            <label>
+            <label style="padding: 20px;">
                 <?php
                 echo  $data['FName'] . " " . $data['LName'];
                 ?>
             </label>
         </div>
         <div class="headerbox">
-            <label>
+            <label style="padding: 20px;">
                 <?php
                 echo  $data['ClientID'];
                 ?>
             </label>
         </div><br>
-        <div class="headerboxlong">
-            <label>
+        <div class="headerboxlong" style="left: -150px; position: relative;">
+            <label style="padding: 20px; ">
                 <?php
                 echo  $data['Address'];
                 ?>
             </label>
         </div><br>
-        <a class="editprofile" href="Edit-Acc-Client.php"> Edit Profile -></a>
+        <a class="editprofile" href="Edit-Acc-Client.php" style="text-decoration: none; "> Edit Profile -></a>
     </div>
     </div>
     <div class="underheadbar">
         <div class="buttoncontainer">
-            <button class="previousordersgrey"> Previous Orders</button>
+            <button class="previousordersgrey" style="cursor:default;"> Previous Orders</button>
         </div>
     </div>
     <div class="bigbuttoncontainer">
@@ -158,8 +158,8 @@ if (isset($_SESSION['id-client'])) {
             </table>
         </div>
         <div class="bottombuttoncontainer">
-            <button class="backicon" type="submit"><img src="Client Picture\backicon.png"></button>
-            <button class="darkbutton"> Look for a Ride </button>
+            <button class="backicon" type="submit"><a href="Client-Main.php"><img src="Client Picture\backicon.png"></a></button>
+            <!--<button class="darkbutton"> Look for a Ride </button>-->
 
         </div>
     </div>
@@ -168,9 +168,7 @@ if (isset($_SESSION['id-client'])) {
 
 
     <div class="div_footer">
-        Footer
-
-
+        <br>
     </div>
 </body>
 

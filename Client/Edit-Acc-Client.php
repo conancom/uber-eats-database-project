@@ -71,6 +71,7 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
 <head>
     <title>CSS326 Sample</title>
     <link rel="stylesheet" href="Edit-Acc-Client-Styling.css">
+    <link rel="stylesheet" href="client.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">

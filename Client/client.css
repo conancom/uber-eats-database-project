@@ -3,10 +3,13 @@
     --main-color-cream: rgba(255, 216, 172, 1);
     --main-color-white: rgba(255, 255, 255, 1);
     --main-color-orange: rgba(255, 115, 21, 1);
-  }
+}
 
-.profilepic{
+body {
+    overflow-x: hidden;
+}
 
+.profilepic {
     width: 145px;
     height: 145px;
     left: 126px;
@@ -14,14 +17,13 @@
     background: url(Client\ Picture/test-profile.jpg);
     border-radius: 202px;
     background-size: contain;
-    /*margin-top: -45px;*/
     margin-top: 1%;
     margin-left: 4%;
     align-items: center;
-    
 }
-.header{
-    padding-top: 10px;
+
+.header {
+    padding-top: 20px;
     padding-bottom: 20px;
     background-color: var(--main-color-dark);
     width: 100%;
@@ -37,11 +39,14 @@
     margin-left: -8px;
     color: var(--main-color-white);
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     padding-left: 25px;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 7px;
 }
-.header_details{
+
+.header_details {
     display: block;
     margin-top: 55px;
     background-color: var(--main-color-cream);
@@ -53,38 +58,48 @@
     overflow: hidden;
     padding-right: 20px;
     margin-right: -10px;
-    
-
 }
-.headerbox{
-    float:left;
+
+.headerbox {
+    float: left;
     margin-left: 200px;
     background-color: white;
     border-radius: 202px;
 }
-.headerboxlong{
+
+.headerboxlong {
     display: inline;
     float: left;
     margin-top: 25px;
     margin-left: 345px;
     background-color: white;
     border-radius: 202px;
-    
 }
-.textgroup{
+
+.textgroup {
     display: block;
     margin-left: 300px;
     margin-top: -120px;
-    
 }
-.editprofile{
+
+.editprofile {
     float: left;
     margin-top: 50px;
     padding: 1px 0;
-    top: 0px ;
-    margin-left: -230px;
+    top: 0px;
+    margin-left: -265px;
+    transition: color 0.5s, background-color 0.5s;
+    color: black;
 }
-.underheadbar{
+
+.editprofile:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.underheadbar {
     background-color: var(--main-color-dark);
     padding-left: 10px;
     margin-left: -10px;
@@ -96,11 +111,13 @@
     margin-right: -12px;
     overflow: hidden;
 }
-.buttoncontainer{
+
+.buttoncontainer {
     align-items: center;
     text-align: center;
 }
-.previousorders{
+
+.previousorders {
     background-color: var(--main-color-white);
     margin: 0;
     border-radius: 5px;
@@ -109,8 +126,16 @@
     width: 200px;
     height: 45;
     cursor: pointer;
+    transition: background-color 0.5s, border-color 0.5s;
+    font-weight: bold;
 }
-.tablecontainer{
+
+.previousorders:hover {
+    background-color: #FFAD53;
+    border-color: #FFAD53;
+}
+
+.tablecontainer {
     display: block;
     background: rgba(255, 216, 172, 0.59);
     width: 70%;
@@ -121,16 +146,17 @@
     color: black;
     text-align: center;
 }
-.tablehistory{
+
+.tablehistory {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 150px; /*Change here to increase size*/
-    /*border-spacing: 30px;*/
+    margin-bottom: 150px;
     border-spacing: 0;
-    border-collapse:separate;
+    border-collapse: separate;
     width: 100%;
 }
-.bottombuttoncontainer{
+
+.bottombuttoncontainer {
     display: flex;
     position: absolute;
     bottom: 0;
@@ -139,7 +165,8 @@
     width: 100%;
     margin-left: 60px;
 }
-.darkbutton{
+
+.darkbutton {
     display: inline;
     background-color: var(--main-color-dark);
     margin: 0;
@@ -155,6 +182,7 @@
     padding-right: 60px;
     text-align: center;
 }
+
 th {
     border-bottom: 1px solid var(--main-color-orange);
     margin-bottom: 10px;
@@ -166,7 +194,8 @@ td {
     text-align: center;
     padding-top: 25px;
 }
-.backicon{
+
+.backicon {
     display: inline;
     background-color: transparent;
     background-repeat: no-repeat;
@@ -176,7 +205,8 @@ td {
     outline: none;
     margin-right: 20px;
 }
-.previousordersgrey{
+
+.previousordersgrey {
     background-color: grey;
     margin: 0;
     border-radius: 5px;
@@ -187,7 +217,8 @@ td {
     height: 45;
     cursor: pointer;
 }
-.bigbuttoncontainer{
+
+.bigbuttoncontainer {
     background-image: url(Client\ Picture/backgroundmain.png);
     padding: 230px 0;
     padding-bottom: 550px;
@@ -202,7 +233,8 @@ td {
     align-items: center;
     position: relative;
 }
-.orderfood{
+
+.orderfood {
     background-color: var(--main-color-dark);
     margin: 0;
     border-radius: 5px;
@@ -216,9 +248,16 @@ td {
     padding-left: 60px;
     padding-right: 60px;
     text-align: center;
+    transition: background-color 0.5s, border-color 0.5s;
+    font-weight: bold;
 }
 
-.div_footer{
+.orderfood:hover {
+    background-color: #FFAD53;
+    border-color: #FFAD53;
+}
+
+.div_footer {
     background-color: var(--main-color-dark);
     padding-left: 10px;
     margin-left: -10px;
@@ -233,7 +272,7 @@ td {
     padding-bottom: 10px;
     color: var(--main-color-white);
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     padding-left: 25px;
     font-size: 20px;
 }
