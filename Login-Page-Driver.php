@@ -50,7 +50,7 @@ if (isset($_POST["submit-login"])) {
 
 		</div>
 
-		<div id="div_content" class="form">
+		<div id="div_content1" class="form">
 			<!--%%%%% Main block %%%%-->
 			<!--Form -->
 			

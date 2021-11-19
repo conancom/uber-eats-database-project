@@ -1,3 +1,8 @@
+* {
+    overflow-x: hidden;
+    font-family: 'Kanit', sans-serif;
+}
+
 div#wrapper {
     color: white;
     min-width: 400px;
@@ -10,7 +15,6 @@ div#wrapper {
 body {
     font-family: sans-serif;
     background-color: #444444;
-    overflow-x: hidden;
 }
 
 div#div_main {
@@ -28,24 +32,26 @@ div#div_header {
 }
 
 #div_content {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(228, 184, 91);
     min-height: 400px;
     padding: 5em;
 }
 
 div#div_subcontent {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.699);
     align-items: center;
     margin: auto;
     border-radius: 10px;
-    width: 200px;
-    padding-top: 1px;
-    padding-bottom: 50px;
-    padding-left: 5em;
-    padding-right: 5em;
+    width: fit-content;
 }
 
-div#div_content {
+div#div_content1 {
     background-image: url("Driver Picture/lpd.png");
     -webkit-backdrop-size: cover;
     background-size: cover;
@@ -145,7 +151,9 @@ div#div_footer:before {
 .center input {
     justify-content: center;
     align-items: center;
-    margin: 2%;
+    border-radius: 20px;
+    margin-bottom: 3%;
+    margin-top: 2%;
 }
 
 .LoginButton {
@@ -184,6 +192,4 @@ div#div_footer:before {
 .PasswordText {
     padding: 10px;
     border: none;
-    position: relative;
-    left: -15%;
 }
