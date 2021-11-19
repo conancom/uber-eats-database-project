@@ -41,24 +41,36 @@ if (isset($_SESSION['id-restaurant'])) {
     </div>
 
     <div class="header_details">
-        <div class=" profilepic">
+        <?php
+        echo   "<div class='profilepic' style=' 
+        width: 175px;
+        height: 175px;
+        left: 126px;
+        top: 198px;
+        background: url(profileimg/" . $restaurantid . ".jpg);
+        border-radius: 202px;
+        background-size: cover;
+        margin-top: 1%;
+        margin-left: 4%;
+        align-items: center;';>";
+        ?>
+    </div>
+    <div class="textgroup">
+        <div class="headerbox">
+            <label><?php echo $data['Name'] ?> </label>
         </div>
-        <div class="textgroup">
-            <div class="headerbox">
-                <label><?php echo $data['Name'] ?> </label>
-            </div>
-            <div class="headerbox">
-                <label> <?php echo $data['RestaurantID'] ?> </label>
-            </div>
-            <br>
-            <div class="bottombox">
-                <label> <?php echo $data['Opening_Times'] ?></label>
-            </div>
-            <div class="bottombox">
-                <label> <?php echo $data['Opening_Days'] ?></label>
-            </div><br>
-            <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+        <div class="headerbox">
+            <label> <?php echo $data['RestaurantID'] ?> </label>
         </div>
+        <br>
+        <div class="bottombox">
+            <label> <?php echo $data['Opening_Times'] ?></label>
+        </div>
+        <div class="bottombox">
+            <label> <?php echo $data['Opening_Days'] ?></label>
+        </div><br>
+        <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+    </div>
     </div>
 
 
@@ -91,7 +103,7 @@ if (isset($_SESSION['id-restaurant'])) {
 
                 <?php
 
-    
+
                 if (isset($_SESSION['id-restaurant'])) {
                     $id  = $_SESSION['id-restaurant'];
 
@@ -107,13 +119,13 @@ if (isset($_SESSION['id-restaurant'])) {
                         echo $mysqli->error;
                     } else {
                         if (mysqli_num_rows($result) > 0) {
-                         
+
                             $x = 1;
                             while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                                 // Do stuff with $data
                                 echo "<tr>";
                                 echo '<td>' . $data['itemId'] . '</td>';
-                                echo '<td>' . $data['FoodName'] . '</td>';
+                                echo '<td> <a href="Menu-Restaurant-Edit.php?id=' . $data['itemId'] . '">' . $data['FoodName'] . '</td>';
                                 echo '<td>' . $data['Type'] . '</td>';
                                 echo '<td>' . $data['Price'] . '</td>';
                                 echo '<td>' . $data['Calories'] . ' </td>';
@@ -128,7 +140,7 @@ if (isset($_SESSION['id-restaurant'])) {
                     }
                 }
                 ?>
-               
+
             </table>
 
         </div>

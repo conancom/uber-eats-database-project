@@ -78,7 +78,19 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
 
 
     <div class="header_details">
-        <div class=" profilepic">
+    <?php
+        echo   "<div class='profilepic' style=' 
+        width: 175px;
+        height: 175px;
+        left: 126px;
+        top: 198px;
+        background: url(profileimg/" . $restaurantid . ".jpg);
+        border-radius: 202px;
+        background-size: cover;
+        margin-top: 1%;
+        margin-left: 4%;
+        align-items: center;';>";
+        ?>
         </div>
         <div class="textgroup">
             <div class="headerbox">

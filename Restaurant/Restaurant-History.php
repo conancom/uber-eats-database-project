@@ -41,24 +41,36 @@ if (isset($_SESSION['id-restaurant'])) {
 
 
     <div class="header_details">
-        <div class=" profilepic">
+        <?php
+        echo   "<div class='profilepic' style=' 
+        width: 175px;
+        height: 175px;
+        left: 126px;
+        top: 198px;
+        background: url(profileimg/" . $restaurantid . ".jpg);
+        border-radius: 202px;
+        background-size: cover;
+        margin-top: 1%;
+        margin-left: 4%;
+        align-items: center;';>";
+        ?>
+    </div>
+    <div class="textgroup">
+        <div class="headerbox">
+            <label><?php echo $data['Name'] ?> </label>
         </div>
-        <div class="textgroup">
-            <div class="headerbox">
-                <label><?php echo $data['Name'] ?> </label>
-            </div>
-            <div class="headerbox">
-                <label> <?php echo $data['RestaurantID'] ?> </label>
-            </div>
-            <br>
-            <div class="bottombox">
-                <label> <?php echo $data['Opening_Times'] ?></label>
-            </div>
-            <div class="bottombox">
-                <label> <?php echo $data['Opening_Days'] ?></label>
-            </div><br>
-            <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+        <div class="headerbox">
+            <label> <?php echo $data['RestaurantID'] ?> </label>
         </div>
+        <br>
+        <div class="bottombox">
+            <label> <?php echo $data['Opening_Times'] ?></label>
+        </div>
+        <div class="bottombox">
+            <label> <?php echo $data['Opening_Days'] ?></label>
+        </div><br>
+        <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+    </div>
     </div>
 
 

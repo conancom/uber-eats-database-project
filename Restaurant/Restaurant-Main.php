@@ -59,24 +59,36 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['complete-order'])) {
 
 
     <div class="header_details">
-        <div class=" profilepic">
+        <?php
+        echo   "<div class='profilepic' style=' 
+        width: 175px;
+        height: 175px;
+        left: 126px;
+        top: 198px;
+        background: url(profileimg/" . $restaurantid . ".jpg);
+        border-radius: 202px;
+        background-size: cover;
+        margin-top: 1%;
+        margin-left: 4%;
+        align-items: center;';>";
+        ?>
+    </div>
+    <div class="textgroup">
+        <div class="headerbox">
+            <label><?php echo $data['Name'] ?> </label>
         </div>
-        <div class="textgroup">
-            <div class="headerbox">
-                <label><?php echo $data['Name'] ?> </label>
-            </div>
-            <div class="headerbox">
-                <label> <?php echo $data['RestaurantID'] ?> </label>
-            </div>
-            <br>
-            <div class="bottombox">
-                <label> <?php echo $data['Opening_Times'] ?></label>
-            </div>
-            <div class="bottombox">
-                <label> <?php echo $data['Opening_Days'] ?></label>
-            </div><br>
-            <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+        <div class="headerbox">
+            <label> <?php echo $data['RestaurantID'] ?> </label>
         </div>
+        <br>
+        <div class="bottombox">
+            <label> <?php echo $data['Opening_Times'] ?></label>
+        </div>
+        <div class="bottombox">
+            <label> <?php echo $data['Opening_Days'] ?></label>
+        </div><br>
+        <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+    </div>
     </div>
 
     <div class="underheadbar">
@@ -113,7 +125,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['complete-order'])) {
                     while ($data = $result->fetch_array(MYSQLI_ASSOC)) {
                         echo ' <div class="ordercontainer">';
                         echo '<div class="orderidbox">';
-                        echo 'Order ID: '.$data['orderid'];
+                        echo 'Order ID: ' . $data['orderid'];
                         echo '</div>';
                         echo '<table class="ordertable">';
                         echo ' <tr>';
@@ -136,16 +148,16 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['complete-order'])) {
                         if (!$result1) {
                             echo $mysqli->error;
                         } else {
-                            if (mysqli_num_rows($result1) > 0){
+                            if (mysqli_num_rows($result1) > 0) {
                                 $x = 1;
                                 while ($data1 = $result1->fetch_array(MYSQLI_ASSOC)) {
                                     echo ' <tr>';
-                                    echo '<td> '.$x.' </td>';
-                                    echo ' <td>' .$data1['FoodName'] .'</td>';
-                                    echo '<td>' .$data1['amount'] .'</td>';
-                                    echo '<td>' .$data1['SpecialRequest'] .'</td>';
+                                    echo '<td> ' . $x . ' </td>';
+                                    echo ' <td>' . $data1['FoodName'] . '</td>';
+                                    echo '<td>' . $data1['amount'] . '</td>';
+                                    echo '<td>' . $data1['SpecialRequest'] . '</td>';
                                     echo '</tr>';
-                                    $x ++;
+                                    $x++;
                                 }
                             }
                         }
@@ -153,10 +165,10 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['complete-order'])) {
 
                         echo '</table>';
                         echo '<div class="totalpricebox">';
-                        echo 'Total Price: '.$data['RestaurantCommission'];
+                        echo 'Total Price: ' . $data['RestaurantCommission'];
                         echo '</div>';
                         echo '<div class="statusbox">';
-                        echo '   Status: '.$data['Status'];
+                        echo '   Status: ' . $data['Status'];
                         echo ' </div>';
 
                         echo '<form name="submit-pickup" action="#" method="post">';
@@ -164,8 +176,8 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['complete-order'])) {
                         /*echo '<button class="redbutton"> Reject</button><br>';*/
                         echo '<input name="complete-order" type="submit" class="greenbutton" value="Picked Up" ></button>';
                         echo '</form>';
-                        
-                        
+
+
                         echo ' </div>';
                         echo ' <br><br><br><br><br><br><br><br><br><br>';
                     }
