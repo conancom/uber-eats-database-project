@@ -51,6 +51,15 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
     if (!$insert) {
         echo $mysqli->error;
     } else {
+
+
+
+        if (file_exists('img/' . $clientid . '.jpg')) {
+            unlink('img/' . $clientid . '.jpg');
+        }
+
+
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/' . $clientid . '.jpg');
         header("Location: Client-Main.php");
     }
 }
@@ -78,77 +87,78 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
         </div>
 
         <div id="div_content" class="form">
-           
-                <h1>Setting the World in Motion</h1>
-                <!--%%%%% Main block %%%%-->
-                <!--Form -->
-                <div id="div_subcontent" class="form">
 
-                    <form action="#" method="post">
-                        <h2>Edit your information</h2>
+            <h1>Setting the World in Motion</h1>
+            <!--%%%%% Main block %%%%-->
+            <!--Form -->
+            <div id="div_subcontent" class="form">
 
-                        <div class="center">
-                            <input name="emailaddress" type="email" value=<?php
-                                                        echo $data['Email'];
-                                                        ?>><br><br>
-                            <input name="password" type="password" value=<?php
-                                                            echo $data['Password'];
-                                                            ?>><br><br>
-                            <input name ="confirmpassword" type="confirm password" value=<?php
-                                                                    echo $data['Password'];
+                <form action="#" method="post">
+                    <h2>Edit your information</h2>
+
+                    <div class="center">
+                        <input name="emailaddress" type="email" value=<?php
+                                                                        echo $data['Email'];
+                                                                        ?>><br><br>
+                        <input name="password" type="password" value=<?php
+                                                                        echo $data['Password'];
+                                                                        ?>><br><br>
+                        <input name="confirmpassword" type="confirm password" value=<?php
+                                                                                    echo $data['Password'];
+                                                                                    ?>><br><br>
+                        <input name='name' type="first name" value=<?php
+                                                                    echo $data['FName'];
                                                                     ?>><br><br>
-                            <input name='name' type="first name" value=<?php
-                                                            echo $data['FName'];
-                                                            ?>><br><br>
-                            <input name="surname" type="last name" value=<?php
-                                                            echo $data['LName'];
-                                                            ?>><br><br>
+                        <input name="surname" type="last name" value=<?php
+                                                                        echo $data['LName'];
+                                                                        ?>><br><br>
 
-                            <label>Gender</label>
-                            <input type="radio" name="gender" value="male" <?php
-                                                                            if ($data['Gender'] == "male")
-                                                                        echo  'checked';
-                                                                            ?>>Male
-                            <input type="radio" name="gender" value="female" <?php
-                                                                                if ($data['Gender'] == "female")
-                                                                                    echo  'checked';
-                                                                                ?>>Female
-                            <input type="radio" name="gender" value="others" <?php
-                                                                                if ($data['Gender'] == "others")
-                                                                                    echo  'checked';
-                                                                                ?>>Others<br><br>
+                        <label>Gender</label>
+                        <input type="radio" name="gender" value="male" <?php
+                                                                        if ($data['Gender'] == "male")
+                                                                            echo  'checked';
+                                                                        ?>>Male
+                        <input type="radio" name="gender" value="female" <?php
+                                                                            if ($data['Gender'] == "female")
+                                                                                echo  'checked';
+                                                                            ?>>Female
+                        <input type="radio" name="gender" value="others" <?php
+                                                                            if ($data['Gender'] == "others")
+                                                                                echo  'checked';
+                                                                            ?>>Others<br><br>
 
-                            <input name="occupation" type="occupation" value=<?php
-                                                            echo $data['Occupation'];
-                                                            ?>><br><br>
-                            <input name="phonenumber" type="phone number" value=<?php
-                                                                echo $data['PhoneNumber'];
-                                                                ?>><br><br>
-                            <input name="address" type="main address" value=<?php
-                                                                echo $data['Address'];
-                                                                ?>>
+                        <input name="occupation" type="occupation" value=<?php
+                                                                            echo $data['Occupation'];
+                                                                            ?>><br><br>
+                        <input name="phonenumber" type="phone number" value=<?php
+                                                                            echo $data['PhoneNumber'];
+                                                                            ?>><br><br>
+                        <input name="address" type="main address" value=<?php
+                                                                        echo $data['Address'];
+                                                                        ?>>
 
-                            <label> </label>
-                            <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
+                        <label> </label>
+                        <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
 
-                            <input name="day" type="birth date" value=<?php
-                                                            echo date("d", strtotime($data['DateOfBirth']));
-                                                            ?>>
-                            <input name="month" type="birth month" value=<?php
-                                                            echo date("m", strtotime($data['DateOfBirth']));
-                                                            ?>>
-                            <input name="year" type="birth year" value=<?php
-                                                            $dt = DateTime::createFromFormat('y', date('Y', strtotime($data['DateOfBirth'])));
-                                                            echo $dt->format('y');
-                                                            ?>><br><br>
+                        <input name="day" type="birth date" value=<?php
+                                                                    echo date("d", strtotime($data['DateOfBirth']));
+                                                                    ?>>
+                        <input name="month" type="birth month" value=<?php
+                                                                        echo date("m", strtotime($data['DateOfBirth']));
+                                                                        ?>>
+                        <input name="year" type="birth year" value=<?php
+                                                                    $dt = DateTime::createFromFormat('y', date('Y', strtotime($data['DateOfBirth'])));
+                                                                    echo $dt->format('y');
+                                                                    ?>><br><br>
+                        Select Image to upload:
+                        <input type="file" name="my_file" />
+                    </div>
+            </div>
 
-                        </div>
-                </div>
-
-                <div class="center">
-                    <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
-                    <label>Terms and Agreement</label>
-                </div>
+            <div class="center">
+                <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
+                <label>Terms and Agreement</label>
+            </div>
             </form>
         </div>
         <!-- end div_content -->

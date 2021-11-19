@@ -21,7 +21,6 @@ if (isset($_SESSION['id-restaurant'])) {
         if (mysqli_num_rows($result) > 0) {
             $data = $result->fetch_array();
             $_SESSION['id-restaurant'] =  $id;
-            
         }
     }
 }
@@ -44,6 +43,15 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
     if (!$insert) {
         echo $mysqli->error;
     } else {
+
+        if (file_exists('profileimg/' . $id . '.jpg')) {
+            unlink('profileimg/' . $id . '.jpg');
+        }
+
+
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'profileimg/' . $id . '.jpg');
+
+
         header("Location: Restaurant-Main.php");
     }
 }
@@ -79,49 +87,52 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
 
                         <div class="center">
                             <input name="emailaddress" type="email" value=<?php
-                                        echo $data['Email'];
-                                        ?>><br><br>
+                                                                            echo $data['Email'];
+                                                                            ?>><br><br>
                             <input name="password" type="password" value=<?php
-                                        echo $data['Password'];
-                                        ?>><br><br>
+                                                                            echo $data['Password'];
+                                                                            ?>><br><br>
                             <input name="confirmpassword" type="confirm password" value=<?php
-                                        echo $data['Password'];
-                                        ?>><br><br>
+                                                                                        echo $data['Password'];
+                                                                                        ?>><br><br>
                             <input name="name" type="restaurant name" value=<?php
-                                        echo $data['Name'];
-                                        ?>><br><br>
+                                                                            echo $data['Name'];
+                                                                            ?>><br><br>
                             <input name="openingdays" type="opening days" value=<?php
-                                        echo $data['Opening_Days'];
-                                        ?>><br><br>
+                                                                                echo $data['Opening_Days'];
+                                                                                ?>><br><br>
                             <input name="openingtime" type="opening time" value=<?php
-                                        echo $data['Opening_Times'];
-                                        ?>>
+                                                                                echo $data['Opening_Times'];
+                                                                                ?>>
                             <!-- <input type="closing time" value="Closing Time"><br><br> -->
-                            
+
                             <input name="phonenumber" type="phone number" value=<?php
-                                        echo $data['PhoneNumber'];
-                                        ?>><br><br>
+                                                                                echo $data['PhoneNumber'];
+                                                                                ?>><br><br>
 
                             <input name="address" type="main address" value=<?php
-                                        echo $data['Location'];
-                                        ?>>
+                                                                            echo $data['Location'];
+                                                                            ?>>
 
                             <label> </label>
                             <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
 
                             <input name="type" type="restaurant type" value=<?php
-                                        echo $data['Type'];
-                                        ?>><br><br><br>
+                                                                            echo $data['Type'];
+                                                                            ?>><br><br><br>
+
+                            Select Image to upload:
+                            <input type="file" name="my_file" />
 
                         </div>
-                    
+
                 </div>
 
                 <div class="center">
                     <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
                     <label>Terms and Agreement</label>
                 </div>
-                </form>
+            </form>
 
         </div>
         <!-- end div_content -->
