@@ -1,9 +1,6 @@
 <?php
 session_start();
-/*Leon's Database
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-*/
-/*Junior's Database*/
+
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
@@ -53,7 +50,6 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
     } else {
 
 
-
         if (file_exists('clientimg/' . $clientid . '.jpg')) {
             unlink('clientimg/' . $clientid . '.jpg');
         }
@@ -93,7 +89,7 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
             <!--Form -->
             <div id="div_subcontent" class="form">
 
-                <form action="#" method="post">
+                <form action="#" method="post" enctype="multipart/form-data">>
                     <h2>Edit your information</h2>
 
                     <div class="center">
@@ -147,8 +143,8 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
                                                                         echo date("m", strtotime($data['DateOfBirth']));
                                                                         ?>>
                         <input name="year" type="birth year" value=<?php
-                                                                    $dt = DateTime::createFromFormat('y', date('Y', strtotime($data['DateOfBirth'])));
-                                                                    echo $dt->format('y');
+                                                                    $dt = DateTime::createFromFormat('Y', date('Y', strtotime($data['DateOfBirth'])));
+                                                                    echo $dt->format('Y');
                                                                     ?>><br><br>
                         Select Image to upload:
                         <input type="file" name="my_file" />

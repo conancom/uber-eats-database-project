@@ -133,7 +133,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
 
     <div class="AddMenuFormContainer">
         <div class="div_content" class="form">
-            <form name="add-menuitem" action="" method="post" enctype="multipart/form-data">>
+            <form name="add-menuitem" action="" method="post" enctype="multipart/form-data">
 
                 <div class="text_wrapper">
                     <label class="text_name" style="padding-right: 47px"> Name </label>
