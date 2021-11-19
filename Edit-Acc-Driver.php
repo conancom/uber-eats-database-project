@@ -9,10 +9,10 @@ $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
-if (isset($_SESSION['id-client'])) {
-    $clientid = $_SESSION['id-client'];
+if (isset($_SESSION['id-driver'])) {
+    $id = $_SESSION['id-driver'];
 
-    $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
+    $query = "SELECT `driver`.*, `vehicle`.* FROM `driver`, `vehicle` WHERE `driver`.`DriverID` = '$id' AND `driver`.`DriverID` = `vehicle`.`DriverID`";
     // print($query); 
     $result = $mysqli->query($query);
     if (!$result) {
@@ -20,21 +20,21 @@ if (isset($_SESSION['id-client'])) {
     } else {
         if (mysqli_num_rows($result) > 0) {
             $data = $result->fetch_array();
-            $_SESSION['id-client'] =  $clientid;
+            $_SESSION['id-driver'] =  $id;
         }
     }
 }
-if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
-    $clientid = $_SESSION['id-client'];
+if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
+    $id = $_SESSION['id-driver'];
     $emailaddress = $_POST['emailaddress'];
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirmpassword'];
     $gender = $_POST['gender'];
     $name =  $_POST['name'];
     $surname = $_POST['surname'];
-    $occupation = $_POST['occupation'];
     $phonenumber = $_POST['phonenumber'];
     $address = $_POST['address'];
+    $driverlicense = $_POST['driverlicenseid'];
     $day = $_POST['day'];
     $month = $_POST['month'];
     $year = $_POST['year'];
@@ -44,23 +44,21 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
         $dateofbirth = "$year-$month-$day";
     }
 
-    $query = "UPDATE `client` SET `Password` = '$password', `Email` = '$emailaddress', `Gender` = '$gender', `DateOfBirth`= '$dateofbirth', `FName` = '$name', `LName` = '$surname', `Address` = '$address',`Occupation` = '$occupation',`PhoneNumber` = '$phonenumber' WHERE `ClientID` = '$clientid'";
+    $query = "UPDATE `driver` SET `Password` = '$password', `Email` = '$emailaddress', `Gender` = '$gender', `DateOfBirth`= '$dateofbirth', `FName` = '$name', `LName` = '$surname', `DriverLicenseID` = '$driverlicense',`PhoneNumber` = '$phonenumber',`Address` = '$address' WHERE `DriverID` = '$id'";
     // print($query); 
     print $query;
     $insert = $mysqli->query($query);
     if (!$insert) {
         echo $mysqli->error;
     } else {
+        header("Location: Driver-Main.php");
 
-
-
-        if (file_exists('img/' . $clientid . '.jpg')) {
-            unlink('img/' . $clientid . '.jpg');
+        if (file_exists('driverimg/' . $id . '.jpg')) {
+            unlink('driverimg/' . $id . '.jpg');
         }
 
 
-        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/' . $clientid . '.jpg');
-        header("Location: Client-Main.php");
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'driverimg/' . $id . '.jpg');
     }
 }
 ?>
@@ -70,18 +68,14 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
 
 <head>
     <title>CSS326 Sample</title>
-    <link rel="stylesheet" href="Edit-Acc-Client-Styling.css">
-    <link rel="stylesheet" href="client.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Edit-Acc-Driver-Styling.css">
 </head>
 
 
 <body>
     <div id="wrapper">
         <div id="div_header">
-            Uber Eats
+            Header
         </div>
         <div id="div_subhead">
 
@@ -94,8 +88,8 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
             <!--Form -->
             <div id="div_subcontent" class="form">
 
-                <form action="#" method="post">
-                    <h2>Edit your information</h2>
+                <form name="update" action="#" method="post" enctype="multipart/form-data">>
+                    <h2>Welcome to Uber!</h2>
 
                     <div class="center">
                         <input name="emailaddress" type="email" value=<?php
@@ -128,19 +122,17 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
                                                                                 echo  'checked';
                                                                             ?>>Others<br><br>
 
-                        <input name="occupation" type="occupation" value=<?php
-                                                                            echo $data['Occupation'];
-                                                                            ?>><br><br>
                         <input name="phonenumber" type="phone number" value=<?php
                                                                             echo $data['PhoneNumber'];
                                                                             ?>><br><br>
-                        <input name="address" type="main address" value=<?php
-                                                                        echo $data['Address'];
-                                                                        ?>>
 
-                        <label> </label>
-                        <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
+                        <input name="address" type="address" value=<?php
+                                                                    echo $data['Address'];
+                                                                    ?>><br><br>
 
+                        <input name="driverlicenseid" type="driverlicenseid" value=<?php
+                                                                                    echo $data['DriverLicenseID'];
+                                                                                    ?>><br><br>
                         <input name="day" type="birth date" value=<?php
                                                                     echo date("d", strtotime($data['DateOfBirth']));
                                                                     ?>>
@@ -148,12 +140,16 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
                                                                         echo date("m", strtotime($data['DateOfBirth']));
                                                                         ?>>
                         <input name="year" type="birth year" value=<?php
-                                                                    $dt = DateTime::createFromFormat('y', date('Y', strtotime($data['DateOfBirth'])));
-                                                                    echo $dt->format('y');
-                                                                    ?>><br><br>
+                                                                    $dt = DateTime::createFromFormat('Y', date('Y', strtotime($data['DateOfBirth'])));
+                                                                    echo $dt->format('Y');
+                                                                    ?>><br><br><br>
+
+
                         Select Image to upload:
                         <input type="file" name="my_file" />
+
                     </div>
+
             </div>
 
             <div class="center">
@@ -161,13 +157,14 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
                 <label>Terms and Agreement</label>
             </div>
             </form>
+
         </div>
         <!-- end div_content -->
     </div>
     <!-- end div_main -->
 
     <div id="div_footer">
-        <br>
+        Footer
     </div>
 
     </div>

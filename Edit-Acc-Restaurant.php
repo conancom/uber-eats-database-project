@@ -1,7 +1,7 @@
 <?php
 session_start();
 /*Leon's Database*/
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 /*Junior's Database
 $mysqli = new mysqli("localhost", "root", '', "uber");*/
@@ -44,12 +44,12 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
         echo $mysqli->error;
     } else {
 
-        if (file_exists('profileimg/' . $id . '.jpg')) {
-            unlink('profileimg/' . $id . '.jpg');
+        if (file_exists('restaurantimg/' . $id . '.jpg')) {
+            unlink('restaurantimg/' . $id . '.jpg');
         }
 
 
-        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'profileimg/' . $id . '.jpg');
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'restaurantimg/' . $id . '.jpg');
 
 
         header("Location: Restaurant-Main.php");
@@ -80,9 +80,9 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
                 <h1>Setting the World in Motion</h1>
                 <!--%%%%% Main block %%%%-->
                 <!--Form -->
-                <div id="div_subcontent" class="form">
+                <div id="div_subcontent" class="form" enctype="multipart/form-data">>
 
-                    <form action="user.php" method="post">
+                  
                         <h2>Welcome to Uber!</h2>
 
                         <div class="center">

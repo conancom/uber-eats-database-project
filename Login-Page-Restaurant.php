@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 
 if ($mysqli->connect_errno) {

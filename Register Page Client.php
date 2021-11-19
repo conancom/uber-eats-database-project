@@ -41,7 +41,7 @@ if (isset($_POST["submit-register"])) {
     if (!$insert) {
         echo $mysqli->error;
     } else {
-        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/' . mysqli_insert_id($mysqli) . '.jpg');
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'clientimg/' . mysqli_insert_id($mysqli) . '.jpg');
         header("Location: Login-Page-Client.php");
     }
 }
