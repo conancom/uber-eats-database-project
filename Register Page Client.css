@@ -40,11 +40,24 @@ div#div_content {
 }
 
 div#div_subcontent {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.699);
+    align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    width: 420px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    padding-left: 3em;
+    padding-right: 8em;
+}
+
+/* div#div_subcontent {
     background-color: rgba(0, 0, 0, 0.842);
     margin: 2em;
     padding: 2%;
     border-radius: 5px;
-}
+} */
 
 div#div_content {
     background-image: url("Client Picture/rpc.png");

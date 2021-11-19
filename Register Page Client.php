@@ -76,7 +76,7 @@ if (isset($_POST["submit-register"])) {
             <div id=" div_subcontent" class="form">
 
             <form name="form" method="post" enctype="multipart/form-data">
-                <label style="color: rgba(255, 115, 50, 1); font-weight: bold;">
+                <label style="color: white; font-weight: bold;">
                   Select Image to upload:  
                 </label> <br> <br>
                 <input type="file" name="my_file" style="position: relative; left: 2%;"/>
@@ -90,7 +90,7 @@ if (isset($_POST["submit-register"])) {
                     <input name="name" type="first name" value="First Name"><br><br>
                     <input name="surname" type="last name" value="Last name"><br><br>
 
-                    <label style="color: rgba(255, 115, 50, 1);">Gender</label>
+                    <label style="color: white;">Gender</label>
                     <input type="radio" name="gender" value="male" checked>Male
                     <input type="radio" name="gender" value="female">Female
                     <input type="radio" name="gender" value="others">Others<br><br>
@@ -107,7 +107,7 @@ if (isset($_POST["submit-register"])) {
                     <input name="year" type="birth year" value="Birth Year"><br><br>
 
                 </div>
-        </div>
+            </div>
 
         <div class="center">
             <input type="submit" value="Submit" name="submit-register" class="Submit" style="cursor: pointer;"><br><br>

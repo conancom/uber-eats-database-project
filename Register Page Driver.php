@@ -57,7 +57,6 @@ if (isset($_POST["submit-register"])) {
 <head>
     <title>CSS326 Sample</title>
     <link rel="stylesheet" href="Register Page Driver.css">
-    <link rel="stylesheet" href="Edit-Acc-Client-Styling.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -96,16 +95,14 @@ if (isset($_POST["submit-register"])) {
                             <input name="surname" type="last name" value="Last name"><br><br>
                             <input name="address" type="address" value="Address"><br><br>
 
-                            <label> Gender</label>
+                            <label style="color: white;">Gender</label>
                             <input type="radio" name="gender" value="male" checked>Male
                             <input type="radio" name="gender" value="female">Female
                             <input type="radio" name="gender" value="others">Others<br><br>
 
                             <input name="phonenumber" type="phone number" value="Phone Number"><br><br>
                             <input name="driverlicenseid" type="driver license id" value="Driver License ID"><br><br>      
-                        </div>
 
-                        <div class="center2">
                             <input name="day" type="birth date" value="Birth Date">
                             <input name="month" type="birth month" value="Birth Month">
                             <input name="year" type="birth year" value="Birth Year"><br><br><br>
@@ -113,9 +110,11 @@ if (isset($_POST["submit-register"])) {
                     
                 </div>
 
-                <div class="center1">
-                    <input type="submit" value="Submit" name="submit-register" class="Submit"><br><br>
-                    <label>Terms and Agreement</label>
+                <div id="div_subcontent" style="background-color: transparent;">
+                    <div class="center">
+                        <input type="submit" value="Submit" name="submit-register" class="Submit" style="cursor: pointer;"><br><br>
+                        <label>Terms and Agreement</label>
+                    </div>
                 </div>
                 </form>
             

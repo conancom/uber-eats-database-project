@@ -17,8 +17,9 @@ if (isset($_POST["submit-register"])) {
 	$emailaddress = $_POST['emailaddress'];
     $password = $_POST['password'];
     $confirmpassword = $_POST['confirmpassword'];
+	$address = $_POST['address'];
 
-    $query = "INSERT INTO `restaurant`(`Name`, `Location`, `PhoneNumber`, `Type`, `Opening_Times`, `Opening_Days`, `Email`,`Password`,`Rating`) VALUES ('$name', '$location', '$phonenumber', '$type', '$openingtimes', '$openingdays', '$emailaddress', '$password','0')";
+    $query = "INSERT INTO `restaurant`(`Name`, `Location`, `PhoneNumber`, `Type`, `Opening_Times`, `Opening_Days`, `Email`,`Password`,`Address`,`Rating`) VALUES ('$name', '$location', '$phonenumber', '$type', '$openingtimes', '$openingdays', '$emailaddress', '$password', '$address','0')";
     print $query;
     $insert = $mysqli->query($query);
     if (!$insert) {
@@ -41,57 +42,57 @@ if (isset($_POST["submit-register"])) {
 <body>
 <div id="wrapper"> 
 	<div id="div_header">
-		Header
+		Uber Eats
 	</div>
 	<div id="div_subhead">
 	
 	</div>
 
-		<div id="div_content" class="form">
-            <h1>Setting the World in Motion</h1>
-			<!--%%%%% Main block %%%%-->
-			<!--Form -->
-			<div id="div_subcontent" class="form">
+	<div id="div_content" class="form">
+                <h1>Setting the World in Motion</h1>
+                <!--%%%%% Main block %%%%-->
+                <!--Form -->
+                <form name="form" method="post" enctype="multipart/form-data">
 
-            <form name="form" method="post" enctype="multipart/form-data">
+                Select Image to upload:
+                        <input type="file" name="my_file" id="fileToUpload">
 
-				Select Image to upload:
-                <input type="file" name="my_file" />
+                <div id="div_subcontent" class="form">
 
-				<h2>Welcome to Uber!</h2>
+                    <form name="submit-register" action="#" method="post">
+                        <h2 style="width: 500px;"> Welcome to Uber</h2>
 
-				<div class="center">
-                    <input name="emailaddress" type="email" placeholder="Email"><br><br>
-                    <input name="password" type="password" placeholder="Password"><br><br>
-                    <input name="confirmpassword" type="confirm password" placeholder="Confirm Password"><br><br>
-					<input name="type" type="type" placeholder="Type"><br><br>
-                    <input name="name" type="restaurant name" placeholder="Restaurant Name"><br><br> 
-                    <input name="openingdays" type="opening days" placeholder="Opening Days"><br><br>
-                    <input name="openingtimes" type="opening times" placeholder="Opening Times"><br><br>
-                    <input name="phonenumber" type="phone number" placeholder="Phone Number"><br><br>
+					<div class="center">
+						<input name="emailaddress" type="email" placeholder="Email"><br><br>
+						<input name="password" type="password" placeholder="Password"><br><br>
+						<input name="confirmpassword" type="confirm password" placeholder="Confirm Password"><br><br>
+						<input name="type" type="type" placeholder="Type"><br><br>
+						<input name="name" type="restaurant name" placeholder="Restaurant Name"><br><br> 
+						<input name="openingdays" type="opening days" placeholder="Opening Days"><br><br>
+						<input name="openingtimes" type="opening times" placeholder="Opening Times"><br><br>
+						<input name="phonenumber" type="phone number" placeholder="Phone Number"><br><br>
+						<input name="address" type="main address" placeholder="Main Address">
 
-    
-
-                    <label> </label>
-				        <input type="radio" name="" value="gps location" checked>GPS Location<br><br>
-
-                    <input type="restaurant type" placeholder="Restaurant Type"><br><br><br>
-                    
-		
+						<label> </label>
+						<input type="radio" name="gpslocation" value="gps location" unchecked>GPS Location<br><br>
+						
+			
+					</div>
 				</div>
-			</div>
 
-			<div class="center">
-				<input type="submit" value="Submit" name="submit-register" class="Submit"><br><br>
-				<label>Terms and Agreement</label>
-			</div>
+				<div id="div_subcontent" style="background-color: transparent;">
+					<div class="center">
+						<input type="submit" value="Submit" name="submit-register" class="Submit" style="cursor: pointer"><br><br>
+						<label>Terms and Agreement</label>
+					</div>
+				</div>
 			</form>
 
 		</div> <!-- end div_content -->
 	</div> <!-- end div_main -->
 	
 	<div id="div_footer">  
-		Footer
+		<br>
 	</div>
 	
 </div>

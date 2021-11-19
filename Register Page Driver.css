@@ -2,24 +2,21 @@ div#wrapper {
     color: white;
     min-width: 400px;
     padding-top: 0.00001em;
-    /*Set border to 1pixel solid line with black color*/
-    /*border: 1px solid black;*/
-    /*Set background color to #F2C063*/
     background-color: black;
-    /*Set margin to auto*/
     margin: auto;
-    /*Set width to 60%*/
     width: 100%;
-    /*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
-    /*border-top-left-radius: 10px;
-	border-top-right-radius: 10px;*/
 }
 
 body {
     font-family: sans-serif;
-    /*Set background color to #444444*/
     background-color: #444444;
     overflow-x: hidden;
+}
+
+.HeaderContainer,
+.FooterContainer {
+    width: 100%;
+    background-color: #222831;
 }
 
 div#div_main {
@@ -27,23 +24,18 @@ div#div_main {
 }
 
 div#div_header {
-    /*Set font size to 2em, font family to sans-serif, font weight to 700, and font variant to small-caps */
-    text-decoration-color: white;
+    text-decoration-color: rgba(190, 189, 189, 0.911);
     background-color: black;
     margin: 4px;
     font-size: 2em;
     font-family: sans-serif;
     font-weight: 700;
     padding: 0.4em;
-    /*Set bottom border to 1 pixel, solid line, with color #BF491F*/
-    /*color: #BF491F;*/
 }
 
 div#div_content {
-    color: #adaaaa;
-    /*Set background color to white*/
+    color: black;
     background-color: rgb(228, 184, 91);
-    /*margin-left:25%;*/
     padding: 1em 0;
     min-height: 400px;
 }
@@ -54,16 +46,23 @@ div#div_subcontent {
     align-items: center;
     margin: auto;
     border-radius: 10px;
-    width: 420px;
+    width: 500px;
     padding-top: 1px;
     padding-bottom: 5px;
     padding-left: 3em;
     padding-right: 8em;
 }
 
+/* div#div_subcontent {
+    background-color: rgba(0, 0, 0, 0.842);
+    margin: 2em;
+    padding: 2%;
+    border-radius: 5px;
+} */
+
 div#div_content {
     background-image: url("Driver Picture/rpd.jpeg");
-    background-size: cover;
+    background-size: contain;
     text-align: center;
 }
 
@@ -76,7 +75,264 @@ div#div_footer {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 0.5em;
+    background-color: rgb(0, 0, 0);
+    margin: auto;
+    width: 100%;
+}
+
+div#div_footer:before {
+    text-decoration: white;
+}
+
+.form input {
+    border: none;
+    padding: 5px;
+}
+
+.form input[type="Email"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Password"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Confirm Password"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="First Name"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Last Name"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form label {
+    font-size: large;
+}
+
+.form input[type="Address"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Phone Number"] {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Driver License ID"] {
+    text-align: center;
+    width: 300px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Birth Date"] {
+    padding-left: 0.00001em;
+    padding-right: 0.00001em;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Birth Month"] {
+    padding-left: 0.00001em;
+    padding-right: 0.000001em;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Birth Year"] {
+    padding-left: 0.00001em;
+    padding-right: 0.00001em;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="Submit"] {
+    color: white;
+    background-color: orange;
+    border: none;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form input[type="checkbox"] {
+    display: block;
+}
+
+.form select {
+    padding: 4px 2px;
+    display: block;
+    margin: 2px 2px 10px 10px;
+}
+
+.center {
+    text-align: center;
+    width: 500px;
+}
+
+.center1 {
+    text-align: center;
+    width: 500px;
+}
+
+.center label {
+    transition: color 0.3s;
+}
+
+.center label:hover {
+    color: #df9408;
+}
+
+.Submit {
+    background-color: #FFAD53;
+    padding: 5px;
+    border: none;
+    border-radius: 15px;
+    width: 250px;
+    transition: background-color 0.2s;
+}
+
+.Submit:hover {
+    background-color: #ff8400;
+}
+
+
+
+
+/* =----------------------------------------= */
+
+
+
+
+div#wrapper {
+    color: white;
+    min-width: 400px;
+    padding-top: 0.00001em;
     background-color: black;
+    margin: auto;
+    width: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #444444;
+}
+
+.HeaderContainer,
+.FooterContainer {
+    width: 100%;
+    background-color: #222831;
+}
+
+div#div_main {
+    position: relative;
+}
+
+div#div_header {
+    text-decoration-color: white;
+    background-color: black;
+    margin: 4px;
+    font-size: 2em;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 0.4em;
+}
+
+div#div_content {
+    background-color: rgb(228, 184, 91);
+    padding: 1em 0;
+    min-height: 400px;
+}
+
+div#div_subcontent {
+    background-color: rgba(0, 0, 0, 0.842);
+    padding: 2%;
+    border-radius: 5px;
+}
+
+div#div_subcontent input {
+    padding: 5px;
+}
+
+div#div_footer {
+    color: white;
+    font: large;
+    font: bolder;
+    font-size: xx-large;
+    min-width: 400px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    background-color: rgb(0, 0, 0);
     margin: auto;
     width: 100%;
 }
@@ -91,7 +347,7 @@ div#div_footer:before {
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -103,7 +359,7 @@ div#div_footer:before {
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -115,7 +371,7 @@ div#div_footer:before {
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -127,7 +383,7 @@ div#div_footer:before {
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -139,19 +395,7 @@ div#div_footer:before {
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.form input[type="Address"] {
-    padding-left: 4.5em;
-    padding-right: 4.5em;
-    /*Set width to 150 pixels to have a big submit button*/
-    text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -162,12 +406,12 @@ div#div_footer:before {
     font-size: large;
 }
 
-.form input[type="Occupation"] {
+.form input[type="Address"] {
     padding-left: 4.5em;
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -179,7 +423,7 @@ div#div_footer:before {
     padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -187,11 +431,9 @@ div#div_footer:before {
 }
 
 .form input[type="Driver License ID"] {
-    padding-left: 4.5em;
-    padding-right: 4.5em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
-    width: 150px;
+    width: 300px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -199,6 +441,8 @@ div#div_footer:before {
 }
 
 .form input[type="Birth Date"] {
+    padding-left: 0.00001em;
+    padding-right: 0.00001em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -209,6 +453,8 @@ div#div_footer:before {
 }
 
 .form input[type="Birth Month"] {
+    padding-left: 0.00001em;
+    padding-right: 0.000001em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -219,6 +465,8 @@ div#div_footer:before {
 }
 
 .form input[type="Birth Year"] {
+    padding-left: 0.00001em;
+    padding-right: 0.00001em;
     /*Set width to 150 pixels to have a big submit button*/
     text-align: center;
     width: 150px;
@@ -252,39 +500,18 @@ div#div_footer:before {
 }
 
 .center {
-    color:rgba(180, 175, 175, 0.808);
     text-align: center;
-    width: 500px;
 }
 
-.center1 {
-    text-align: center;
-    align-items: center;
-}
-
-.center2 {
-    color:rgba(180, 175, 175, 0.808);
-    text-align: center;
-    width: 500px;
-}
-
-.center1 label {
-    transition: color 0.3s;
-}
-
-.center1 label:hover {
-    color: #df9408;
-}
-
-.Submit {
+.center .Submit {
     background-color: #FFAD53;
     padding: 5px;
     border: none;
     border-radius: 15px;
-    width: 350px;
+    width: 250px;
     transition: background-color 0.2s;
 }
 
-.Submit:hover {
+.center .Submit:hover {
     background-color: #ff8400;
 }
