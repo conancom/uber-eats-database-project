@@ -2,22 +2,13 @@ div#wrapper {
     color: white;
     min-width: 400px;
     padding-top: 0.00001em;
-    /*Set border to 1pixel solid line with black color*/
-    /*border: 1px solid black;*/
-    /*Set background color to #F2C063*/
     background-color: black;
-    /*Set margin to auto*/
     margin: auto;
-    /*Set width to 60%*/
     width: 100%;
-    /*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
-    /*border-top-left-radius: 10px;
-border-top-right-radius: 10px;*/
 }
 
 body {
     font-family: sans-serif;
-    /*Set background color to #444444*/
     background-color: #444444;
 }
 
@@ -32,7 +23,6 @@ div#div_main {
 }
 
 div#div_header {
-    /*Set font size to 2em, font family to sans-serif, font weight to 700, and font variant to small-caps */
     text-decoration-color: white;
     background-color: black;
     margin: 4px;
@@ -40,24 +30,23 @@ div#div_header {
     font-family: sans-serif;
     font-weight: 700;
     padding: 0.4em;
-    /*Set bottom border to 1 pixel, solid line, with color #BF491F*/
-    /*color: #BF491F;*/
 }
 
 div#div_content {
-    /*Set background color to white*/
     background-color: rgb(228, 184, 91);
-    /*margin-left:25%;*/
     padding: 1em 0;
     min-height: 400px;
 }
 
 div#div_subcontent {
-    /*Set background color to white*/
     background-color: rgba(0, 0, 0, 0.842);
     margin: 2em;
     padding: 2%;
     border-radius: 5px;
+}
+
+div#div_subcontent input {
+    padding: 5px;
 }
 
 div#div_content {
@@ -75,13 +64,8 @@ div#div_footer {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     padding-left: 0.5em;
-    /*Set border to 1pixel solid line with black color*/
-    /*border: 1px solid black;*/
-    /*Set background color to #F2C063*/
     background-color: rgb(0, 0, 0);
-    /*Set margin to auto*/
     margin: auto;
-    /*Set width to 60%*/
     width: 100%;
 }
 
@@ -251,15 +235,7 @@ div#div_footer:before {
     text-align: center;
 }
 
-.center label {
-    transition: color 0.3s;
-}
-
-.center label:hover {
-    color: #df9408;
-}
-
-.Submit {
+.center .Submit {
     background-color: #FFAD53;
     padding: 5px;
     border: none;
@@ -268,6 +244,6 @@ div#div_footer:before {
     transition: background-color 0.2s;
 }
 
-.Submit:hover {
+.center .Submit:hover {
     background-color: #ff8400;
 }

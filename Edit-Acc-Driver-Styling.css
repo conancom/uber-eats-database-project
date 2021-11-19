@@ -39,6 +39,10 @@ div#div_subcontent {
     padding: 2em;
 }
 
+div#div_subcontent input {
+    padding: 5px;
+}
+
 div#div_content {
     background-image: url("Driver Picture/rpd.jpg");
     background-size: contain;
@@ -215,15 +219,7 @@ div#div_footer:before {
     text-align: center;
 }
 
-.center label {
-    transition: color 0.3s;
-}
-
-.center label:hover {
-    color: #df9408;
-}
-
-.Submit {
+.center .Submit {
     background-color: #FFAD53;
     padding: 5px;
     border: none;
@@ -232,6 +228,6 @@ div#div_footer:before {
     transition: background-color 0.2s;
 }
 
-.Submit:hover {
+.center .Submit:hover {
     background-color: #ff8400;
 }
