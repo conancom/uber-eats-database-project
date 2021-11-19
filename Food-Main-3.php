@@ -105,7 +105,7 @@ if ($mysqli->connect_errno) {
                                 <span class="close">&times;</span>
                                 <h2>Promotion</h2>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body" style="text-align: center;">
                                 <p>Promotion 1</p>
                                 <p>Promotion 2</p>
                                 <p>Promotion 3</p>
@@ -148,29 +148,9 @@ if ($mysqli->connect_errno) {
         echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
         echo '              </div>';
         echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
         echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
         echo '                  <br>';
         echo '                  <button class="AddCartButton"> Add to Cart</button>';
         echo '              </div>';
@@ -188,9 +168,29 @@ if ($mysqli->connect_errno) {
         echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
         echo '              </div>';
         echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
         echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <br>';
+        echo '                  <button class="AddCartButton"> Add to Cart</button>';
+        echo '              </div>';
+        echo '          </div>';
+        echo '      </div>';
+        echo '</div>';
+
+        $count = $count + 1;
+        $rowCount = $rowCount + 1;
+
+        echo '  <div class="col-md-4">';
+        echo '      <div class="MenuContainer">';
+        echo '          <div class="row">';
+        echo '              <div class="col">';
+        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
+        echo '              </div>';
+        echo '              <div class="col MenuName">';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <br>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
         echo '                  <br>';
         echo '                  <button class="AddCartButton"> Add to Cart</button>';
         echo '              </div>';
@@ -213,29 +213,9 @@ if ($mysqli->connect_errno) {
         echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
         echo '              </div>';
         echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
         echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
         echo '                  <br>';
         echo '                  <button class="AddCartButton"> Add to Cart</button>';
         echo '              </div>';
@@ -253,9 +233,29 @@ if ($mysqli->connect_errno) {
         echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
         echo '              </div>';
         echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
         echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <br>';
+        echo '                  <button class="AddCartButton"> Add to Cart</button>';
+        echo '              </div>';
+        echo '          </div>';
+        echo '      </div>';
+        echo '</div>';
+
+        $count = $count + 1;
+        $rowCount = $rowCount + 1;
+
+        echo '  <div class="col-md-4">';
+        echo '      <div class="MenuContainer">';
+        echo '          <div class="row">';
+        echo '              <div class="col">';
+        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
+        echo '              </div>';
+        echo '              <div class="col MenuName">';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <br>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
         echo '                  <br>';
         echo '                  <button class="AddCartButton"> Add to Cart</button>';
         echo '              </div>';
@@ -278,29 +278,9 @@ if ($mysqli->connect_errno) {
         echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
         echo '              </div>';
         echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
         echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
         echo '                  <br>';
         echo '                  <button class="AddCartButton"> Add to Cart</button>';
         echo '              </div>';
@@ -318,9 +298,29 @@ if ($mysqli->connect_errno) {
         echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
         echo '              </div>';
         echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
         echo '                  <br>';
-        echo '                  <h3>' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
+        echo '                  <br>';
+        echo '                  <button class="AddCartButton"> Add to Cart</button>';
+        echo '              </div>';
+        echo '          </div>';
+        echo '      </div>';
+        echo '</div>';
+
+        $count = $count + 1;
+        $rowCount = $rowCount + 1;
+
+        echo '  <div class="col-md-4">';
+        echo '      <div class="MenuContainer">';
+        echo '          <div class="row">';
+        echo '              <div class="col">';
+        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
+        echo '              </div>';
+        echo '              <div class="col MenuName">';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
+        echo '                  <br>';
+        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
         echo '                  <br>';
         echo '                  <button class="AddCartButton"> Add to Cart</button>';
         echo '              </div>';

@@ -1,10 +1,10 @@
 <?php
 session_start();
-/*Leon's Database*/
+/*Leon's Database
 $mysqli = new mysqli("localhost", "root", '', "uber");
-
-/*Junior's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");*/
+*/
+/*Junior's Database*/
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
@@ -68,8 +68,8 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
 
 <body>
     <div id="wrapper">
-        <div id="div_header">
-            Header
+    <div id="div_header">
+            Uber Eats
         </div>
         <div id="div_subhead">
 
@@ -129,7 +129,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
                 </div>
 
                 <div class="center">
-                    <input name="update-edit" type="submit" value="Update" class="Submit"><br><br>
+                    <input name="update-edit" type="submit" value="Update" class="Submit" style="cursor: pointer; font-size: 15px; font-weight: bold; width: 200px;"><br><br>
                     <label>Terms and Agreement</label>
                 </div>
             </form>
@@ -140,7 +140,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['update-edit'])) {
     <!-- end div_main -->
 
     <div id="div_footer">
-        Footer
+        <br>
     </div>
 
     </div>

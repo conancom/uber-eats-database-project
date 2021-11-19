@@ -74,8 +74,8 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
 
 <body>
     <div id="wrapper">
-        <div id="div_header">
-            Header
+    <div id="div_header">
+            Uber Eats
         </div>
         <div id="div_subhead">
 
