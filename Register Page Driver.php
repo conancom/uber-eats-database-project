@@ -43,7 +43,7 @@ if (isset($_POST["submit-register"])) {
             echo $mysqli->error;
         } else {
             $data = $select->fetch_array();
-            move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/'.$data['DriverID'].'.jpg');
+            move_uploaded_file($_FILES["my_file"]["tmp_name"], 'driverimg/'.$data['DriverID'].'.jpg');
             $_SESSION['id-driver'] =  $data['DriverID'];
             header("Location: Register-Vehicle-Page.php");
         }

@@ -54,12 +54,12 @@ if (isset($_SESSION['id-client']) and isset($_POST['update-edit'])) {
 
 
 
-        if (file_exists('img/' . $clientid . '.jpg')) {
-            unlink('img/' . $clientid . '.jpg');
+        if (file_exists('clientimg/' . $clientid . '.jpg')) {
+            unlink('clientimg/' . $clientid . '.jpg');
         }
 
 
-        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/' . $clientid . '.jpg');
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'clientimg/' . $clientid . '.jpg');
         header("Location: Client-Main.php");
     }
 }

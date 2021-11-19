@@ -53,12 +53,12 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
     } else {
         header("Location: Driver-Main.php");
 
-        if (file_exists('img/' . $id . '.jpg')) {
-            unlink('img/' . $id . '.jpg');
+        if (file_exists('driverimg/' . $id . '.jpg')) {
+            unlink('driverimg/' . $id . '.jpg');
         }
 
 
-        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'img/' . $id . '.jpg');
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'driverimg/' . $id . '.jpg');
     }
 }
 ?>

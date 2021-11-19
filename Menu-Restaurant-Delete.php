@@ -1,6 +1,6 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
+$mysqli = new mysqli("localhost", "root", '', "uber");
 
 
 if ($mysqli->connect_errno) {
@@ -98,7 +98,7 @@ if (isset($_POST['submit-remove']) and isset($_SESSION['id-restaurant'])) {
         height: 175px;
         left: 126px;
         top: 198px;
-        background: url(profileimg/" . $restaurantid . ".jpg);
+        background: url(restaurantimg/" . $restaurantid . ".jpg);
         border-radius: 202px;
         background-size: cover;
         margin-top: 1%;
