@@ -16,7 +16,7 @@ session_start();
 /*Junior's Database*/
 $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
-	echo $mysqli->connect_error;
+    echo $mysqli->connect_error;
 }
 
 ?>
@@ -130,205 +130,38 @@ if ($mysqli->connect_errno) {
 
         $rest = array(); /*Storing the name indexing*/
         $index = 0;
+        $count = 0;
         while ($row2 = $result2->fetch_array()) {
-            $rest[$index] = $row2;
-            $index++;
+
+            if ($count == 0 ) {
+                echo '<div class="row MenuRow">';
+            }
+            echo '  <div class="col-md-4">';
+            echo '      <div class="MenuContainer">';
+            echo '          <div class="row">';
+            echo '              <div class="col">';
+            echo '                  <img src="Restaurant/Menu/' . $row2['MenuItemID'] . '.jpg" alt="Menu Picture">';
+            echo '              </div>';
+            echo '              <div class="col MenuName">';
+            echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $row2['FoodName'] . '</h2>';
+            echo '                  <br>';
+            echo '                  <h3 style="font-size: 19px;">' . $row2['Price'] . '</h3>';
+            echo '                  <br>';
+            echo '                  <button class="AddCartButton"> Add to Cart</button>';
+            echo '              </div>';
+            echo '          </div>';
+            echo '      </div>';
+            echo '</div>';
+            if ($count == 2) {
+                echo '</div>';
+                $count = 0;
+            }else{
+                $count ++;
+            }
+           
         }
 
-        $count = 0;
-        $rowCount = 0;
 
-        /*First Row*/
-        echo '<div class="row MenuRow">';
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        /*Second Row*/
-        echo '<div class="row MenuRow">';
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        /*Third Row*/
-        echo '<div class="row MenuRow">';
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;
-
-        echo '  <div class="col-md-4">';
-        echo '      <div class="MenuContainer">';
-        echo '          <div class="row">';
-        echo '              <div class="col">';
-        echo '                  <img src="Restaurant/Menu/' . $rest[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '              </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $rest[$rowCount]['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' . $rest[$rowCount]['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '</div>';
-
-        echo '</div>';
 
         ?>
 
