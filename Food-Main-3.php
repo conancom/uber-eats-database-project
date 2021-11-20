@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 /*
     Funtion:
@@ -11,9 +9,11 @@
     */
 
 
-$resid = $_GET['id'];
+
 
 session_start();
+$resid = $_GET['id'];
+$_SESSION['restaurant-id'] = $resid;
 /*Leon's Database
     $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
 
@@ -22,44 +22,12 @@ $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
-if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
-    $clientid = $_SESSION['id-client'];
 
-    $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
-    $result = $mysqli->query($query);
-
-    if (!$result) {
-        echo $mysqli->error;
-    } else {
-        if (mysqli_num_rows($result) > 0) {
-            $data = $result->fetch_array();
-            $address = $data['Address'];
-            $resid = $_GET['id'];
-
-            $query2 = "SELECT * FROM `restaurant` WHERE `RestaurantID` = '$resid'";
-            $result2 = $mysqli->query($query2);
-
-            if (!$result2) {
-                echo $mysqli->error;
-            } else {
-                if (mysqli_num_rows($result2) > 0) {
-                    $data2 = $result2->fetch_array();
-                    $restaurantaddress = $data2['Location'];
-
-                    $query3 = "INSERT INTO `foodordering` (`ClientID`, `DriverID`, `AcceptingAddress`, `DestinationAddress`, `RideDuration`, `Status`) 
-                    VALUES ('$clientid',NULL,  'non', '$address', '$restaurantaddress', 'Looking for Driver')";
-                    $result3 = $mysqli->query($query3);
-                    if (!$result3) {
-                        echo $mysqli->error;
-                    } else {
-                        header("Location: Food-Main-4.php");
-                    }
-                }
-            }
-        }
-    }
-}
 ?>
+
+<!DOCTYPE html>
+
+
 
 
 
@@ -169,9 +137,9 @@ if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
 
         $resid = $_GET['id'];
         
-        $query2 = "SELECT Menuiteminrestaurant.*, Menuitem.* FROM `Menuiteminrestaurant`, `Menuitem` WHERE `Menuiteminrestaurant`.`RestaurantID` = $resid AND `Menuiteminrestaurant`.`MenuItemID` = `MenuItem`.`MenuItemID`";
+        $query2 = "SELECT Menuiteminrestaurant.*, Menuitem.*, `Menuiteminrestaurant`.`MenuItemID` AS 'idmenuitem' FROM `Menuiteminrestaurant`, `Menuitem` WHERE `Menuiteminrestaurant`.`RestaurantID` = $resid AND `Menuiteminrestaurant`.`MenuItemID` = `MenuItem`.`MenuItemID`";
         $result2 = $mysqli->query($query2);
-        echo '<form id="uber-restaurant" name="uber-restaurant" method="post" >';
+   
         $rest = array(); /*Storing the name indexing*/
         $index = 0;
         $count = 0;
@@ -191,7 +159,8 @@ if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
             echo '                  <br>';
             echo '                  <h3 style="font-size: 19px;">' . $row2['Price'] . '</h3>';
             echo '                  <br>';
-            echo '                  <button name="' . $row2['MenuItemID'] . '" class="AddCartButton" value="' . $row2['MenuItemID'] . '"> Add to Cart</button>';
+            $link =         "'Food-Main-4.php?id=" .$row2['idmenuitem']."'";
+            echo '                  <button name="' . $row2['MenuItemID'] . '" class="AddCartButton" value="' . $row2['MenuItemID'] . '" onclick="javascript:location.href='.$link.'"> Add to Cart</button>';
             echo '              </div>';
             echo '          </div>';
             echo '      </div>';
@@ -207,7 +176,7 @@ if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
 
 
         ?>
-        </form>
+    
     </section>
 
     <script>

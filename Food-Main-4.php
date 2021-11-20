@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-
 <?php
 
 /*
@@ -9,10 +7,9 @@ Function:
 - Payment
 
 */
-
-use phpseclib\Crypt\Random;
-
 session_start();
+
+
 /*Leon's Database
     $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
 
@@ -21,8 +18,116 @@ $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
+if (isset($_SESSION['order-id']) and isset($_GET['id'])) {
+
+    $orderid = $_SESSION['order-id'];
+    $itemid = $_GET['id'];
+    $_SESSION['menuitem-id'] = $itemid;
+    $resid = $_SESSION['restaurant-id'];
+    $clientid = $_SESSION['id-client'];
+
+    $query4 = "INSERT INTO `ordereditem` (`FoodOrderingID`, `MenuItemInRestaurantID`, `OrderOfItem`, `SpecialRequest`) 
+    VALUES ('$orderid', '$itemid', '1', 'none')";
+
+
+    $result4 = $mysqli->query($query4);
+    if (!$result4) {
+        echo $mysqli->error;
+    } else {
+        header("Location: Food-Main-4.php");
+    }
+}
+
+if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
+
+    $itemid = $_GET['id'];
+    $_SESSION['menuitem-id'] = $itemid;
+    $resid = $_SESSION['restaurant-id'];
+    $clientid = $_SESSION['id-client'];
+
+    $_SESSION['menuitem-id'] = $itemid;
+    $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
+    $result = $mysqli->query($query);
+
+    if (!$result) {
+        echo $mysqli->error;
+    } else {
+        if (mysqli_num_rows($result) > 0) {
+            $data = $result->fetch_array();
+            $address = $data['Address'];
+            $query2 = "SELECT * FROM `restaurant` WHERE `RestaurantID` = '$resid'";
+            $result2 = $mysqli->query($query2);
+
+            if (!$result2) {
+                echo $mysqli->error;
+            } else {
+                if (mysqli_num_rows($result2) > 0) {
+                    $data2 = $result2->fetch_array();
+                    $restaurantaddress = $data2['Location'];
+
+                    $query3 = "INSERT INTO `foodordering` (`ClientID`, `DriverID`, `AcceptingAddress`, `DestinationAddress`, `RideDuration`, `Status`) 
+                    VALUES ('$clientid',NULL,  'non', '$address', '$restaurantaddress', 'Looking for Driver')";
+                    $result3 = $mysqli->query($query3);
+                    if (!$result3) {
+                        echo $mysqli->error;
+                    } else {
+                        $_SESSION['order-id'] = $mysqli->insert_id;
+
+
+                        $query4 = "INSERT INTO `ordereditem` (`FoodOrderingID`, `MenuItemInRestaurantID`, `OrderOfItem`, `SpecialRequest`) 
+                        VALUES ('$mysqli->insert_id', '$itemid', '1', 'none')";
+
+
+                        $result4 = $mysqli->query($query4);
+                        if (!$result4) {
+                            echo $mysqli->error;
+                        } else {
+
+
+
+                            $query5 = "SELECT * FROM `menuitem`
+                            WHERE `MenuItemID` = $itemid ";
+
+
+                            $result5 = $mysqli->query($query5);
+                            if (!$result5) {
+                                echo $mysqli->error;
+                            } else {
+                                $data2 = $result->fetch_array();
+
+                                
+                                $price = $data2['Price'] + (($data2['Price'] / 100) * 7);
+                                $drivercom = (($data2['Price'] / 100) * 3);
+                                $rescom = $data2['Price'];
+                                $query6 = "INSERT INTO `foodpayment` (`FoodOrderingID`, `ClientPrice`,
+                                `Distance_Restaurant_to_Client`, `DriverCommission`, `RestaurantCommission`,
+                                `PaymentMethod`, `MoneySaved`, `RatingFromClientDriver`, `RatingFromClientRestaurant`, `Tip`) 
+                                VALUES ('$orderedid', '$price', '0', '$drivercom', '$rescom', 'Cash', '0', '5', '5', '0')";
+
+
+                                $result6 = $mysqli->query($query6);
+                                if (!$result6) {
+                                    echo $mysqli->error;
+                                } else {
+                                    $orderedid = $_SESSION['order-id'];
+                                    header("Location: Food-Main-4.php");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 
 ?>
+
+<!DOCTYPE html>
+
+
 
 <html>
 
@@ -67,13 +172,19 @@ if ($mysqli->connect_errno) {
     <section class="RecomAndDetails">
 
         <?php
-        $restaurantID =  $_SESSION['restaurant-id'];
-        $query = "SELECT MenuItemInRestaurant.*, MenuItem.* FROM Menuiteminrestaurant, MenuItem, Restaurant 
+
+
+
+        $resid = $_SESSION['restaurant-id'];
+        $clientid = $_SESSION['id-client'];
+        $restaurantID =  $resid;
+        $query = "SELECT MenuItemInRestaurant.*, MenuItem.*, `Menuiteminrestaurant`.`MenuItemID` AS 'idmenuitem'  FROM Menuiteminrestaurant, MenuItem, Restaurant 
         WHERE Menuiteminrestaurant.MenuItemID = MenuItem.MenuItemID
         AND Restaurant.RestaurantID = Menuiteminrestaurant.RestaurantID
         AND Restaurant.RestaurantID = '$restaurantID'
         ORDER BY MenuItem.AmountSold
         LIMIT 0,3";
+
         $result = $mysqli->query($query);
 
         $restinformation = array(); /*Storing the name indexing*/
@@ -82,27 +193,26 @@ if ($mysqli->connect_errno) {
         echo '  <div class="col-3">';
         echo '      <h3 class="RecommendHeading">Recommendations</h3>';
         while ($row = $result->fetch_array()) {
-            $restinformation[$index] = $row;
-            $index++;
-        
-        echo '      <div class="row RecommendRow">';
-        echo '          <div class="MenuContainer">';
-        echo '              <div class="row">';
-        echo '                  <div class="col">';
-        echo '                      <img src="Restaurant/Menu/' . $row['MenuItemID'] . '.jpg" alt="Menu Picture">';
-        echo '                  </div>';
-        echo '              <div class="col MenuName">';
-        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $row['FoodName'] . '</h2>';
-        echo '                  <br>';
-        echo '                  <h3 style="font-size: 19px;">' .$row['Price'] . '</h3>';
-        echo '                  <br>';
-        echo '                  <button class="AddCartButton"> Add to Cart</button>';
-        echo '              </div>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '  </div>';
+
+            echo '      <div class="row RecommendRow">';
+            echo '          <div class="MenuContainer">';
+            echo '              <div class="row">';
+            echo '                  <div class="col">';
+            echo '                      <img src="Restaurant/Menu/' . $row['MenuItemID'] . '.jpg" alt="Menu Picture">';
+            echo '                  </div>';
+            echo '              <div class="col MenuName">';
+            echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $row['FoodName'] . '</h2>';
+            echo '                  <br>';
+            echo '                  <h3 style="font-size: 19px;">' . $row['Price'] . '</h3>';
+            echo '                  <br>';
+            $link =         "'Food-Main-4.php?id=" . $row['MenuItemID'] . "'";
+            echo '                  <button name="' . $row['MenuItemID'] . '" class="AddCartButton" value="' . $row['MenuItemID'] . '" onclick="javascript:location.href=' . $link . '"> Add to Cart</button>';
+            echo '              </div>';
+            echo '          </div>';
+            echo '      </div>';
+            echo '  </div>';
         }
-        
+
         echo '</div>';
 
         ?>

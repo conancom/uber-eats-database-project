@@ -137,12 +137,12 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['complete-order'])) {
 
                         $orderID = $data['orderid'];
                         $query1 = "SELECT *, count(`menuiteminrestaurant`.`MenuItemID`) AS amount
-                        FROM `foodordering`,`ordereditem`,`menuiteminrestaurant`,`restaurant`,`menuitem`
-                        WHERE `foodordering`.`FoodOrderingID` = '$orderID'
+                        FROM `foodordering`,`ordereditem`,`menuiteminrestaurant`,`menuitem`
+                        WHERE `foodordering`.`FoodOrderingID` = ' $orderID'
                         AND  `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
                         AND `ordereditem`.`MenuItemInRestaurantID` = `menuiteminrestaurant`.`MenuItemInRestaurantID`
-                        AND  `menuiteminrestaurant`.`MenuItemID` = `menuitem` .`MenuItemID`
-                        GROUP BY `menuiteminrestaurant`.`MenuItemID`;";
+                        AND  `menuiteminrestaurant`.`MenuItemID` = `menuitem`.`MenuItemID`
+                        GROUP BY `menuiteminrestaurant`.`MenuItemInRestaurantID`;";
                         // print($query); 
                         $result1 = $mysqli->query($query1);
                         if (!$result1) {
@@ -153,7 +153,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['complete-order'])) {
                                 while ($data1 = $result1->fetch_array(MYSQLI_ASSOC)) {
                                     echo ' <tr>';
                                     echo '<td> ' . $x . ' </td>';
-                                    echo ' <td>' . $data1['FoodName'] . '</td>';
+                                    echo '<td>' . $data1['FoodName'] . '</td>';
                                     echo '<td>' . $data1['amount'] . '</td>';
                                     echo '<td>' . $data1['SpecialRequest'] . '</td>';
                                     echo '</tr>';
