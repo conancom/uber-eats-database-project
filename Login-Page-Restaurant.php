@@ -62,7 +62,7 @@ if (isset($_POST["submit-login"])) {
 					<div class="center"><br><br><br>
 						<input id="button1" type="submit" value="Login" name="submit-login" class="LoginButton"><br><br>
 						<label id="text">Don't have an account?</label><br><br>
-						<button id="button2" type="submit" value="submit" class="RegisterButton">Register</button>
+						<button id="button2" type="submit" value="submit" class="RegisterButton" onclick="location.href='Register Page Restaurant.php'">Register</button>
 					</div>
 				</form>
 			</div>
