@@ -34,6 +34,7 @@ if (isset($_SESSION['order-id']) and isset($_GET['id'])) {
     if (!$result4) {
         echo $mysqli->error;
     } else {
+        //unset($_SESSION['order-id']);
         header("Location: Food-Main-4.php");
     }
 }
@@ -73,7 +74,7 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                     } else {
                         $_SESSION['order-id'] = $mysqli->insert_id;
 
-
+                        $orderedid = $_SESSION['order-id'];
                         $query4 = "INSERT INTO `ordereditem` (`FoodOrderingID`, `MenuItemInRestaurantID`, `OrderOfItem`, `SpecialRequest`) 
                         VALUES ('$mysqli->insert_id', '$itemid', '1', 'none')";
 
@@ -93,7 +94,7 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                             if (!$result5) {
                                 echo $mysqli->error;
                             } else {
-                                $data2 = $result->fetch_array();
+                                $data2 = $result5->fetch_array();
 
                                 
                                 $price = $data2['Price'] + (($data2['Price'] / 100) * 7);
@@ -226,15 +227,37 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                         <div class="DetailContainer">
                             <h3>Your Order</h3>
                             <table>
-                                <tr>
-                                    <td>1. Your Order</td>
-                                </tr>
-                                <tr>
-                                    <td>2. Your Order</td>
-                                </tr>
-                                <tr>
-                                    <td>3. Your Order</td>
-                                </tr>
+
+                            <?php
+                            if (isset($_SESSION['order-id'])) {
+
+                                $orderid = $_SESSION['order-id'];
+                                
+                               
+                                $resid = $_SESSION['restaurant-id'];
+                                $clientid = $_SESSION['id-client'];
+                            
+                                $query = "SELECT `MenuItem`.* FROM `ordereditem`,`MenuItemInRestaurant`,`MenuItem` WHERE `ordereditem`.`FoodOrderingID` = $orderid
+                                AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
+                                AND `MenuItemInRestaurant`.`MenuItemID` = `MenuItem`.`MenuItemID` ";
+                            
+                            
+                                $result = $mysqli->query($query);
+                                if (!$result) {
+                                    echo $mysqli->error;
+                                } else {
+                                    $x = 1;
+                                    while( $data = $result->fetch_array()){
+                                       echo' <tr>';
+                                       echo'<td>'. $x.'.'.$data['FoodName'].' </td>';
+                                       echo'</tr>';
+                                       $x ++;
+                                    }
+                                    
+                                }
+                            } 
+                            ?>
+                            
                             </table>
                         </div>
                     </div>
@@ -242,15 +265,38 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                         <div class="DetailContainer">
                             <h3>Payment</h3>
                             <table>
-                                <tr>
-                                    <td>1. Payment 1</td>
-                                </tr>
-                                <tr>
-                                    <td>2. Payment 2</td>
-                                </tr>
-                                <tr>
-                                    <td>3. Payment 3</td>
-                                </tr>
+
+
+                            <?php
+                            if (isset($_SESSION['order-id'])) {
+
+                                $orderid = $_SESSION['order-id'];
+                                
+                               
+                                $resid = $_SESSION['restaurant-id'];
+                                $clientid = $_SESSION['id-client'];
+                            
+                                $query = "SELECT `MenuItem`.* FROM `ordereditem`,`MenuItemInRestaurant`,`MenuItem` WHERE `ordereditem`.`FoodOrderingID` = $orderid
+                                AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
+                                AND `MenuItemInRestaurant`.`MenuItemID` = `MenuItem`.`MenuItemID` ";
+                            
+                            
+                                $result = $mysqli->query($query);
+                                if (!$result) {
+                                    echo $mysqli->error;
+                                } else {
+                                    $x = 1;
+                                    while( $data = $result->fetch_array()){
+                                       echo' <tr>';
+                                       echo'<td>'. $x.'.'.$data['Price'].' </td>';
+                                       echo'</tr>';
+                                       $x ++;
+                                    }
+                                    
+                                }
+                            } 
+                            ?>
+                                
                             </table>
                         </div>
                     </div>
@@ -258,15 +304,37 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                         <div class="DetailContainer">
                             <h3>Delivery</h3>
                             <table>
-                                <tr>
-                                    <td>1. Destination 1</td>
-                                </tr>
-                                <tr>
-                                    <td>2. Destination 2</td>
-                                </tr>
-                                <tr>
-                                    <td>3. Destination 3</td>
-                                </tr>
+
+
+                            <?php
+                            if (isset($_SESSION['order-id'])) {
+
+                                $orderid = $_SESSION['order-id'];
+                                
+                               
+                                $resid = $_SESSION['restaurant-id'];
+                                $clientid = $_SESSION['id-client'];
+                            
+                                $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid';";
+                            
+                            
+                                $result = $mysqli->query($query);
+                                if (!$result) {
+                                    echo $mysqli->error;
+                                } else {
+                                    $x = 1;
+                                    while( $data = $result->fetch_array()){
+                                       echo' <tr>';
+                                       echo'<td>'. $x.'.'.$data['Address'].' </td>';
+                                       echo'</tr>';
+                                       $x ++;
+                                    }
+                                    
+                                }
+                            } 
+                            ?>
+                                
+                                
                             </table>
                         </div>
                     </div>
@@ -274,7 +342,7 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
 
                 <div class="row">
                     <div class="Checkout">
-                        <button class="CheckoutButton">Checkout</button>
+                        <button class="CheckoutButton"  onclick="location.href='Food-Tracking.php'"> Checkout</button>
                     </div>
                 </div>
             </div>

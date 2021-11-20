@@ -2,14 +2,33 @@
 
 <?php
 session_start();
-/*Leon's Database
-$mysqli = new mysqli("localhost", "root", '', "uber");
-*/
-/*Junior's Database*/
+
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
-	echo $mysqli->connect_error;
+    echo $mysqli->connect_error;
+}
+
+
+if (isset($_SESSION['order-id'])) {
+
+    $orderid = $_SESSION['order-id'];
+    $resid = $_SESSION['restaurant-id'];
+    $clientid = $_SESSION['id-client'];
+
+    $query4 = "SELECT `client`.*, `driver`.*, `driver`.`DriverID` AS driverid,`foodordering`.*, `vehicle`.* FROM `client`,`driver`,`foodordering`, `vehicle` WHERE `client`.`ClientID` = '$clientid'
+    AND `foodordering`.`FoodOrderingID` = '$orderid'
+    AND `foodordering`.`DriverID` = `driver`.`DriverID`
+    AND `vehicle`.`DriverID` = `driver`.`DriverID`;";
+
+
+    $result4 = $mysqli->query($query4);
+    if (!$result4) {
+        echo $mysqli->error;
+    } else {
+        $data = $result4->fetch_array();
+        //unset($_SESSION['order-id']);
+    }
 }
 ?>
 <html>
@@ -50,31 +69,34 @@ if ($mysqli->connect_errno) {
                 </div>
                 <?php
 
-                $query = 'SELECT * FROM foodordering, driver, ordereditem WHERE foodordering.status = "Picking up Food" AND foodordering.foodordertingid = foodpayment.foodorderingid AND foodordering.foodorderingid = orderedfood.foodorderingid AND foodordering.driverid = driver.driverid AND vehicle.driverID = driver.driverid';
-                $result = $mysqli->query($query);
+                $driverid = $data['driverid'];
 
                 echo '<div class="row DriverPicture">';
-                echo '  <img src="UI Pictures/pexels-nappy-3214023.jpg" alt="Driver Profile Picture">';
+                echo '  <img src="driverimg/' . $driverid . '.jpg" alt="Driver Profile Picture">';
                 echo '</div>';
+
                 echo '<div class="DriverInformationContainer">';
                 echo '  <div class="row">';
                 echo '      <div class="row">';
-                echo '          <p>Name: ' . $result['FName'] . ' ' . $result['LName'] . '</p>';
+                echo '          <p>Name: ' . $data['FName'] . ' ' . $data['LName'] . '</p>';
                 echo '      </div>';
                 echo '      <div class="row">';
-                echo '          <p>Vehicle: ' . $result['VehicleBrand'] . '</p>';
+                echo '          <p>Vehicle: ' . $data['VehicleBrand'] . '</p>';
                 echo '      </div>';
                 echo '      <div class="row">';
-                echo '          <p>Rating: ' . $result['Rating'] . '</p>';
-                echo '      </div>';
+                echo '          <p>Rating: ' . $data['Rating'] . '</p>';
+
+
 
                 ?>
+                <button name="goback" onclick="location.href='Client-Main.php'"> Complete </button>';
             </div>
         </div>
+    </div>
 
-        <div class="row CallButton">
-            <button>Call</button>
-        </div>
+    <div class="row CallButton">
+        <button>Call</button>
+    </div>
     </div>
     </div>
 
@@ -111,6 +133,7 @@ if ($mysqli->connect_errno) {
                 <option value="los angeles, ca">Los Angeles</option>
             </select>
         </div>
+
         <div id="map"></div>
 
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
