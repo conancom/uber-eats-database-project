@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 
-<?php 
+<?php
 
 session_start();
 /*Leon's Database
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/ 
+$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
 
-/*Junior's Database*/ 
+/*Junior's Database*/
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
-	echo $mysqli->connect_error;
+    echo $mysqli->connect_error;
 }
+
+$clientid = $_SESSION['id-client'];
 
 /* 
 Functions:
@@ -21,7 +23,7 @@ Functions:
 - Category: Drop Down Menu for Food Types (DELETED)
 - Restaurant: Drop Down Menu for List of Restaurants (Query) (DONE)
 - Promotion: Pop-up for promotion showcases (DONE)
-*/ 
+*/
 
 if (isset($_POST["uber-restaurant"])) {
     $restaurantID = $_POST['restaurant'];
@@ -65,18 +67,31 @@ if (isset($_POST["uber-restaurant"])) {
     <section class="CategoryRow">
         <div class="row">
 
-            <?php 
+            <?php
+
+            if (isset($_SESSION['id-client'])) {
                 $clientid = $_SESSION['id-client'];
-
-                $query = "SELECT `Address` FROM `client` WHERE `ClientId` = '$clientid'";
+                echo $clientid;
+                $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
                 $result = $mysqli->query($query);
-                $address = $result->fetch_array();
 
-                echo '<div class="col AddressBoxCol">';
-                echo '  <div class="AddressBox" style="width: 100%; height: 45px; background-color: rgba(255, 255, 255, 1.0); border-radius: 10px;">';
-                echo '      <label id="Address" class="Address" style="padding-left: 10px; overflow-x: hidden;">'.$address['Address'].'</label> ';
-                echo '  </div>';
-                echo '</div>';
+                if (!$result) {
+                    echo $mysqli->error;
+                } else {
+                    if (mysqli_num_rows($result) > 0) {
+                        $data = $result->fetch_array();
+
+                        echo '<div class="col AddressBoxCol">';
+                        echo '  <div class="AddressBox" style="width: 100%; height: 45px; background-color: rgba(255, 255, 255, 1.0); border-radius: 10px;">';
+                        echo '      <label id="Address" class="Address" style="padding-left: 10px; overflow-x: hidden;">' . $data['Address'] . '</label> ';
+                        echo '  </div>';
+                        echo '</div>';
+                    }
+                }
+            }
+
+
+
             ?>
 
             <div class="col-2 CategoryCol">
@@ -90,7 +105,7 @@ if (isset($_POST["uber-restaurant"])) {
             </div>
             <div class="col-2 RestaurantCol">
                 <div class="Restaurant" style="position: relative; ">
-                    <a href=""> 
+                    <a href="">
                         <!--    
                         <p>Restaurant ></p>
                         -->
@@ -107,7 +122,7 @@ if (isset($_POST["uber-restaurant"])) {
                     <button id="myBtn" style="border: none; background-color: #FFAD53; padding: 5px; border-radius: 10px; font-size: 25px;">Open Modal</button>
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
-                    <!-- Modal content -->
+                        <!-- Modal content -->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <span class="close">&times;</span>
@@ -128,11 +143,11 @@ if (isset($_POST["uber-restaurant"])) {
             </div>
         </div>
     </section>
-    
+
     <section class="MainSelections">
-        
-    <?php 
-    
+
+        <?php
+
         $query2 = "SELECT * FROM `restaurant`";
         $result2 = $mysqli->query($query2);
 
@@ -182,92 +197,59 @@ if (isset($_POST["uber-restaurant"])) {
         }
         */
 
-        $name = array(); /*Storing the name indexing*/ 
+        $name = array(); /*Storing the name indexing*/
         $index = 0;
-        while ($row2=$result2->fetch_array()) {
+        while ($row2 = $result2->fetch_array()) {
             $name[$index] = $row2;
             $index++;
         }
 
         $count = 0;
         $rowCount = 0;
-        
-        /*First Row*/ 
+
+        /*First Row*/
         echo '<form id="uber-restaurant" name="uber-restaurant" action="Food-Main-3.php" method="post" >';
         echo '<div class="row OrderRow FirstRow">';
         echo '  <div class="col-md-4">';
-        echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
+        echo '      <h3>' . $name[$rowCount]['Name'] . '</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="1"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 1"></button>';
+        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="1"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 1"></button>';
         echo '       </div>';
         echo '  </div>';
-        
+
 
         $count = $count + 1;
         $rowCount = $rowCount + 1;
         /*echo '<label> '.$rowCount.'</label>';*/
 
         echo '  <div class="col-md-4">';
-        echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
+        echo '      <h3>' . $name[$rowCount]['Name'] . '</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="2"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 2"></button>';
+        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="2"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 2"></button>';
         echo '      </div>';
         echo '  </div>';
-        
-        
+
+
         $count = $count + 1;
-        $rowCount = $rowCount + 1;  
-        
+        $rowCount = $rowCount + 1;
+
         echo '  <div class="col-md-4">';
-        echo '      <h3>'.$name[$rowCount]['Name'].'</h3>';
+        echo '      <h3>' . $name[$rowCount]['Name'] . '</h3>';
         echo '      <div class="RestaurantContainer">';
-        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="3"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 3"></button>';
+        echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="3"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 3"></button>';
         echo '      </div>';
         echo '  </div>';
         echo '</div>';
-        
+
         $count = $count + 1;
-        $rowCount = $rowCount + 1;  
-        
+        $rowCount = $rowCount + 1;
+
         /*Second Row*/
         echo '  <div class="row OrderRow MiddleRow">';
         echo '      <div class="col-md-4">';
-        echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
+        echo '          <h3>' . $name[$rowCount]['Name'] . '</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="4"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 4"></button>';
-        echo '          </div>';
-        echo '      </div>';
-
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;  
-
-        echo '      <div class="col-md-4">';
-        echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
-        echo '          <div class="RestaurantContainer">';
-        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="5"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 5"></button>';
-        echo '          </div>';
-        echo '      </div>';
-                
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;     
-                    
-        echo '      <div class="col-md-4">';
-        echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
-        echo '          <div class="RestaurantContainer">';
-        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="6"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 6"></button>';
-        echo '          </div>';
-        echo '      </div>';
-        echo '  </div>';
-            
-        $count = $count + 1;
-        $rowCount = $rowCount + 1;  
-            
-        /*Third Row*/
-        echo '  <div class="row OrderRow LastRow" style="margin-bottom: 100px;">';
-        echo '      <div class="col-md-4">';
-        echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
-        echo '          <div class="RestaurantContainer">';
-        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="7"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 7"></button>';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="4"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 4"></button>';
         echo '          </div>';
         echo '      </div>';
 
@@ -275,33 +257,65 @@ if (isset($_POST["uber-restaurant"])) {
         $rowCount = $rowCount + 1;
 
         echo '      <div class="col-md-4">';
-        echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
+        echo '          <h3>' . $name[$rowCount]['Name'] . '</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="8"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 8"></button>';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="5"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 5"></button>';
         echo '          </div>';
         echo '      </div>';
-                
+
         $count = $count + 1;
-        $rowCount = $rowCount + 1;     
-                    
+        $rowCount = $rowCount + 1;
+
         echo '      <div class="col-md-4">';
-        echo '          <h3>'.$name[$rowCount]['Name'].'</h3>';
+        echo '          <h3>' . $name[$rowCount]['Name'] . '</h3>';
         echo '          <div class="RestaurantContainer">';
-        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="9"><img src="Restaurant/'.$name[$rowCount]['RestaurantID'].'.jpg" alt="Previous Order 9"></button>';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="6"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 6"></button>';
         echo '          </div>';
         echo '      </div>';
         echo '  </div>';
-        echo '</form>';   
-        
+
         $count = $count + 1;
-        $rowCount = $rowCount + 1; 
-        
-    ?>
+        $rowCount = $rowCount + 1;
+
+        /*Third Row*/
+        echo '  <div class="row OrderRow LastRow" style="margin-bottom: 100px;">';
+        echo '      <div class="col-md-4">';
+        echo '          <h3>' . $name[$rowCount]['Name'] . '</h3>';
+        echo '          <div class="RestaurantContainer">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="7"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 7"></button>';
+        echo '          </div>';
+        echo '      </div>';
+
+        $count = $count + 1;
+        $rowCount = $rowCount + 1;
+
+        echo '      <div class="col-md-4">';
+        echo '          <h3>' . $name[$rowCount]['Name'] . '</h3>';
+        echo '          <div class="RestaurantContainer">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="8"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 8"></button>';
+        echo '          </div>';
+        echo '      </div>';
+
+        $count = $count + 1;
+        $rowCount = $rowCount + 1;
+
+        echo '      <div class="col-md-4">';
+        echo '          <h3>' . $name[$rowCount]['Name'] . '</h3>';
+        echo '          <div class="RestaurantContainer">';
+        echo '              <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="9"><img src="Restaurant/' . $name[$rowCount]['RestaurantID'] . '.jpg" alt="Previous Order 9"></button>';
+        echo '          </div>';
+        echo '      </div>';
+        echo '  </div>';
+        echo '</form>';
+
+        $count = $count + 1;
+        $rowCount = $rowCount + 1;
+
+        ?>
         </form>
     </section>
 
     <script>
-
         var modal = document.getElementById("myModal");
 
         var btn = document.getElementById("myBtn");
@@ -321,7 +335,6 @@ if (isset($_POST["uber-restaurant"])) {
                 modal.style.display = "none";
             }
         }
-
     </script>
 
 </body>

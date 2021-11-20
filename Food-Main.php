@@ -3,37 +3,38 @@
 <html>
 
 <!--Php Sections-->
-<?php 
+<?php
 /* 
 Functions:
 - Address: Find Food Button
 - Previous Orders: Show and allows users to press on it and re-order (Reuse code for ordering)
-*/ 
+*/
 
 session_start();
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
-	echo $mysqli->connect_error;
+    echo $mysqli->connect_error;
 }
 
-if (isset($_POST["submit-find-food"])) {
-	$address = $_POST['Address'];
-    /*$clientid = $_SESSION['ClientID'];*/ /*Messenger to another page in an array form*/ 
-    $clientid = '1';
 
-	$query = "UPDATE `client` SET `address` = '$address' WHERE `ClientID` = '$clientid'";
-	// print($query); 
-	$result = $mysqli->query($query);
-	if (!$result) {
-		echo $mysqli->error;
-	} else {
-		/*$data = $result->fetch_array();*/
-		$_SESSION['id-client'] = '$clientid';
-		header("Location: Food-Main-2.php");
-	}
+if (isset($_POST["submit-find-food"]) and isset($_SESSION['id-client'])) {
+    $address = $_POST['Address'];
+    /*$clientid = $_SESSION['ClientID'];*/ /*Messenger to another page in an array form*/
+    $clientid = $_SESSION['id-client'];
+
+    $query = "UPDATE `client` SET `Address` = '$address' WHERE `ClientID` = '$clientid'";
+    // print($query); 
+    $result = $mysqli->query($query);
+    if (!$result) {
+        echo $mysqli->error;
+    } else {
+        /*$data = $result->fetch_array();*/
+        $_SESSION['id-client'] = $clientid;
+        header("Location: Food-Main-2.php");
+    }
 }
-/**/ 
+/**/
 ?>
 
 
@@ -67,15 +68,38 @@ if (isset($_POST["submit-find-food"])) {
 
     <section class="Main">
         <div class="row">
-            <form name="uber-eat-address" action="#" method="post">
+            <form name="uber-eat-address" action="#" method="POST">
                 <div class="ImageContainer">
 
                     <div class="AddressBox">
-                        <input type="text" id="Address" name="Address" placeholder="Address" size="20">
+
+                        <?php
+                    
+
+
+                        if (isset($_SESSION['id-client'])) {
+                            /*$clientid = $_SESSION['ClientID'];*/ /*Messenger to another page in an array form*/
+                            $clientid = $_SESSION['id-client'];
+
+                            $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
+                            // print($query); 
+                            $result = $mysqli->query($query);
+                            if (!$result) {
+                                echo $mysqli->error;
+                            } else {
+                                $data1 = $result->fetch_array();
+                                $_SESSION['id-client'] = $clientid;
+                                echo '<input type="text" id="Address" name="Address" placeholder="Address" size="20" value="' .$data1['Address']. '">';
+                            }
+                        }
+                        /**/
+                        ?>
+
+                        
                     </div>
 
                     <div class="FindFood">
-                        <button type="submit" name="submit-find-food" placeholder="Find Food" value="Find Food">Find Food</button>
+                        <input type="submit" name="submit-find-food" placeholder="Find Food" value="Find Food">
                     </div>
                 </div>
             </form>
@@ -88,38 +112,38 @@ if (isset($_POST["submit-find-food"])) {
                 Previous Orders
             </h2>
             <?php
-                $con = new PDO('mysql:hosy=locahost;dbname=uber','root','');
-                $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $con = new PDO('mysql:hosy=locahost;dbname=uber', 'root', '');
+            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $stmt = $con->prepare('SELECT * FROM `foodordering`');
-                $stmt->execute();
-                $foodorderings = $stmt->fetchall();
+            $stmt = $con->prepare('SELECT * FROM `foodordering`');
+            $stmt->execute();
+            $foodorderings = $stmt->fetchall();
 
-                /*Still have to check that this foodorderingid is relating to ClientID*/ 
-                $query2 = "SELECT `ordereditem`.`MenuItemInRestaurantID` FROM `ordereditem`, `foodordering` WHERE `ordereditem`.`FoodOrderingID` = `foodordering`.`FoodOrderingID`";
-                $result2 = $mysqli->query($query2);
+            /*Still have to check that this foodorderingid is relating to ClientID*/
+            $query2 = "SELECT `ordereditem`.`MenuItemInRestaurantID` FROM `ordereditem`, `foodordering` WHERE `ordereditem`.`FoodOrderingID` = `foodordering`.`FoodOrderingID`";
+            $result2 = $mysqli->query($query2);
 
-                /*echo "<label> Debug 1 </label>";*/
+            /*echo "<label> Debug 1 </label>";*/
 
-                $count = 0;
-                while ($row2=$result2->fetch_array()) {
-                    /*echo "<label> Debug 2 </label>";*/
-                    $count = $count + 1;
-                    $rowCount = 0;
-                    if ($count <= 3) {
-                        echo "<div class='col-md-4'>";
-                        echo "  <div class='PrevOrderContainer'>";
-                        echo "      <img src='Restaurant/".$row2[$rowCount].".jpg' alt='Previous Order'>";
-                        echo "  </div>";
-                        echo "</div>";
-                        $rowCount = $rowCount + 1;
-                    } else {
-                        break;
-                    }
+            $count = 0;
+            while ($row2 = $result2->fetch_array()) {
+                /*echo "<label> Debug 2 </label>";*/
+                $count = $count + 1;
+                $rowCount = 0;
+                if ($count <= 3) {
+                    echo "<div class='col-md-4'>";
+                    echo "  <div class='PrevOrderContainer'>";
+                    echo "      <img src='Restaurant/" . $row2[$rowCount] . ".jpg' alt='Previous Order'>";
+                    echo "  </div>";
+                    echo "</div>";
+                    $rowCount = $rowCount + 1;
+                } else {
+                    break;
                 }
-                
-                 /*For keeping the previous orders in check, not more than 3 orders showing
-                foreach ($foodorderings as $foodordering) {}*/ 
+            }
+
+            /*For keeping the previous orders in check, not more than 3 orders showing
+                foreach ($foodorderings as $foodordering) {}*/
             ?>
         </div>
     </section>

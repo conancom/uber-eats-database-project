@@ -11,7 +11,7 @@ if ($mysqli->connect_errno) {
 }
 if (isset($_SESSION['id-client'])) {
     $clientid = $_SESSION['id-client'];
-
+   $_SESSION['id-client'] =  $clientid;
     $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
     // print($query); 
     $result = $mysqli->query($query);
