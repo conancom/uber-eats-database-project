@@ -18,8 +18,49 @@ $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
+if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
+    $clientid = $_SESSION['id-client'];
 
+    $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
+    $result = $mysqli->query($query);
+
+    if (!$result) {
+        echo $mysqli->error;
+    } else {
+        if (mysqli_num_rows($result) > 0) {
+            $data = $result->fetch_array();
+            $address = $data['Address'];
+            $restaurantID = $_POST['restaurant'];
+
+            $query2 = "SELECT * FROM `restaurant` WHERE `RestaurantID` = '$restaurantID'";
+            $result2 = $mysqli->query($query2);
+
+            if (!$result2) {
+                echo $mysqli->error;
+            } else {
+                if (mysqli_num_rows($result2) > 0) {
+                    $data2 = $result2->fetch_array();
+                    $restaurantaddress = $data2['Location'];
+
+                    $query3 = "INSERT INTO `foodordering` (`ClientID`, `DriverID`, `AcceptingAddress`, `DestinationAddress`, `RideDuration`, `Status`) 
+                    VALUES ('$clientid',NULL,  'non', '$address', '$restaurantaddress', 'Looking for Driver')";
+                    $result3 = $mysqli->query($query3);
+                    if (!$result3) {
+                        echo $mysqli->error;
+                    } else {
+                        header("Location: Food-Main-4.php");
+                    }
+
+                    
+                }
+            }
+        }
+    }
+}
 ?>
+
+
+
 <html>
 
 <head>
@@ -125,15 +166,16 @@ if ($mysqli->connect_errno) {
         <?php
 
         $restaurantID = $_POST['restaurant'];
+        $_SESSION['restaurant-id'] = $restaurantID;
         $query2 = "SELECT Menuiteminrestaurant.*, Menuitem.* FROM `Menuiteminrestaurant`, `Menuitem` WHERE `Menuiteminrestaurant`.`RestaurantID` = $restaurantID AND `Menuiteminrestaurant`.`MenuItemID` = `MenuItem`.`MenuItemID`";
         $result2 = $mysqli->query($query2);
-
+        echo '<form id="uber-restaurant" name="uber-restaurant" method="post" >';
         $rest = array(); /*Storing the name indexing*/
         $index = 0;
         $count = 0;
         while ($row2 = $result2->fetch_array()) {
 
-            if ($count == 0 ) {
+            if ($count == 0) {
                 echo '<div class="row MenuRow">';
             }
             echo '  <div class="col-md-4">';
@@ -147,7 +189,7 @@ if ($mysqli->connect_errno) {
             echo '                  <br>';
             echo '                  <h3 style="font-size: 19px;">' . $row2['Price'] . '</h3>';
             echo '                  <br>';
-            echo '                  <button class="AddCartButton"> Add to Cart</button>';
+            echo '                  <button name="' . $row2['MenuItemID'] . '" class="AddCartButton" value="' . $row2['MenuItemID'] . '"> Add to Cart</button>';
             echo '              </div>';
             echo '          </div>';
             echo '      </div>';
@@ -155,16 +197,15 @@ if ($mysqli->connect_errno) {
             if ($count == 2) {
                 echo '</div>';
                 $count = 0;
-            }else{
-                $count ++;
+            } else {
+                $count++;
             }
-           
         }
 
 
 
         ?>
-
+        </form>
     </section>
 
     <script>

@@ -19,7 +19,7 @@ session_start();
 /*Junior's Database*/
 $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
-	echo $mysqli->connect_error;
+    echo $mysqli->connect_error;
 }
 
 ?>
@@ -60,105 +60,51 @@ if ($mysqli->connect_errno) {
                 </div>
             </div>
 
-            <div class="col-2 CategoryCol">
-                <div class="Category" style="position: relative;">
-                    <a href="">
-                        <p>Category ></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-2 RestaurantCol">
-                <div class="Restaurant" style="position: relative; ">
-                    <a href="">
-                        <p>Restaurant ></p>
-                    </a>
-                </div>
-            </div>
-            <div class="col-2 PromotionCol">
-                <div class="Promotion" style="position: relative; padding-right: 10px;">
-                    <a href="">
-                        <p>Promotion ></p>
-                    </a>
-                </div>
-            </div>
+
         </div>
     </section>
 
     <section class="RecomAndDetails">
 
         <?php
-
-        $query = 'SELECT MenuItemInRestaurant.*, MenuItem.* FROM Menuiteminrestaurant, MenuItem WHERE Menuiteminrestaurant.MenuItemID = MenuItem.MenuItemID';
+        $restaurantID =  $_SESSION['restaurant-id'];
+        $query = "SELECT MenuItemInRestaurant.*, MenuItem.* FROM Menuiteminrestaurant, MenuItem, Restaurant 
+        WHERE Menuiteminrestaurant.MenuItemID = MenuItem.MenuItemID
+        AND Restaurant.RestaurantID = Menuiteminrestaurant.RestaurantID
+        AND Restaurant.RestaurantID = '$restaurantID'
+        ORDER BY MenuItem.AmountSold
+        LIMIT 0,3";
         $result = $mysqli->query($query);
 
         $restinformation = array(); /*Storing the name indexing*/
         $index = 0;
+        echo '<div class="row">';
+        echo '  <div class="col-3">';
+        echo '      <h3 class="RecommendHeading">Recommendations</h3>';
         while ($row = $result->fetch_array()) {
             $restinformation[$index] = $row;
             $index++;
+        
+        echo '      <div class="row RecommendRow">';
+        echo '          <div class="MenuContainer">';
+        echo '              <div class="row">';
+        echo '                  <div class="col">';
+        echo '                      <img src="Restaurant/Menu/' . $row['MenuItemID'] . '.jpg" alt="Menu Picture">';
+        echo '                  </div>';
+        echo '              <div class="col MenuName">';
+        echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $row['FoodName'] . '</h2>';
+        echo '                  <br>';
+        echo '                  <h3 style="font-size: 19px;">' .$row['Price'] . '</h3>';
+        echo '                  <br>';
+        echo '                  <button class="AddCartButton"> Add to Cart</button>';
+        echo '              </div>';
+        echo '          </div>';
+        echo '      </div>';
+        echo '  </div>';
         }
+        
+        echo '</div>';
 
-        $rowCount = rand(1,81);
-
-            echo '<div class="row">';
-            echo '  <div class="col-3">';
-            echo '      <h3 class="RecommendHeading">Recommendations</h3>';
-            echo '      <div class="row RecommendRow">';
-            echo '          <div class="MenuContainer">';
-            echo '              <div class="row">';
-            echo '                  <div class="col">';
-            echo '                      <img src="Restaurant/Menu/' . $restinformation[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-            echo '                  </div>';
-            echo '              <div class="col MenuName">';
-            echo '                  <h2 style="padding-top: 10px;">' . $restinformation[$rowCount]['FoodName'] . '</h2>';
-            echo '                  <br>';
-            echo '                  <h3>' . $restinformation[$rowCount]['Price'] . '</h3>';
-            echo '                  <br>';
-            /*echo '                  <button class="AddCartButton"> Add to Cart</button>';*/
-            echo '              </div>';
-            echo '          </div>';
-            echo '      </div>';
-            echo '  </div>';
-
-            $rowCount = rand(1,81);
-
-            echo '      <div class="row RecommendRow">';
-            echo '          <div class="MenuContainer">';
-            echo '              <div class="row">';
-            echo '                  <div class="col">';
-            echo '                      <img src="Restaurant/Menu/' . $restinformation[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-            echo '                  </div>';
-            echo '              <div class="col MenuName">';
-            echo '                  <h2 style="padding-top: 10px;">' . $restinformation[$rowCount]['FoodName'] . '</h2>';
-            echo '                  <br>';
-            echo '                  <h3>' . $restinformation[$rowCount]['Price'] . '</h3>';
-            echo '                  <br>';
-            /*echo '                  <button class="AddCartButton"> Add to Cart</button>';*/
-            echo '              </div>';
-            echo '          </div>';
-            echo '      </div>';
-            echo '  </div>';
-
-            $rowCount = rand(1,81);
-
-            echo '      <div class="row RecommendRow">';
-            echo '          <div class="MenuContainer">';
-            echo '              <div class="row">';
-            echo '                  <div class="col">';
-            echo '                      <img src="Restaurant/Menu/' . $restinformation[$rowCount]['MenuItemID'] . '.jpg" alt="Menu Picture">';
-            echo '                  </div>';
-            echo '              <div class="col MenuName">';
-            echo '                  <h2 style="padding-top: 10px;">' . $restinformation[$rowCount]['FoodName'] . '</h2>';
-            echo '                  <br>';
-            echo '                  <h3>' . $restinformation[$rowCount]['Price'] . '</h3>';
-            echo '                  <br>';
-            /*echo '                  <button class="AddCartButton"> Add to Cart</button>';*/
-            echo '              </div>';
-            echo '          </div>';
-            echo '      </div>';
-            echo '  </div>';
-            echo '</div>';
-            
         ?>
 
         <div class="col-9" style="padding-left: 50px;">

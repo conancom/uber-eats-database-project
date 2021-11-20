@@ -26,9 +26,11 @@ Functions:
 */
 
 if (isset($_POST["uber-restaurant"])) {
-    $restaurantID = $_POST['restaurant'];
-    $_SESSION['restaurant-id'] = '$restaurantID';
+    $restaurantID = $_POST["restaurant"];
+    $_SESSION['restaurant-id'] = $restaurantID;
+
     header("Location: Food-Main-3.php");
+    
 }
 
 ?>
@@ -71,7 +73,7 @@ if (isset($_POST["uber-restaurant"])) {
 
             if (isset($_SESSION['id-client'])) {
                 $clientid = $_SESSION['id-client'];
-                echo $clientid;
+                
                 $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
                 $result = $mysqli->query($query);
 
