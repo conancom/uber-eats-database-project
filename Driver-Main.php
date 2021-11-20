@@ -39,7 +39,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['accept-order'])) {
 if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
     $driverid = $_SESSION['id-driver'];
     $orderid = $_POST['id'];
-    $query = "UPDATE `foodordering` SET `foodordering`.`Status` = 'Picking up food' WHERE `foodordering`.`FoodOrderingID` = '$orderid'";
+    $query = "UPDATE `foodordering` SET `foodordering`.`Status` = 'Complete' WHERE `foodordering`.`FoodOrderingID` = '$orderid'";
     //print $query;
     $insert = $mysqli->query($query);
     if (!$insert) {
