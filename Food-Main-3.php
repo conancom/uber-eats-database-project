@@ -7,7 +7,11 @@
     - Delete Category and Restaurant Nav Bar (DONE)
     - Shopping Cart (JavaScript)
     - Menu Layout ()
+ 
     */
+
+
+$resid = $_GET['id'];
 
 session_start();
 /*Leon's Database
@@ -30,9 +34,9 @@ if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
         if (mysqli_num_rows($result) > 0) {
             $data = $result->fetch_array();
             $address = $data['Address'];
-            $restaurantID = $_POST['restaurant'];
+            $resid = $_GET['id'];
 
-            $query2 = "SELECT * FROM `restaurant` WHERE `RestaurantID` = '$restaurantID'";
+            $query2 = "SELECT * FROM `restaurant` WHERE `RestaurantID` = '$resid'";
             $result2 = $mysqli->query($query2);
 
             if (!$result2) {
@@ -50,8 +54,6 @@ if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
                     } else {
                         header("Location: Food-Main-4.php");
                     }
-
-                    
                 }
             }
         }
@@ -165,9 +167,9 @@ if (isset($_POST["uber-restaurant"]) and !isset($_SESSION["foodorder-id"])) {
     <section class="MenuSelections">
         <?php
 
-        $restaurantID = $_POST['restaurant'];
-        $_SESSION['restaurant-id'] = $restaurantID;
-        $query2 = "SELECT Menuiteminrestaurant.*, Menuitem.* FROM `Menuiteminrestaurant`, `Menuitem` WHERE `Menuiteminrestaurant`.`RestaurantID` = $restaurantID AND `Menuiteminrestaurant`.`MenuItemID` = `MenuItem`.`MenuItemID`";
+        $resid = $_GET['id'];
+        
+        $query2 = "SELECT Menuiteminrestaurant.*, Menuitem.* FROM `Menuiteminrestaurant`, `Menuitem` WHERE `Menuiteminrestaurant`.`RestaurantID` = $resid AND `Menuiteminrestaurant`.`MenuItemID` = `MenuItem`.`MenuItemID`";
         $result2 = $mysqli->query($query2);
         echo '<form id="uber-restaurant" name="uber-restaurant" method="post" >';
         $rest = array(); /*Storing the name indexing*/

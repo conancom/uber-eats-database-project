@@ -13,7 +13,7 @@ if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
 
-$clientid = $_SESSION['id-client'];
+
 
 /* 
 Functions:
@@ -24,15 +24,68 @@ Functions:
 - Restaurant: Drop Down Menu for List of Restaurants (Query) (DONE)
 - Promotion: Pop-up for promotion showcases (DONE)
 */
+/*
+if (isset($_SESSION['id-client'])) {
+    $clientid = $_SESSION['id-client'];
 
-if (isset($_POST["uber-restaurant"])) {
-    $restaurantID = $_POST["restaurant"];
-    $_SESSION['restaurant-id'] = $restaurantID;
 
-    header("Location: Food-Main-3.php");
-    
+
+    $clientid = $_SESSION['id-client'];
+
+    $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
+    $result = $mysqli->query($query);
+
+    if (!$result) {
+        echo $mysqli->error;
+    } else {
+        if (mysqli_num_rows($result) > 0) {
+            $data = $result->fetch_array();
+            $address = $data['Address'];
+            $query2 = "SELECT * FROM `restaurant`
+            WHERE '$address' = `Location`";
+
+
+            $result2 = $mysqli->query($query2);
+
+            $name = array(); /*Storing the name indexing
+            $index = 0;
+
+            if (!$result2) {
+                echo $mysqli->error;
+            } else {
+                if (mysqli_num_rows($result2) > 0) {
+                    $count = 0;
+                    while ($row2 = $result2->fetch_array()) {
+                        $res = "restaurant" . $row2['Name'];
+                        if (isset($_POST[$res])) {
+
+                            $query2 = "SELECT * FROM `restaurant`
+                            WHERE 'RestaurantID' = `Location`";
+
+
+                            $result2 = $mysqli->query($query2);
+
+                            $name = array(); /*Storing the name indexing
+                            $index = 0;
+
+                            if (!$result2) {
+                                echo $mysqli->error;
+                            } else {
+                                if (mysqli_num_rows($result2) > 0) {
+                                    $restemp = 'restaurantid' . $row2['Name'];
+                                    $restaurantID = $_POST['$restemp'];
+
+                                    header("Location: Food-Main-3.php");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-
+*/
 ?>
 
 
@@ -73,7 +126,7 @@ if (isset($_POST["uber-restaurant"])) {
 
             if (isset($_SESSION['id-client'])) {
                 $clientid = $_SESSION['id-client'];
-                
+
                 $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
                 $result = $mysqli->query($query);
 
@@ -115,7 +168,7 @@ if (isset($_POST["uber-restaurant"])) {
                 </div>
             </div>
             <div class="col-2 PromotionCol">
-               <!-- <div class="Promotion" style="position: relative; padding-right: 10px;">
+                <!-- <div class="Promotion" style="position: relative; padding-right: 10px;">
 
                     <!--<a href="">
                         <p>Promotion ></p>
@@ -198,7 +251,7 @@ if (isset($_POST["uber-restaurant"])) {
         }
         */
 
-        echo '<form id="uber-restaurant" name="uber-restaurant" action="Food-Main-3.php" method="post" >';
+        
         $query2 = "SELECT * FROM `restaurant`
         WHERE '$address' = `Location`";
 
@@ -221,7 +274,10 @@ if (isset($_POST["uber-restaurant"])) {
                     echo '  <div class="col-md-4">';
                     echo '      <h3>' . $row2['Name'] . '</h3>';
                     echo '      <div class="RestaurantContainer">';
-                    echo '          <button style="border-radius: 17px; border: none;" type="submit" name="restaurant" value="' . $row2['RestaurantID'] . '"><img src="Restaurant/' . $row2['RestaurantID'] . '.jpg" alt="Previous Order 1"></button>';
+
+                    $link =         "'Food-Main-3.php?id=" .$row2['RestaurantID']."'";
+                    echo '          <button style="border-radius: 17px; border: none;" name="restaurantid" value="'. $row2['RestaurantID'] .'"  onclick="javascript:location.href='.$link.'" ><img src="Restaurant/' . $row2['RestaurantID'] . '.jpg" alt="Previous Order 1"></button>';
+                    
                     echo '       </div>';
                     echo '  </div>';
                     if ($count == 2) {
