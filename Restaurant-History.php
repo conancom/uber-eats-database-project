@@ -117,6 +117,7 @@ if (isset($_SESSION['id-restaurant'])) {
                             $datetime1 = new DateTime();
                             $datetime2 = new DateTime($data['Arrival_TimeStamp']);
                             $interval = $datetime1->diff($datetime2);
+                            $orderid = $data['orderid'];
                             echo ' On ' . date("d", strtotime($data['Arrival_TimeStamp'])) . ' ' . date("F", strtotime($data['Arrival_TimeStamp'])) . ' ' . $dt->format('Y') . ', ' . $interval->format('%h:%i') . '<br>';
                             echo '   Price: $' . $data['ClientPrice'] . '<br>';
                             echo '   Total Time taken: ' . $data['RideDuration'] . '<br>';
@@ -127,6 +128,7 @@ if (isset($_SESSION['id-restaurant'])) {
                             $query2 = "SELECT *, COUNT(`MenuItemInRestaurant`.`MenuItemID`) AS 'amount'
                             FROM `ordereditem`,`foodordering`,`MenuItemInRestaurant`, `menuitem` 
                             WHERE `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
+                            AND `ordereditem`.`FoodOrderingID` = '$orderid'
                             AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
                             AND `MenuItemInRestaurant`.`MenuItemID` = `menuitem`.`MenuItemID` 
                             GROUP BY `MenuItemInRestaurant`.`MenuItemID`";

@@ -135,7 +135,7 @@ if (isset($_SESSION['id-driver'])) {
             if (isset($_SESSION['id-driver'])) {
                 $id = $_SESSION['id-driver'];
 
-                $query = "SELECT *
+                $query = "SELECT *,`foodordering`.`FoodOrderingID` AS 'orderid'
                 FROM `client`,`driver`,`restaurant`,`foodordering`,`foodpayment`,`menuiteminrestaurant`,`ordereditem` 
                 WHERE `driver`.`DriverID` = $id
                 AND `foodordering`.`DriverID` = `driver`.`DriverID`
@@ -143,7 +143,8 @@ if (isset($_SESSION['id-driver'])) {
                 AND `foodordering`.`FoodOrderingID` = `foodpayment`.`FoodOrderingID`
                 AND `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
                 AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
-                AND `MenuItemInRestaurant`.`RestaurantID` = `Restaurant`.`RestaurantID` GROUP BY `foodordering`.`FoodOrderingID`";
+                AND `MenuItemInRestaurant`.`RestaurantID` = `Restaurant`.`RestaurantID` 
+                GROUP BY `foodordering`.`FoodOrderingID`";
                 // print($query); 
                 $result = $mysqli->query($query);
                 if (!$result) {
@@ -160,6 +161,7 @@ if (isset($_SESSION['id-driver'])) {
                             $datetime1 = new DateTime();
                             $datetime2 = new DateTime($data['Arrival_TimeStamp']);
                             $interval = $datetime1->diff($datetime2);
+                            $orderid = $data['orderid'];
                             echo ' On ' . date("d", strtotime($data['Arrival_TimeStamp'])) . ' ' . date("F", strtotime($data['Arrival_TimeStamp'])) . ' ' . $dt->format('Y') . ', ' . $interval->format('%h:%i') . '<br>';
                             echo '   Price: $' . $data['ClientPrice'] . '<br>';
                             echo '   Total Time taken: ' . $data['RideDuration'] . '<br>';
@@ -168,10 +170,14 @@ if (isset($_SESSION['id-driver'])) {
                             echo '     Details: <br>';
 
                             $query2 = "SELECT *, COUNT(`MenuItemInRestaurant`.`MenuItemID`) AS 'amount'
-                            FROM `ordereditem`,`foodordering`,`MenuItemInRestaurant`, `menuitem` 
+                            FROM `ordereditem`,`foodordering`,`MenuItemInRestaurant`, `menuitem`, `driver`
                             WHERE `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
+                            AND `foodordering`.`DriverID` = `driver`.`DriverID`
+                            AND `driver`.`DriverID` = $id
+                            AND `ordereditem`.`FoodOrderingID` = $orderid
                             AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
-                            AND `MenuItemInRestaurant`.`MenuItemID` = `menuitem`.`MenuItemID` GROUP BY `MenuItemInRestaurant`.`MenuItemID`";
+                            AND `MenuItemInRestaurant`.`MenuItemID` = `menuitem`.`MenuItemID` 
+                            GROUP BY `MenuItemInRestaurant`.`MenuItemID`";
                             // print($query); 
                             $result2 = $mysqli->query($query2);
                             if (!$result2) {
