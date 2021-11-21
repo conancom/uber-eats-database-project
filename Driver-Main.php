@@ -60,8 +60,6 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
     <link rel="stylesheet" href="driver.css">
 </head>
 
-
-
 <body>
 
     <div class="header" style="font-family: 'Kanit', sans-serif; z-index:999;">
