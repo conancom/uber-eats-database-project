@@ -49,10 +49,6 @@ if ($mysqli->connect_errno) {
                 </div>
                 <?php
 
-
-
-
-
                 if (isset($_SESSION['order-id'])) {
 
                     $orderid = $_SESSION['order-id'];
@@ -63,7 +59,6 @@ if ($mysqli->connect_errno) {
     AND `foodordering`.`FoodOrderingID` = '$orderid'
     AND `foodordering`.`DriverID` = `driver`.`DriverID`
     AND `vehicle`.`DriverID` = `driver`.`DriverID`;";
-
 
                     $result4 = $mysqli->query($query4);
                     if (!$result4) {
@@ -99,21 +94,19 @@ if ($mysqli->connect_errno) {
                             echo '<div class="DriverInformationContainer">';
                             echo '  <div class="row">';
                             echo '      <div class="row">';
-                            echo '          <p>Looking for Driver</p>';
+                            echo '          <p style="text-align: center; font-weight: bold;">Looking for Driver</p>';
                             echo '      </div>';
                             echo '      <div class="row">';
                             //echo '          <p>Vehicle: ' . $data['VehicleBrand'] . '</p>';
                             echo '      </div>';
                             echo '      <div class="row">';
                           //  echo '          <p>Rating: ' . $data['Rating'] . '</p>';
-                          echo '<button name="goback" onclick="window.location.reload();"> Refresh Page </button>';
+                          echo '<button name="goback" onclick="window.location.reload();" style="margin-left: 10px;"> Refresh Page </button>';
                         }
 
                         //unset($_SESSION['order-id']);
                     }
                 }
-
-
 
                 ?>
                 
