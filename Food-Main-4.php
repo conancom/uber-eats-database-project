@@ -84,11 +84,8 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                             echo $mysqli->error;
                         } else {
 
-
-
                             $query5 = "SELECT * FROM `menuitem`
                             WHERE `MenuItemID` = $itemid ";
-
 
                             $result5 = $mysqli->query($query5);
                             if (!$result5) {
@@ -96,7 +93,6 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                             } else {
                                 $data2 = $result5->fetch_array();
 
-                                
                                 $price = $data2['Price'] + (($data2['Price'] / 100) * 7);
                                 $drivercom = (($data2['Price'] / 100) * 3);
                                 $rescom = $data2['Price'];
@@ -104,7 +100,6 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                                 `Distance_Restaurant_to_Client`, `DriverCommission`, `RestaurantCommission`,
                                 `PaymentMethod`, `MoneySaved`, `RatingFromClientDriver`, `RatingFromClientRestaurant`, `Tip`) 
                                 VALUES ('$orderedid', '$price', '0', '$drivercom', '$rescom', 'Cash', '0', '5', '5', '0')";
-
 
                                 $result6 = $mysqli->query($query6);
                                 if (!$result6) {
@@ -162,12 +157,10 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                 </div>
             </div>
 
-
         </div>
     </section>
 
     <section class="RecomAndDetails">
-
         <?php
 
         $resid = $_SESSION['restaurant-id'];
@@ -220,7 +213,7 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                     <div class="col-4">
                         <div class="DetailContainer">
                             <h3>Your Order</h3>
-                            <table>
+                            <table style="padding-left: 10px;">
 
                             <?php
                             if (isset($_SESSION['order-id'])) {
@@ -243,15 +236,13 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                                     $x = 1;
                                     while( $data = $result->fetch_array()){
                                        echo' <tr>';
-                                       echo'<td>'. $x.'.'.$data['FoodName'].' </td>';
+                                       echo'<td style="padding-left: 30px; padding-right: 30px;"> ' . $x.'.'.$data['FoodName'].' </td>';
                                        echo'</tr>';
                                        $x ++;
                                     }
-                                    
                                 }
                             } 
                             ?>
-                            
                             </table>
                         </div>
                     </div>
@@ -281,7 +272,7 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                                     $x = 1;
                                     while( $data = $result->fetch_array()){
                                        echo' <tr>';
-                                       echo'<td>'. $x.'.'.$data['Price'].' </td>';
+                                       echo'<td style="padding-left: 120px; padding-right: 120px;">'.$data['Price'].' </td>';
                                        echo'</tr>';
                                        $x ++;
                                     }
@@ -317,7 +308,7 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                                     $x = 1;
                                     while( $data = $result->fetch_array()){
                                        echo' <tr>';
-                                       echo'<td>'. $x.'.'.$data['Address'].' </td>';
+                                       echo'<td style="padding-left: 75px; padding-right: 75px;">'.$data['Address'].' </td>';
                                        echo'</tr>';
                                        $x ++;
                                     }
