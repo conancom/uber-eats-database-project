@@ -136,9 +136,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
                 <?php
                 echo  $data['num'];
                 ?> Total Trips
-                <?php
-                echo  "       " . $data['DRating'];
-                ?> Rating
+                
                 Driving Since<?php
                                 echo   "       " . $data['startdate'];
                                 ?>

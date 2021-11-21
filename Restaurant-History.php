@@ -130,6 +130,7 @@ if (isset($_SESSION['id-restaurant'])) {
                             WHERE `foodordering`.`FoodOrderingID` = `ordereditem`.`FoodOrderingID`
                             AND `ordereditem`.`FoodOrderingID` = '$orderid'
                             AND `ordereditem`.`MenuItemInRestaurantID` = `MenuItemInRestaurant`.`MenuItemInRestaurantID`
+                            
                             AND `MenuItemInRestaurant`.`MenuItemID` = `menuitem`.`MenuItemID` 
                             GROUP BY `MenuItemInRestaurant`.`MenuItemID`";
                             // print($query); 
