@@ -37,7 +37,10 @@ if (isset($_POST["submit-register"])) {
         echo $mysqli->error;
     } else {
         $id = mysqli_insert_id($mysqli);
+
         move_uploaded_file($_FILES["my_file"]["tmp_name"], 'driverimg/' . $id . '.jpg');
+
+        
         $_SESSION['id-driver'] = $id;
         header("Location: Register-Vehicle-Page.php");
     }

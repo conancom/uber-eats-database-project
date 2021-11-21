@@ -191,7 +191,7 @@ if (isset($_POST['submit-remove']) and isset($_SESSION['id-restaurant'])) {
 
             </div>
             <div class="edittext">
-            <h2 style="letter-spacing: 5px; font-family: kanit;">Edit</h2>
+            
             </div>
             <div class="bottombuttoncontainer">
                 <div class="darkbgbuttoncontainer">

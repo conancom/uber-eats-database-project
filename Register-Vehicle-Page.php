@@ -121,7 +121,6 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
                         <div class="col">
                             <select name="VehicleModel" class="VehicleModel" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
                                 <option>Model</option>
-                                <option value="0">Model</option>
                                 <option class="318i" value="318i">318i</option>
                                 <option class="lanos" value="Lanos">Lanos</option>
                                 <option class="courier" value="Courier">Courier</option>
