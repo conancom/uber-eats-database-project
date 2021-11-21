@@ -144,7 +144,7 @@ if ($mysqli->connect_errno) {
             echo '      <div class="MenuContainer">';
             echo '          <div class="row">';
             echo '              <div class="col">';
-            echo '                  <img src="Restaurant/Menu/' . $row2['MenuItemID'] . '.jpg" alt="Menu Picture">';
+            echo '                  <img src="restaurantimg/menu/' . $row2['MenuItemID'] . '.jpg" alt="Menu Picture">';
             echo '              </div>';
             echo '              <div class="col MenuName">';
             echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $row2['FoodName'] . '</h2>';

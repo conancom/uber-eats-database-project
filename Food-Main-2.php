@@ -276,7 +276,7 @@ if (isset($_SESSION['id-client'])) {
                     echo '      <div class="RestaurantContainer">';
 
                     $link =         "'Food-Main-3.php?id=" .$row2['RestaurantID']."'";
-                    echo '          <button style="border-radius: 17px; border: none;" name="restaurantid" value="'. $row2['RestaurantID'] .'"  onclick="javascript:location.href='.$link.'" ><img src="Restaurant/' . $row2['RestaurantID'] . '.jpg" alt="Previous Order 1"></button>';
+                    echo '          <button style="border-radius: 17px; border: none;" name="restaurantid" value="'. $row2['RestaurantID'] .'"  onclick="javascript:location.href='.$link.'" ><img src="restaurantimg/' . $row2['RestaurantID'] . '.jpg" alt="Previous Order 1"></button>';
                     
                     echo '       </div>';
                     echo '  </div>';

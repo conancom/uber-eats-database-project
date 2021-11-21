@@ -186,7 +186,7 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
             echo '          <div class="MenuContainer">';
             echo '              <div class="row">';
             echo '                  <div class="col">';
-            echo '                      <img src="Restaurant/Menu/' . $row['MenuItemID'] . '.jpg" alt="Menu Picture">';
+            echo '                      <img src="restaurantimg/menu/' . $row['MenuItemID'] . '.jpg" alt="Menu Picture">';
             echo '                  </div>';
             echo '              <div class="col MenuName">';
             echo '                  <h2 style="padding-top: 10px; font-size: 20px;">' . $row['FoodName'] . '</h2>';
