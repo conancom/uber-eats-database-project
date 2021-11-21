@@ -32,7 +32,8 @@ if (isset($_POST["submit-register"])) {
         $dateofbirth = "$year-$month-$day";
     }
 
-    $query = "INSERT INTO `client`(`Password`, `Email`, `Gender`, `DateOfBirth`, `FName`, `LName`, `Address`,`Occupation`,`PhoneNumber`) VALUES ('$password', '$emailaddress', '$gender', '$dateofbirth', '$name', '$surname', '$address', '$occupation','$phonenumber')";
+    $query = "INSERT INTO `client`(`Password`, `Email`, `Gender`, `DateOfBirth`, `FName`, `LName`, `Address`,`Occupation`,`PhoneNumber`) 
+    VALUES ('$password', '$emailaddress', '$gender', '$dateofbirth', '$name', '$surname', '$address', '$occupation','$phonenumber')";
     //$query2 = "SELECT LAST_INSERT_ID();";
     //print $query;
 
@@ -91,9 +92,9 @@ if (isset($_POST["submit-register"])) {
                     <input name="surname" type="last name" placeholder="Last name"><br><br>
 
                     <label style="color: white;">Gender</label>
-                    <input type="radio" name="gender" placeholder="male" checked>Male
-                    <input type="radio" name="gender" placeholder="female">Female
-                    <input type="radio" name="gender" placeholder="others">Others<br><br>
+                    <input type="radio" name="gender" value="male" checked>Male
+                    <input type="radio" name="gender" value="female">Female
+                    <input type="radio" name="gender" value="others">Others<br><br>
 
                     <input name="occupation" type="occupation" placeholder="Occupation"><br><br>
                     <input name="phonenumber" type="phone number" placeholder="Phone Number"><br><br>

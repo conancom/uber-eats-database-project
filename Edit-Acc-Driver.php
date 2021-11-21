@@ -27,8 +27,8 @@ if (isset($_SESSION['id-driver'])) {
 if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
     $id = $_SESSION['id-driver'];
     $emailaddress = $_POST['emailaddress'];
-    $password = $_POST['password'];
-    $confirmpassword = $_POST['confirmpassword'];
+    $password = md5($_POST['password']);
+    $confirmpassword =md5( $_POST['confirmpassword']);
     $gender = $_POST['gender'];
     $name =  $_POST['name'];
     $surname = $_POST['surname'];
@@ -95,12 +95,8 @@ if (isset($_SESSION['id-driver']) and isset($_POST['update-edit'])) {
                         <input name="emailaddress" type="email" value=<?php
                                                                         echo $data['Email'];
                                                                         ?>><br><br>
-                        <input name="password" type="password" value=<?php
-                                                                        echo $data['Password'];
-                                                                        ?>><br><br>
-                        <input name="confirmpassword" type="confirm password" value=<?php
-                                                                                    echo $data['Password'];
-                                                                                    ?>><br><br>
+                        <input name="password" type="password" placeholder="New Password"><br><br>
+                        <input name="confirmpassword" type="password" placeholder="New Password Confirm"  ><br><br>
                         <input name='name' type="first name" value=<?php
                                                                     echo $data['FName'];
                                                                     ?>><br><br>

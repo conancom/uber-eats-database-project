@@ -96,9 +96,9 @@ if (isset($_POST["submit-register"])) {
                             <input name="address" type="address" placeholder="Address"><br><br>
 
                             <label style="color: white;">Gender</label>
-                            <input type="radio" name="gender" placeholder="male" checked>Male
-                            <input type="radio" name="gender" placeholder="female">Female
-                            <input type="radio" name="gender" placeholder="others">Others<br><br>
+                            <input type="radio" name="gender" value="male" checked>Male
+                            <input type="radio" name="gender" value="female">Female
+                            <input type="radio" name="gender" value="others">Others<br><br>
 
                             <input name="phonenumber" type="phone number" placeholder="Phone Number"><br><br>
                             <input name="driverlicenseid" type="driver license id" placeholder="Driver License ID"><br><br>      
