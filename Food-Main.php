@@ -37,7 +37,6 @@ if (isset($_POST["submit-find-food"]) and isset($_SESSION['id-client'])) {
 /**/
 ?>
 
-
 <!--HTML Sections-->
 
 <head>
