@@ -10,26 +10,6 @@ if ($mysqli->connect_errno) {
 }
 
 
-if (isset($_SESSION['order-id'])) {
-
-    $orderid = $_SESSION['order-id'];
-    $resid = $_SESSION['restaurant-id'];
-    $clientid = $_SESSION['id-client'];
-
-    $query4 = "SELECT `client`.*, `driver`.*, `driver`.`DriverID` AS driverid,`foodordering`.*, `vehicle`.* FROM `client`,`driver`,`foodordering`, `vehicle` WHERE `client`.`ClientID` = '$clientid'
-    AND `foodordering`.`FoodOrderingID` = '$orderid'
-    AND `foodordering`.`DriverID` = `driver`.`DriverID`
-    AND `vehicle`.`DriverID` = `driver`.`DriverID`;";
-
-
-    $result4 = $mysqli->query($query4);
-    if (!$result4) {
-        echo $mysqli->error;
-    } else {
-        $data = $result4->fetch_array();
-        //unset($_SESSION['order-id']);
-    }
-}
 ?>
 <html>
 
@@ -69,34 +49,79 @@ if (isset($_SESSION['order-id'])) {
                 </div>
                 <?php
 
-                $driverid = $data['driverid'];
 
-                echo '<div class="row DriverPicture">';
-                echo '  <img src="driverimg/' . $driverid . '.jpg" alt="Driver Profile Picture">';
-                echo '</div>';
 
-                echo '<div class="DriverInformationContainer">';
-                echo '  <div class="row">';
-                echo '      <div class="row">';
-                echo '          <p>Name: ' . $data['FName'] . ' ' . $data['LName'] . '</p>';
-                echo '      </div>';
-                echo '      <div class="row">';
-                echo '          <p>Vehicle: ' . $data['VehicleBrand'] . '</p>';
-                echo '      </div>';
-                echo '      <div class="row">';
-                echo '          <p>Rating: ' . $data['Rating'] . '</p>';
+
+
+                if (isset($_SESSION['order-id'])) {
+
+                    $orderid = $_SESSION['order-id'];
+                    $resid = $_SESSION['restaurant-id'];
+                    $clientid = $_SESSION['id-client'];
+
+                    $query4 = "SELECT `client`.*, `driver`.*, `driver`.`DriverID` AS driverid,`foodordering`.*, `vehicle`.* FROM `client`,`driver`,`foodordering`, `vehicle` WHERE `client`.`ClientID` = '$clientid'
+    AND `foodordering`.`FoodOrderingID` = '$orderid'
+    AND `foodordering`.`DriverID` = `driver`.`DriverID`
+    AND `vehicle`.`DriverID` = `driver`.`DriverID`;";
+
+
+                    $result4 = $mysqli->query($query4);
+                    if (!$result4) {
+                        echo $mysqli->error;
+                    } else {
+                        if (mysqli_num_rows($result4) > 0) {
+                            $data = $result4->fetch_array();
+
+
+                            $driverid = $data['driverid'];
+
+                            echo '<div class="row DriverPicture">';
+                            echo '  <img src="driverimg/' . $driverid . '.jpg" alt="Driver Profile Picture">';
+                            echo '</div>';
+
+                            echo '<div class="DriverInformationContainer">';
+                            echo '  <div class="row">';
+                            echo '      <div class="row">';
+                            echo '          <p>Name: ' . $data['FName'] . ' ' . $data['LName'] . '</p>';
+                            echo '      </div>';
+                            echo '      <div class="row">';
+                            echo '          <p>Vehicle: ' . $data['VehicleBrand'] . '</p>';
+                            echo '      </div>';
+                            echo '      <div class="row">';
+                            echo '          <p>Rating: ' . $data['Rating'] . '</p>';
+                            echo '<button name="goback" onclick="location.href=\'Client-Main.php\'"> Complete </button>';
+                        } else {
+                            
+                            echo '<div class="row DriverPicture">';
+//echo '  <img src="driverimg/' . $driverid . '.jpg" alt="Driver Profile Picture">';
+                            echo '</div>';
+
+                            echo '<div class="DriverInformationContainer">';
+                            echo '  <div class="row">';
+                            echo '      <div class="row">';
+                            echo '          <p>Looking for Driver</p>';
+                            echo '      </div>';
+                            echo '      <div class="row">';
+                            //echo '          <p>Vehicle: ' . $data['VehicleBrand'] . '</p>';
+                            echo '      </div>';
+                            echo '      <div class="row">';
+                          //  echo '          <p>Rating: ' . $data['Rating'] . '</p>';
+                          echo '<button name="goback" onclick="window.location.reload();"> Refresh Page </button>';
+                        }
+
+                        //unset($_SESSION['order-id']);
+                    }
+                }
 
 
 
                 ?>
-                <button name="goback" onclick="location.href='Client-Main.php'"> Complete </button>';
+                
             </div>
         </div>
     </div>
 
-    <div class="row CallButton">
-        <button>Call</button>
-    </div>
+    
     </div>
     </div>
 

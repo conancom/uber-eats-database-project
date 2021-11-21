@@ -9,13 +9,17 @@ $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 
-if(isset($_SESSION['order-id'])){
-    
-    unset($_SESSION['restaurant-id']);
-    unset($_SESSION['order-id']);
-}
+
 }
 if (isset($_SESSION['id-client'])) {
+
+    if(isset($_SESSION['order-id'])){
+    
+        unset($_SESSION['restaurant-id']);
+        unset($_SESSION['order-id']);
+    }
+
+
     $clientid = $_SESSION['id-client'];
    $_SESSION['id-client'] =  $clientid;
     $query = "SELECT * FROM `client` WHERE `ClientID` = '$clientid'";
