@@ -15,8 +15,8 @@ if (isset($_POST["submit-register"])) {
 	$openingtimes = $_POST['openingtimes'];
 	$openingdays = $_POST['openingdays'];
 	$emailaddress = $_POST['emailaddress'];
-    $password = $_POST['password'];
-    $confirmpassword = $_POST['confirmpassword'];
+    $password = md5($_POST['password']);
+    $confirmpassword = md5($_POST['confirmpassword']);
 	$address = $_POST['address'];
 
     $query = "INSERT INTO `restaurant`(`Name`, `Location`, `PhoneNumber`, `Type`, `Opening_Times`, `Opening_Days`, `Email`,`Password`,`Address`,`Rating`) VALUES ('$name', '$location', '$phonenumber', '$type', '$openingtimes', '$openingdays', '$emailaddress', '$password', '$address','0')";
@@ -65,7 +65,7 @@ if (isset($_POST["submit-register"])) {
 					<div class="center">
 						<input name="emailaddress" type="email" placeholder="Email"><br><br>
 						<input name="password" type="password" placeholder="Password"><br><br>
-						<input name="confirmpassword" type="confirm password" placeholder="Confirm Password"><br><br>
+						<input name="confirmpassword" type="password" placeholder="Confirm Password"><br><br>
 						<input name="type" type="type" placeholder="Type"><br><br>
 						<input name="name" type="restaurant name" placeholder="Restaurant Name"><br><br> 
 						<input name="openingdays" type="opening days" placeholder="Opening Days"><br><br>

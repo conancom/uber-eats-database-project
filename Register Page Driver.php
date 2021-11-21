@@ -12,8 +12,8 @@ if ($mysqli->connect_errno) {
 
 if (isset($_POST["submit-register"])) {
     $emailaddress = $_POST['emailaddress'];
-    $password = $_POST['password'];
-    $confirmpassword = $_POST['confirmpassword'];
+    $password = md5($_POST['password']);
+    $confirmpassword = md5($_POST['confirmpassword']);
     $gender = $_POST['gender'];
     $name =  $_POST['name'];
     $surname = $_POST['surname'];
@@ -88,24 +88,24 @@ if (isset($_POST["submit-register"])) {
 
 
                         <div class="center">
-                            <input name="emailaddress" type="email" value="Email"><br><br>
-                            <input name="password" type="password" value="Password"><br><br>
-                            <input name="confirmpassword" type="confirm password" value="Confirm Password"><br><br>
-                            <input name="name" type="first name" value="First Name"><br><br>
-                            <input name="surname" type="last name" value="Last name"><br><br>
-                            <input name="address" type="address" value="Address"><br><br>
+                            <input name="emailaddress" type="email" placeholder="Email"><br><br>
+                            <input name="password" type="password" placeholder="Password"><br><br>
+                            <input name="confirmpassword" type="password" placeholder="Confirm Password"><br><br>
+                            <input name="name" type="first name" placeholder="First Name"><br><br>
+                            <input name="surname" type="last name" placeholder="Last name"><br><br>
+                            <input name="address" type="address" placeholder="Address"><br><br>
 
                             <label style="color: white;">Gender</label>
-                            <input type="radio" name="gender" value="male" checked>Male
-                            <input type="radio" name="gender" value="female">Female
-                            <input type="radio" name="gender" value="others">Others<br><br>
+                            <input type="radio" name="gender" placeholder="male" checked>Male
+                            <input type="radio" name="gender" placeholder="female">Female
+                            <input type="radio" name="gender" placeholder="others">Others<br><br>
 
-                            <input name="phonenumber" type="phone number" value="Phone Number"><br><br>
-                            <input name="driverlicenseid" type="driver license id" value="Driver License ID"><br><br>      
+                            <input name="phonenumber" type="phone number" placeholder="Phone Number"><br><br>
+                            <input name="driverlicenseid" type="driver license id" placeholder="Driver License ID"><br><br>      
 
-                            <input name="day" type="birth date" value="Birth Date">
-                            <input name="month" type="birth month" value="Birth Month">
-                            <input name="year" type="birth year" value="Birth Year"><br><br><br>
+                            <input name="day" type="birth date" placeholder="Birth Date">
+                            <input name="month" type="birth month" placeholder="Birth Month">
+                            <input name="year" type="birth year" placeholder="Birth Year"><br><br><br>
                         </div>
                     
                 </div>

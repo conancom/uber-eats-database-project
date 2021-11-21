@@ -12,7 +12,7 @@ if ($mysqli->connect_errno) {
 
 if (isset($_POST["submit-login"])) {
 	$emailaddress = $_POST['emailaddress'];
-	$password = $_POST['password'];
+	$password = md5($_POST['password']);
 	$query = "SELECT * FROM `driver` WHERE `Email` = '$emailaddress' AND `Password` = '$password'";
 	// print($query); 
 	$result = $mysqli->query($query);
