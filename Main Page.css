@@ -1,228 +1,169 @@
 div#wrapper {
-
-	color: white;
-
-	min-width:400px;
-	
-	padding-top: 0.00001em;
-	/*Set border to 1pixel solid line with black color*/
-	/*border: 1px solid black;*/
-	
-	/*Set background color to #F2C063*/
-	background-color: black;
-	
-	/*Set margin to auto*/
-	margin: auto;
-	
-	/*Set width to 60%*/
-	width: 100%;
-	
-	/*Use border-top-left-radius and border-top-right-radius to make round cornors. Set them to 10px*/
-	/*border-top-left-radius: 10px;
-	border-top-right-radius: 10px;*/
-	
-}
-body {	
-	font-family:sans-serif;
-	
-	/*Set background color to #444444*/
-	background-color: #444444;
-	
+    color: white;
+    min-width: 400px;
+    padding-top: 0.00001em;
+    background-color: black;
+    margin: auto;
+    width: 100%;
 }
 
-div#div_main{
-	position:relative;	
+body {
+    font-family: sans-serif;
+    background-color: #444444;
 }
 
-div#div_header{
-	/*Set font size to 2em, font family to sans-serif, font weight to 700, and font variant to small-caps */
-	background-color: #FFCB90;
-	display: flex;
+div#div_main {
+    position: relative;
+}
+
+div#div_header {
+    background-color: #FFCB90;
+    display: flex;
     padding-top: 2em;
     padding-bottom: 2em;
-	/*Set bottom border to 1 pixel, solid line, with color #BF491F*/
-	/*color: #BF491F;*/
-	width: 100%;
+    width: 100%;
 }
 
-div#div_main{
-	justify-content: right;
-	display: flex;
+div#div_main {
+    justify-content: right;
+    display: flex;
     padding: 2%;
 }
 
-#button1{
-	margin: 5px 5px;
-	background-color: #e78f30;
-	outline: none;
-	font-weight: border;
-	color: black;
-	border-radius: 20px;
-	border: none;
-	width: 15%;
-	height: 30px;
-
+#button1 {
+    margin: 5px 5px;
+    background-color: #e78f30;
+    outline: none;
+    font-weight: border;
+    color: black;
+    border-radius: 20px;
+    border: none;
+    width: 15%;
+    height: 30px;
 }
 
-#button2{
-	margin: 5px 5px;
-	background-color: white;
-	outline: none;
-	font-weight: border;
-	color: black;
-	border-radius: 20px;
-	border: none;
-	width: 15%;
-	height: 30px;
-
+#button2 {
+    margin: 5px 5px;
+    background-color: white;
+    outline: none;
+    font-weight: border;
+    color: black;
+    border-radius: 20px;
+    border: none;
+    width: 15%;
+    height: 30px;
 }
 
-
-
-div#div_content{	
-	/*Set background color to white*/
-	background-color: rgb(228, 184, 91);
-	display: flex;
-	
-	/*margin-left:25%;*/ 
-	/* padding: 10em; */
+div#div_content {
+    background-color: rgb(228, 184, 91);
+    display: flex;
 }
 
-div#div_subcontent{	
-	/*Set background color to white*/
-	background-image: url("Main Page Picture/mpp2.png");
-	background-size: contain;
-	
-	/*margin-left:25%;*/ 
+div#div_subcontent {
+    background-image: url("Main Page Picture/mpp2.png");
+    background-size: contain;
 }
 
-div#div_footer{
-	color: white;
-
-	font: large;
-	font: bolder;
-	font-size:xx-large;
-
-	min-width:575px;
-	
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-	
-	/*Set border to 1pixel solid line with black color*/
-	/*border: 1px solid black;*/
-	
-	/*Set background color to #F2C063*/
-	background-color: black;
-	
-	/*Set margin to auto*/
-	margin: auto;
-	
-	/*Set width to 60%*/
-	width: 100%;
+div#div_footer {
+    color: white;
+    font: large;
+    font: bolder;
+    font-size: xx-large;
+    min-width: 575px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: black;
+    margin: auto;
+    width: 100%;
 }
 
-div#div_footer:before{
-
-	text-decoration: white;;
+div#div_footer:before {
+    text-decoration: white;
+    ;
 }
 
-h2{
-	color: white;
-	font-weight:bold;
-	margin-top:0.4em;
-	margin-bottom:0.4em;
+h2 {
+    color: white;
+    font-weight: bold;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
     margin-left: 2em;
-	/*Set bottom border to 1pixel dotted line with color #E47F5A*/
-	border-bottom: 1px dotted line #E47F5A;
-	
-	/*Set left padding to 1em so we have little indentation*/
-	padding-left: 1em;
-	
+    border-bottom: 1px dotted line #E47F5A;
+    padding-left: 1em;
 }
 
-h3{
-	color: black;
+h3 {
+    color: black;
     font-size: small;
-	margin-top:0.4em;
-	margin-bottom:0.4em;	
-	/*Set bottom border to 1pixel dotted line with color #E47F5A*/
-	border-bottom: 1px dotted line #E47F5A;
-	
-	/*Set left padding to 1em so we have little indentation*/
-	padding-left: 1em;
-	
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    border-bottom: 1px dotted line #E47F5A;
+    padding-left: 1em;
 }
 
-.form label{
-	font-size: small;
+.form label {
+    font-size: small;
 }
 
-.form input[type="Register"]{
-
-	background-color: orange;
-
-	/*Set width to 150 pixels to have a big submit button*/
-	text-align: center;
-	width: 150px;
-
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
+.form input[type="Register"] {
+    background-color: orange;
+    text-align: center;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.form input[type="checkbox"]{
-	display:block;
+.form input[type="checkbox"] {
+    display: block;
 }
 
-.form select{
-	padding: 4px 2px;
-	display:block;
-	margin: 2px 2px 10px 10px;
+.form select {
+    padding: 4px 2px;
+    display: block;
+    margin: 2px 2px 10px 10px;
 }
 
-.center{
-	text-align: center;
+.center {
+    text-align: center;
 }
 
-#mpp1{
-	height: 250px;
-	width: 250px;
+#mpp1 {
+    height: 250px;
+    width: 250px;
 }
 
-.right{
-	flex: 50%;
-	text-align: right;
-	float: right;
-	padding-left: 1em;
-	padding-right: 1em;
+.right {
+    flex: 50%;
+    text-align: right;
+    float: right;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
-.left{
-	flex: 50%;
-	text-align: left;
-	float: left;
+.left {
+    flex: 50%;
+    text-align: left;
+    float: left;
 }
 
-.right1{
-	flex: 50%;
-	text-align: right;
-	float: right;
-	height: 300px;
-	width: 200px;
-
+.right1 {
+    flex: 50%;
+    text-align: right;
+    float: right;
+    height: 300px;
+    width: 200px;
 }
 
-.left1{
-	flex: 50%;
-	text-align: left;
-	float: left;
-	height: 300px;
-	width: 200px;
-
+.left1 {
+    flex: 50%;
+    text-align: left;
+    float: left;
+    height: 300px;
+    width: 200px;
 }
 
 .RegisterButton button:hover {
     background-color: #e78f30;
 }
-

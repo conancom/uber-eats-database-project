@@ -20,6 +20,8 @@ body {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .AddMenuFormContainer label {
@@ -50,6 +52,17 @@ body {
     background-color: #FFAD53;
     font-size: 15px;
     font-weight: bold;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.AddButton:hover {
+    background-color: #fc901e;
 }
 
 .button {
@@ -70,6 +83,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 290px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .buttonbox .AddItemButton,

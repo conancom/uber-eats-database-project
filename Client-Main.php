@@ -45,11 +45,9 @@ if (isset($_SESSION['id-client'])) {
     <link rel="stylesheet" href="client.css">
 </head>
 
-
-
 <body>
 
-<div class="header" style="font-family: 'Kanit', sans-serif; z-index:999;">
+<div class="header" style="font-family: 'Kanit', sans-serif; z-index:999; cursor: pointer;" onclick="location.href='Client-Main.php'">
         Uber Eats
     </div>
 

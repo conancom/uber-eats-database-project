@@ -81,14 +81,10 @@ if (isset($_POST['submit-remove']) and isset($_SESSION['id-restaurant'])) {
 
 
 
-<body>
+<body style="overflow-x: hidden;">
 
-    <div class="header">
-        Header
-    </div>
-
-    <div class="header">
-        Header
+<div class="header" style="font-family: 'Kanit', sans-serif; z-index:999; cursor: pointer;" onclick="location.href='Restaurant-Main.php'">
+        Uber Eats
     </div>
 
     <div class="header_details">
@@ -108,19 +104,19 @@ if (isset($_POST['submit-remove']) and isset($_SESSION['id-restaurant'])) {
     </div>
     <div class="textgroup">
         <div class="headerbox">
-            <label><?php echo $data['Name'] ?> </label>
+            <label style="padding: 20px;"><?php echo $data['Name'] ?> </label>
         </div>
         <div class="headerbox">
-            <label> <?php echo $data['RestaurantID'] ?> </label>
+            <label style="padding: 20px;"> <?php echo $data['RestaurantID'] ?> </label>
         </div>
         <br>
         <div class="bottombox">
-            <label> <?php echo $data['Opening_Times'] ?></label>
+            <label style="padding: 20px;"> <?php echo $data['Opening_Times'] ?></label>
         </div>
         <div class="bottombox">
-            <label> <?php echo $data['Opening_Days'] ?></label>
+            <label style="padding: 20px;"> <?php echo $data['Opening_Days'] ?></label>
         </div><br>
-        <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+        <a class="editprofile" href="Edit-Acc-Restaurant.php" style="text-decoration: none;"> Edit Profile -></a>
     </div>
     </div>
 
@@ -135,7 +131,6 @@ if (isset($_POST['submit-remove']) and isset($_SESSION['id-restaurant'])) {
     <div class="bigbuttoncontainer">
         <form name="form" method="post">
             <div class="tablecontainer">
-
 
                 <table class="tablemenu">
                     <tr>
@@ -196,22 +191,20 @@ if (isset($_POST['submit-remove']) and isset($_SESSION['id-restaurant'])) {
 
             </div>
             <div class="edittext">
-                Edit
+            <h2 style="letter-spacing: 5px; font-family: kanit;">Edit</h2>
             </div>
             <div class="bottombuttoncontainer">
                 <div class="darkbgbuttoncontainer">
-                    <button class="darkbutton"> Add Item </button>&nbsp; &nbsp;
+                    <button class="darkbutton AddItemButton" onclick="location.href='Menu-Restaurant-Add.php'"> Add Item </button>&nbsp; &nbsp;
                     <! –– for Spacing inbetween buttons ––>
-                        <input name="submit-remove" type="submit" value="Delete Items" class="deletebutton" />
+                        <input name="submit-remove" type="submit" value="Delete Items" class="deletebutton DeleteItemButton" />
                 </div>
             </div>
         </form>
     </div>
 
     <div class="div_footer">
-        Footer
-
-
+<br>
     </div>
 </body>
 

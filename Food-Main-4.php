@@ -9,12 +9,12 @@ Function:
 */
 session_start();
 
-
 /*Leon's Database
     $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
 
 /*Junior's Database*/
 $mysqli = new mysqli("localhost", "root", '', "uber");
+
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
 }
@@ -122,13 +122,9 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
     }
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
-
-
 
 <html>
 
@@ -173,8 +169,6 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
     <section class="RecomAndDetails">
 
         <?php
-
-
 
         $resid = $_SESSION['restaurant-id'];
         $clientid = $_SESSION['id-client'];
@@ -266,7 +260,6 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                             <h3>Payment</h3>
                             <table>
 
-
                             <?php
                             if (isset($_SESSION['order-id'])) {
 
@@ -305,7 +298,6 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                             <h3>Delivery</h3>
                             <table>
 
-
                             <?php
                             if (isset($_SESSION['order-id'])) {
 
@@ -333,7 +325,6 @@ if (isset($_GET['id']) and !isset($_SESSION['order-id'])) {
                                 }
                             } 
                             ?>
-                                
                                 
                             </table>
                         </div>

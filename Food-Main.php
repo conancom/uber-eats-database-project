@@ -75,8 +75,6 @@ if (isset($_POST["submit-find-food"]) and isset($_SESSION['id-client'])) {
 
                         <?php
                     
-
-
                         if (isset($_SESSION['id-client'])) {
                             /*$clientid = $_SESSION['ClientID'];*/ /*Messenger to another page in an array form*/
                             $clientid = $_SESSION['id-client'];
@@ -92,10 +90,7 @@ if (isset($_POST["submit-find-food"]) and isset($_SESSION['id-client'])) {
                                 echo '<input type="text" id="Address" name="Address" placeholder="Address" size="20" value="' .$data1['Address']. '">';
                             }
                         }
-                        /**/
                         ?>
-
-                        
                     </div>
 
                     <div class="FindFood">

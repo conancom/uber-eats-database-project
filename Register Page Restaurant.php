@@ -49,7 +49,7 @@ if (isset($_POST["submit-register"])) {
 	</div>
 
 	<div id="div_content" class="form">
-                <h1>Setting the World in Motion</h1>
+                <h1 style="color: white;">Setting the World in Motion</h1>
                 <!--%%%%% Main block %%%%-->
                 <!--Form -->
                 <form name="form" method="post" enctype="multipart/form-data">

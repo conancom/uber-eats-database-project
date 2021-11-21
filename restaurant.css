@@ -3,10 +3,9 @@
     --main-color-cream: rgba(255, 216, 172, 1);
     --main-color-white: rgba(255, 255, 255, 1);
     --main-color-orange: rgba(255, 115, 21, 1);
-  }
+}
 
-.profilepic{
-
+.profilepic {
     width: 145px;
     height: 145px;
     left: 126px;
@@ -19,8 +18,9 @@
     margin-left: 4%;
     align-items: center;
 }
-.header{
-    padding-top: 10px;
+
+.header {
+    padding-top: 20px;
     padding-bottom: 20px;
     background-color: var(--main-color-dark);
     width: 100%;
@@ -36,11 +36,14 @@
     margin-left: -8px;
     color: var(--main-color-white);
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     padding-left: 25px;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 7px;
 }
-.header_details{
+
+.header_details {
     display: block;
     margin-top: 55px;
     background-color: var(--main-color-cream);
@@ -52,19 +55,19 @@
     overflow: hidden;
     padding-right: 20px;
     margin-right: -10px;
-    
-
 }
-.headerbox{
-    float:left;
+
+.headerbox {
+    float: left;
     margin-left: 175px;
     background-color: white;
     border-radius: 202px;
     color: black;
 }
-.orderidbox{
+
+.orderidbox {
     display: block;
-    overflow:hidden;
+    overflow: hidden;
     float: left;
     margin-left: 10px;
     margin-top: -35px;
@@ -72,9 +75,10 @@
     border-radius: 202px;
     color: black;
 }
-.totalpricebox{
+
+.totalpricebox {
     display: block;
-    overflow:hidden;
+    overflow: hidden;
     float: left;
     margin-left: 10px;
     margin-top: 20px;
@@ -82,12 +86,14 @@
     border-radius: 202px;
     color: black;
 }
-.ordertable{
+
+.ordertable {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 150px; /*Change here to increase size*/
+    margin-bottom: 150px;
 }
-.tablecontainer{
+
+.tablecontainer {
     display: block;
     background: rgba(255, 216, 172, 0.59);
     width: 70%;
@@ -98,16 +104,16 @@
     color: black;
     text-align: center;
 }
-.tablemenu{
+
+.tablemenu {
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 150px; /*Change here to increase size*/
-    /*border-spacing: 30px;*/
+    margin-bottom: 150px;
     border-spacing: 0;
-    border-collapse:separate;
+    border-collapse: separate;
     width: 100%;
-    
 }
+
 th {
     border-bottom: 1px solid var(--main-color-orange);
     margin-bottom: 10px;
@@ -119,7 +125,8 @@ td {
     text-align: center;
     padding-top: 25px;
 }
-.bottombuttoncontainer{
+
+.bottombuttoncontainer {
     position: absolute;
     bottom: 0;
     text-align: center;
@@ -129,16 +136,34 @@ td {
     margin-left: 500px;
     height: 8.5%;
 }
-.edittext{
-    
+
+.edittext {
     color: var(--main-color-white);
-   
     position: absolute;
     bottom: 0;
-    margin-left: 885px;
-    margin-bottom: 100px;
+    margin-left: 870px;
+    margin-bottom: 90px;
 }
-.darkbutton{
+
+.editprofile {
+    float: left;
+    margin-top: 50px;
+    padding: 1px 0;
+    top: 0px;
+    left: 50px;
+    transition: color 0.5s, background-color 0.5s;
+    color: black;
+    position: relative;
+}
+
+.editprofile:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.darkbutton {
     display: inline;
     background-color: var(--main-color-dark);
     margin: 0;
@@ -154,7 +179,8 @@ td {
     padding-right: 60px;
     text-align: center;
 }
-.deletebutton{
+
+.deletebutton {
     display: inline;
     background-color: var(--main-color-orange);
     margin: 0;
@@ -170,17 +196,30 @@ td {
     padding-right: 60px;
     text-align: center;
 }
-.bottombox{
+
+.AddItemButton,
+.DeleteItemButton {
+    transition: background-color 0.5s, border 0.5s;
+}
+
+.AddItemButton:hover,
+.DeleteItemButton:hover {
+    background-color: rgba(255, 115, 21, 1);
+    border: rgba(255, 115, 21, 1);
+}
+
+.bottombox {
     margin-top: 25px;
     display: inline;
-    float:left;
+    float: left;
     margin-left: 175px;
     background-color: white;
-    border-radius: 202px; 
+    border-radius: 202px;
 }
-.statusbox{
+
+.statusbox {
     display: block;
-    overflow:hidden;
+    overflow: hidden;
     float: right;
     margin-left: 10px;
     margin-top: 20px;
@@ -189,44 +228,45 @@ td {
     color: black;
     margin-right: 150px;
 }
-.darkbgbuttoncontainer{
-    
-    margin:0 auto;
+
+.darkbgbuttoncontainer {
+    margin: 0 auto;
     margin-top: 12px;
-    
 }
-.licensebox{
-    display: inline;
-    float:left;
-    margin-top: 25px;
-    margin-left: 200px;
-    background-color: white;
-    border-radius: 202px;
-    
-}
-.headerboxlong{
+
+.licensebox {
     display: inline;
     float: left;
     margin-top: 25px;
     margin-left: 200px;
     background-color: white;
     border-radius: 202px;
-    
 }
-.textgroup{
+
+.headerboxlong {
+    display: inline;
+    float: left;
+    margin-top: 25px;
+    margin-left: 200px;
+    background-color: white;
+    border-radius: 202px;
+}
+
+.textgroup {
     display: block;
     margin-left: 300px;
     margin-top: -120px;
-    
 }
-.editprofile{
+
+.editprofile {
     float: left;
     margin-top: 50px;
     padding: 1px 0;
-    top: 0px ;
+    top: 0px;
     margin-left: -450px;
 }
-.underheadbar{
+
+.underheadbar {
     background-color: var(--main-color-dark);
     padding-left: 10px;
     margin-left: -10px;
@@ -238,11 +278,13 @@ td {
     margin-right: -12px;
     overflow: hidden;
 }
-.buttoncontainer{
+
+.buttoncontainer {
     align-items: center;
     text-align: center;
 }
-.previousorders{
+
+.previousorders {
     background-color: var(--main-color-white);
     margin: 0;
     border-radius: 5px;
@@ -251,8 +293,16 @@ td {
     width: 200px;
     height: 45;
     cursor: pointer;
+    padding: 5px;
+    transition: background-color 0.3s, border 0.3s;
 }
-.menulistonmenulist{
+
+.previousorders:hover {
+    background-color: rgba(255, 115, 21, 1);
+    border: rgba(255, 115, 21, 1);
+}
+
+.menulistonmenulist {
     background-color: grey;
     margin: 0;
     border-radius: 5px;
@@ -262,7 +312,8 @@ td {
     height: 45;
     cursor: pointer;
 }
-.previousordersonsame{
+
+.previousordersonsame {
     background-color: grey;
     margin: 0;
     border-radius: 5px;
@@ -272,7 +323,8 @@ td {
     height: 45;
     cursor: pointer;
 }
-.bigbuttoncontainer{
+
+.bigbuttoncontainer {
     background: url(Restaurant\ Picture/restaurant-bg.jpg) var(--main-color-cream);
     padding: 230px 0;
     padding-bottom: 550px;
@@ -289,7 +341,8 @@ td {
     background-size: cover;
     position: relative;
 }
-.bigcontainerhistory{
+
+.bigcontainerhistory {
     background: url(Restaurant\ Picture/backgroundhistory.png);
     padding: 230px 0;
     padding-bottom: 550px;
@@ -306,7 +359,8 @@ td {
     background-size: cover;
     position: relative;
 }
-.orderfood{
+
+.orderfood {
     background-color: var(--main-color-dark);
     margin: 0;
     border-radius: 5px;
@@ -321,7 +375,8 @@ td {
     padding-right: 60px;
     text-align: center;
 }
-.div_footer{
+
+.div_footer {
     background-color: var(--main-color-dark);
     padding-left: 10px;
     margin-left: -10px;
@@ -336,11 +391,12 @@ td {
     padding-bottom: 10px;
     color: var(--main-color-white);
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     padding-left: 25px;
     font-size: 20px;
 }
-.ordercontainer{
+
+.ordercontainer {
     display: block;
     background: rgba(34, 40, 49, 0.75);
     width: 30%;
@@ -349,9 +405,9 @@ td {
     margin: auto;
     margin-top: -150px;
     color: var(--main-color-white);
-
 }
-.greenbutton{
+
+.greenbutton {
     background-color: yellowgreen;
     border-color: yellowgreen;
     border-radius: 10px;
@@ -360,7 +416,8 @@ td {
     border-style: solid;
     margin-top: 10px;
 }
-.redbutton{
+
+.redbutton {
     background-color: lightgrey;
     border-color: lightgrey;
     border-radius: 10px;
@@ -369,44 +426,51 @@ td {
     border-style: solid;
     margin-top: 10px;
 }
-.history_container{
+
+.history_container {
     margin-top: -200px;
 }
-.driverdetailscontainer{
+
+.driverdetailscontainer {
     color: var(--main-color-white);
     display: inline;
     text-align: left;
 }
-.rightcontainer{
+
+.rightcontainer {
     margin-right: 300px;
 }
-.leftcontainer{
+
+.leftcontainer {
     margin-left: 300px;
 }
-.grid-container{
+
+.grid-container {
     display: grid;
     margin-left: 550px;
     margin-right: 500px;
     column-gap: 0ch;
-    
 }
-.grid-item1{
+
+.grid-item1 {
     grid-column-start: 1;
     grid-column-end: 3;
     background-color: white;
-    
 }
-.grid-item2{
+
+.grid-item2 {
     grid-column-start: 3;
     grid-column-end: 4;
     background-color: rgba(255, 216, 172, 0.65);
 }
-.grid-item3{
+
+.grid-item3 {
     grid-column: 4;
     background-color: var(--main-color-dark);
     width: 10%;
 }
-.greenbutton{
+
+.greenbutton {
     background-color: yellowgreen;
     border-color: yellowgreen;
     border-radius: 10px;

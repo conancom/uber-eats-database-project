@@ -140,10 +140,17 @@ body {
     padding: 20px;
     font-size: 25px;
     width: 350px;
-    margin-left: 31%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 250px;
     transition: padding 0.1s, background-color 0.2s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.Checkout {}
 
 .Checkout button:hover {
     background-color: #f19634;

@@ -5,6 +5,11 @@
     overflow: hidden;
 }
 
+body {
+    height: 100%;
+    width: 100%;
+}
+
 .LogoContainer {
     width: 100%;
     background-color: #222831;
@@ -39,29 +44,31 @@
     font-size: 30px;
 }
 
-.FindFood button {
+.FindFood input {
     background-color: #FFAD53;
     color: white;
     border: none;
     padding: 10px;
-    transition: transform 0.1s;
+    transition: transform 0.1s, background-color 0.2s;
+    border-radius: 5px;
 }
 
-.FindFood button:hover {
+.FindFood input:hover {
     transform: scale(1.1);
+    background-color: #f88d1a;
 }
 
 .PrevOrderRow {
     position: relative;
     padding-left: 50px;
     padding-right: 50px;
-    padding-top: 30px;
-    margin-bottom: 200px;
+    padding-top: 10px;
+    margin-bottom: 20px;
 }
 
 .PrevOrderContainer {
     width: 494px;
-    height: 175px;
+    height: 150px;
     background-color: antiquewhite;
     border-radius: 15px;
 }
