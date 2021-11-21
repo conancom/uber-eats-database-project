@@ -59,12 +59,12 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
     } else {
 
 
-        if (file_exists('foodimg/' . $menuitemId . '.jpg')) {
-            unlink('foodimg/' . $menuitemId . '.jpg');
+        if (file_exists('restaurantimg/menu/' . $menuitemId . '.jpg')) {
+            unlink('restaurantimg/menu/' . $menuitemId . '.jpg');
         }
 
 
-        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'foodimg/' . $menuitemId . '.jpg');
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'restaurantimg/menu/' . $menuitemId . '.jpg');
         header("Location: Menu-Restaurant.php");
 
 

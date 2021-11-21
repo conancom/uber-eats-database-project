@@ -41,7 +41,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
     if (!$result) {
         echo $mysqli->error;
     } else {
-        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'foodimg/' . mysqli_insert_id($mysqli) . '.jpg');
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'restaurantimg/menu/' . mysqli_insert_id($mysqli) . '.jpg');
         $insertedid =mysqli_insert_id($mysqli);
         $query1 = "INSERT INTO `menuiteminrestaurant` (`MenuItemID`, `RestaurantID`, `LimitedTimeDate`, `Discount`) 
         VALUES ('$insertedid', '$restaurantid', NULL, '0') ";
