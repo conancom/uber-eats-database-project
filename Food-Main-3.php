@@ -91,35 +91,7 @@ if ($mysqli->connect_errno) {
                 </div>
             </div>
             <div class="col-2 PromotionCol">
-                <div class="Promotion" style="position: relative; padding-right: 10px;">
-
-                    <!--
-                        <a href="">
-                            <p>Promotion ></p>
-                        </a>
-                    -->
-
-                    <button id="myBtn" style="border: none; background-color: #FFAD53; padding: 5px; border-radius: 10px; font-size: 25px;">Promotion</button>
-                    <!-- The Modal -->
-                    <div id="myModal" class="modal">
-                        <!-- Modal content -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <span class="close">&times;</span>
-                                <h2>Promotion</h2>
-                            </div>
-                            <div class="modal-body" style="text-align: center;">
-                                <p>Promotion 1</p>
-                                <p>Promotion 2</p>
-                                <p>Promotion 3</p>
-                                <p>Promotion 4</p>
-                            </div>
-                            <div class="modal-footer">
-                                <h3>Uber Eats</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
