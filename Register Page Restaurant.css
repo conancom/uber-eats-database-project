@@ -52,6 +52,7 @@ div#div_subcontent {
     padding-right: 8em;
 }
 
+
 /* div#div_subcontent {
     background-color: rgba(0, 0, 0, 0.842);
     margin: 2em;
@@ -61,7 +62,8 @@ div#div_subcontent {
 
 div#div_content {
     background-image: url("Restaurant Picture/rpr.jpg");
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
 }
 
@@ -241,12 +243,7 @@ div#div_footer:before {
 }
 
 
-
-
 /* =----------------------------------------= */
-
-
-
 
 div#wrapper {
     color: white;

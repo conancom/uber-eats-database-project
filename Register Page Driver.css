@@ -53,6 +53,7 @@ div#div_subcontent {
     padding-right: 8em;
 }
 
+
 /* div#div_subcontent {
     background-color: rgba(0, 0, 0, 0.842);
     margin: 2em;
@@ -62,8 +63,9 @@ div#div_subcontent {
 
 div#div_content {
     background-image: url("Driver Picture/rpd.jpeg");
-    background-size: contain;
+    background-size: cover;
     text-align: center;
+    background-repeat: no-repeat;
 }
 
 div#div_footer {
@@ -266,12 +268,7 @@ div#div_footer:before {
 }
 
 
-
-
 /* =----------------------------------------= */
-
-
-
 
 div#wrapper {
     color: white;

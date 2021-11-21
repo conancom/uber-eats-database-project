@@ -5,11 +5,7 @@
     - Delete Category and Restaurant Nav Bar (DONE)
     - Shopping Cart (JavaScript)
     - Menu Layout ()
- 
-    */
-
-
-
+*/
 
 session_start();
 $resid = $_GET['id'];
@@ -26,10 +22,6 @@ if ($mysqli->connect_errno) {
 ?>
 
 <!DOCTYPE html>
-
-
-
-
 
 <html>
 
@@ -107,7 +99,7 @@ if ($mysqli->connect_errno) {
                         </a>
                     -->
 
-                    <button id="myBtn" style="border: none; background-color: #FFAD53; padding: 5px; border-radius: 10px; font-size: 25px;">Open Modal</button>
+                    <button id="myBtn" style="border: none; background-color: #FFAD53; padding: 5px; border-radius: 10px; font-size: 25px;">Promotion</button>
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
                         <!-- Modal content -->

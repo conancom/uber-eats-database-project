@@ -56,8 +56,6 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
     }
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -72,10 +70,9 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
 </head>
 
 <body>
-    <div class="header">
-        Header
+<div class="header" style="font-family: 'Kanit', sans-serif; z-index:999; cursor: pointer;" onclick="location.href='Restaurant-Main.php'">
+        Uber Eats
     </div>
-
 
     <div class="header_details">
     <?php
@@ -94,19 +91,19 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
         </div>
         <div class="textgroup">
             <div class="headerbox">
-                <label><?php echo $data['Name'] ?> </label>
+                <label style="padding: 20px;"><?php echo $data['Name'] ?> </label>
             </div>
             <div class="headerbox">
-                <label> <?php echo $data['RestaurantID'] ?> </label>
+                <label style="padding: 20px;"> <?php echo $data['RestaurantID'] ?> </label>
             </div>
             <br>
             <div class="bottombox">
-                <label> <?php echo $data['Opening_Times'] ?></label>
+                <label style="padding: 20px;"> <?php echo $data['Opening_Times'] ?></label>
             </div>
             <div class="bottombox">
-                <label> <?php echo $data['Opening_Days'] ?></label>
+                <label style="padding: 20px;"> <?php echo $data['Opening_Days'] ?></label>
             </div><br>
-            <a class="editprofile" href="Edit-Acc-Restaurant.php"> Edit Profile -></a>
+            <a class="editprofile" href="Edit-Acc-Restaurant.php" style="text-decoration: none;"> Edit Profile -></a>
         </div>
     </div>
 
@@ -159,13 +156,13 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
                 </div>
                 <br><br>
 
-                Select Image to upload:
-                <input type="file" name="my_file" />
+                <label style="color: white;">Select Image to upload:</label>
+                <input  style="color: white; margin-left: 29%;" type="file" name="my_file" />
 
                 <br><br>
 
                 <div class="button">
-                    <input type="submit" name="submit-add" value="Add" class="AddButton"></button>
+                    <input type="submit" name="submit-add" value="Add" class="AddButton" ></button>
                 </div>
             </form>
 
@@ -185,9 +182,7 @@ if (isset($_SESSION['id-restaurant']) and isset($_POST['submit-add'])) {
     </div>
 
     <div class="div_footer">
-        Footer
-
-
+    <br>
     </div>
 </body>
 

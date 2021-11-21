@@ -62,7 +62,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST['complete-order'])) {
 
 <body>
 
-    <div class="header" style="font-family: 'Kanit', sans-serif; z-index:999;">
+<div class="header" style="font-family: 'Kanit', sans-serif; z-index:999; cursor: pointer;" onclick="location.href='Driver-Main.php'">
         Uber Eats
     </div>
 
