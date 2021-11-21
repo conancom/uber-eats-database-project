@@ -99,49 +99,16 @@ if (isset($_POST["submit-find-food"]) and isset($_SESSION['id-client'])) {
             </form>
         </div>
     </section>
-
-    <section class="History-Orders">
-        <div class="row PrevOrderRow">
-            <h2 class="PreviousOrders">
-                Previous Orders
-            </h2>
-            <?php
-            $con = new PDO('mysql:hosy=locahost;dbname=uber', 'root', '');
-            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $stmt = $con->prepare('SELECT * FROM `foodordering`');
-            $stmt->execute();
-            $foodorderings = $stmt->fetchall();
-
-            /*Still have to check that this foodorderingid is relating to ClientID*/
-            $query2 = "SELECT `ordereditem`.`MenuItemInRestaurantID` FROM `ordereditem`, `foodordering` WHERE `ordereditem`.`FoodOrderingID` = `foodordering`.`FoodOrderingID`";
-            $result2 = $mysqli->query($query2);
-
-            /*echo "<label> Debug 1 </label>";*/
-
-            $count = 0;
-            while ($row2 = $result2->fetch_array()) {
-                /*echo "<label> Debug 2 </label>";*/
-                $count = $count + 1;
-                $rowCount = 0;
-                if ($count <= 3) {
-                    echo "<div class='col-md-4'>";
-                    echo "  <div class='PrevOrderContainer'>";
-                    echo "      <img src='Restaurant/" . $row2[$rowCount] . ".jpg' alt='Previous Order'>";
-                    echo "  </div>";
-                    echo "</div>";
-                    $rowCount = $rowCount + 1;
-                } else {
-                    break;
-                }
-            }
-
-            /*For keeping the previous orders in check, not more than 3 orders showing
-                foreach ($foodorderings as $foodordering) {}*/
-            ?>
+    
+    <!--
+    <section class="Footer">
+        <div class="row">
+            <div class="LogoContainer">
+                <h1 style="color: white; padding-left: 15px;">U b e r</h1>
+            </div>
         </div>
     </section>
-
+    -->
 </body>
 
 </html>
