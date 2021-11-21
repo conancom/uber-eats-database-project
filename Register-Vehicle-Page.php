@@ -1,9 +1,6 @@
 <?php
+session_start();
 
-/*Leon's Database
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-*/
-/*Junior's Database*/
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
@@ -12,6 +9,7 @@ if ($mysqli->connect_errno) {
 
 if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) {
     $driverid = $_SESSION['id-driver'];
+
     $LicensePlate = $_POST['LicensePlate'];
     $VehicleType = $_POST['VehicleType'];
     $VehicleBrand = $_POST['VehicleBrand'];
@@ -33,8 +31,8 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
         echo $mysqli->error;
     } else {
         header("Location: Login-Page-Driver.php");
-        }
     }
+}
 
 ?>
 
@@ -74,6 +72,7 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
             <div class="HeadingContainer">
                 <div class="row">
                     <h1>Setting the world in motion</h1>
+                  
                 </div>
             </div>
 
@@ -86,30 +85,81 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
                     <div class="row">
                         <div class="VehicleTypeContainer">
                             <select name="VehicleType" class="VehicleType" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
-                      <option>Vehicle Type</option>
-                    </select>
+                                <option>Type</option>
+                                <option value="Car">Car</option>
+                                <option value="Motorcycle">Motorcycle</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col">
                             <select name="VehicleBrand" class="VehicleBrand" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
-                          <option>Vehicle Brand</option>
-                        </select>
+                                <option>Brand</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Daewoo">Daewoo</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Holden">Holden</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Isuzu">Isuzu</option>
+                                <option value="Kia">Kia</option>
+                                <option value="Lexus">Lexus</option>
+                                <option value="Mazda">Mazda</option>
+                                <option value="Mitsubishi">Mitsubishi</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Peugeot">Peugeot</option>
+                                <option value="Subaru">Subaru</option>
+                                <option value="Suzuki">Suzuki</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="Yamaha">Yamaha</option>
+
+                            </select>
                         </div>
 
                         <div class="col">
                             <select name="VehicleModel" class="VehicleModel" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
-                          <option>Vehicle Model</option>
-                        </select>
+                                <option>Model</option>
+                                <option value="0">Model</option>
+                                <option class="318i" value="318i">318i</option>
+                                <option class="lanos" value="Lanos">Lanos</option>
+                                <option class="courier" value="Courier">Courier</option>
+                                <option class="falcon" value="Falcon">Falcon</option>
+                                <option class="festiva" value="Festiva">Festiva</option>
+                                <option class="fiesta" value="Fiesta">Fiesta</option>
+                                <option class="focus" value="Focus">Focus</option>
+                                <option class="laser" value="Laser">Laser</option>
+                                <option class="ranger" value="Ranger">Ranger</option>
+                                <option class="territory" value="Territory">Territory</option>
+                                <option class="astra" value="Astra">Astra</option>
+                                <option class="barina" value="Barina">Barina</option>
+                                <option class="captiva" value="Captiva">Captiva</option>
+                                <option class="colorado" value="Colorado">Colorado</option>
+                                <option class="commodore" value="Commodore">Commodore</option>
+                                <option class="cruze" value="Cruze">Cruze</option>
+                                <option class="rodeo" value="Rodeo">Rodeo</option>
+                                <option class="viva" value="Viva">Viva</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="VehicleColor">
                             <select name="VehicleColor" class="VehicleColor" style="border-radius: 15px; border: none; padding: 4px; margin: 15px; padding-left: 20px; padding-right: 20px;">
-                      <option>Vehicle Color</option>
-                    </select>
+                                <option>Color</option>
+                                <option value="White">White</option>
+                                <option value="Gray">Gray</option>
+                                <option value="Black">Black</option>
+                                <option value="Gold">Gold</option>
+                                <option value="Silver">Silver</option>
+                                <option value="Red">Red</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Orange">Orange</option>
+                                <option value="Yellow">Yellow</option>
+                                <option value="Green">Green</option>
+
+                            </select>
                         </div>
                     </div>
 
@@ -121,25 +171,25 @@ if (isset($_SESSION['id-driver']) and isset($_POST["register-vehicle-submit"])) 
 
                     <div class="row">
                         <div class="col">
-                            <input name ="day" type="text" class="ProductionDate" id="ProductionDate" placeholder="Production Date" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-right: -95%;">
+                            <input name="day" type="text" class="ProductionDate" id="ProductionDate" placeholder="Production Date" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-right: -95%;">
                         </div>
 
                         <div class="col">
-                            <input name ="month" type="text" class="ProductionMonth" id="ProductionMonth" placeholder="Production Month" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px;  ">
+                            <input name="month" type="text" class="ProductionMonth" id="ProductionMonth" placeholder="Production Month" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px;  ">
                         </div>
 
                         <div class="col">
-                            <input name ="year" type="text" class="ProductionYear" id="ProductionYear" placeholder="Production Year" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-left: -95%;">
+                            <input name="year" type="text" class="ProductionYear" id="ProductionYear" placeholder="Production Year" style="border-radius: 15px; padding: 4px; text-indent: 10px; margin: 15px; margin-left: -95%;">
                         </div>
                     </div>
                 </div>
 
-           
+
         </div>
 
         <div class="row">
             <div class="SumbitButtonContainer">
-                <input type ="submit" name = 'register-vehicle-submit' class="SubmitButton" id="SubmitButton" value="Submit">
+                <input type="submit" name='register-vehicle-submit' class="SubmitButton" id="SubmitButton" value="Submit">
             </div>
         </div>
         </form>

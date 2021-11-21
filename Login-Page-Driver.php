@@ -1,9 +1,6 @@
 <?php
 session_start();
-/*Leon's Database
-$mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");
-*/
-/*Junior's Database*/
+
 $mysqli = new mysqli("localhost", "root", '', "uber");
 
 if ($mysqli->connect_errno) {
@@ -22,6 +19,7 @@ if (isset($_POST["submit-login"])) {
 		if (mysqli_num_rows($result) > 0) {
 			$data = $result->fetch_array();
 			$_SESSION['id-driver'] = $data['DriverID'];
+			// $_SESSION['id-driver'];
 			header("Location: Driver-Main.php");
 		}
 	}

@@ -31,22 +31,15 @@ if (isset($_POST["submit-register"])) {
     }
 
     $query = "INSERT INTO `driver`(`Password`, `Email`, `Gender`, `DateOfBirth`, `FName`, `LName`, `Address`,`DriverLicenseID`,`PhoneNumber`) VALUES ('$password', '$emailaddress', '$gender', '$dateofbirth', '$name', '$surname', '$address', '$driverlicenseid','$phonenumber')";
-    print $query;
+    //print $query;
     $insert = $mysqli->query($query);
     if (!$insert) {
         echo $mysqli->error;
     } else {
-        $query2 = "SELECT * FROM `driver` WHERE `Email` = '$emailaddress' AND `Password` = '$password'";
-        print $query2;
-        $select = $mysqli->query($query2);
-        if (!$select) {
-            echo $mysqli->error;
-        } else {
-            $data = $select->fetch_array();
-            move_uploaded_file($_FILES["my_file"]["tmp_name"], 'driverimg/'.$data['DriverID'].'.jpg');
-            $_SESSION['id-driver'] =  $data['DriverID'];
-            header("Location: Register-Vehicle-Page.php");
-        }
+        $id = mysqli_insert_id($mysqli);
+        move_uploaded_file($_FILES["my_file"]["tmp_name"], 'driverimg/' . $id . '.jpg');
+        $_SESSION['id-driver'] = $id;
+        header("Location: Register-Vehicle-Page.php");
     }
 }
 ?>
@@ -73,13 +66,13 @@ if (isset($_POST["submit-register"])) {
         </div>
 
         <div id="div_content" class="form">
-                <h1>Setting the World in Motion</h1>
-                <!--%%%%% Main block %%%%-->
-                <!--Form -->
-                <form name="form" method="post" enctype="multipart/form-data">
+            <h1>Setting the World in Motion</h1>
+            <!--%%%%% Main block %%%%-->
+            <!--Form -->
+            <form name="form" method="post" enctype="multipart/form-data">
 
                 Select Image to upload:
-                        <input type="file" name="my_file" id="fileToUpload">
+                <input type="file" name="my_file" id="fileToUpload">
 
                 <div id="div_subcontent" class="form">
 
@@ -101,13 +94,13 @@ if (isset($_POST["submit-register"])) {
                             <input type="radio" name="gender" value="others">Others<br><br>
 
                             <input name="phonenumber" type="phone number" placeholder="Phone Number"><br><br>
-                            <input name="driverlicenseid" type="driver license id" placeholder="Driver License ID"><br><br>      
+                            <input name="driverlicenseid" type="driver license id" placeholder="Driver License ID"><br><br>
 
                             <input name="day" type="birth date" placeholder="Birth Date">
                             <input name="month" type="birth month" placeholder="Birth Month">
                             <input name="year" type="birth year" placeholder="Birth Year"><br><br><br>
                         </div>
-                    
+
                 </div>
 
                 <div id="div_subcontent" style="background-color: transparent;">
@@ -116,8 +109,8 @@ if (isset($_POST["submit-register"])) {
                         <label>Terms and Agreement</label>
                     </div>
                 </div>
-                </form>
-            
+            </form>
+
         </div>
         <!-- end div_content -->
     </div>
