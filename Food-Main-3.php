@@ -10,10 +10,7 @@
 session_start();
 $resid = $_GET['id'];
 $_SESSION['restaurant-id'] = $resid;
-/*Leon's Database
-    $mysqli = new mysqli("localhost", "root", 'Wirz140328', "uber");*/
 
-/*Junior's Database*/
 $mysqli = new mysqli("localhost", "root", '', "uber");
 if ($mysqli->connect_errno) {
     echo $mysqli->connect_error;
