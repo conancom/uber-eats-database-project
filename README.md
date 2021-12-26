@@ -10,3 +10,6 @@ Front End : Vanilla CSS & Bootstrap
 
 Database : MySQL
 
+## Notes
+
+This is our first real Web Project, therefore the structure and files may be a bit messy. (Please don't judge us 🙆)
